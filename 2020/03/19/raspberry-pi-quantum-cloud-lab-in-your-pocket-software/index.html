@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>树莓派：装在口袋里的量子云实验室（软件篇） | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="小的时候父母工作很忙，经常把我一个人留在家里，那个时候的杀手锏就是玩具。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树莓派：装在口袋里的量子云实验室（软件篇）">
+<meta property="og:url" content="http://yoursite.com/2020/03/19/raspberry-pi-quantum-cloud-lab-in-your-pocket-software/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="小的时候父母工作很忙，经常把我一个人留在家里，那个时候的杀手锏就是玩具。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://purel.in/wp-content/uploads/2020/03/7552A5D8-BC12-4174-B808-530EEF44B856-1024x768.jpeg">
+<meta property="article:published_time" content="2020-03-19T00:11:56.000Z">
+<meta property="article:modified_time" content="2020-04-08T15:28:56.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://purel.in/wp-content/uploads/2020/03/7552A5D8-BC12-4174-B808-530EEF44B856-1024x768.jpeg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-raspberry-pi-quantum-cloud-lab-in-your-pocket-software" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/19/raspberry-pi-quantum-cloud-lab-in-your-pocket-software/" class="article-date">
+  <time datetime="2020-03-19T00:11:56.000Z" itemprop="datePublished">2020-03-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      树莓派：装在口袋里的量子云实验室（软件篇）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="wpwc-reading-time">
+  阅读本文大概需要 12 分钟
+</p>
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>还记得自己小时候玩积木，可以一直玩一整天，完全沉浸其中忘记时间。</p>
+<p>那时候父母工作很忙经常把我一个人留在家里，但我一点也不觉得孤独，因为我有各式各样的玩具陪伴。每次父母出差回家都会给我带新的玩具，所以我跟其他小朋友最大的不同就是我总期待父母出差，因为这意味着我又会有新的玩具了。玩具总能令我发散思维并启发探索精神，似乎通过它们可以打开生命和宇宙的无限可能。</p>
+<p>Raspberry Pi 帮我找回了这种感觉，作为开发板它小小的身躯并不能跟各个商售的电脑比拼性能，但是却从物联网领域给了我们更多的想象空间，这正是这个世界未来的趋势。</p>
+<p>抛开华丽的图形界面拥抱Linux指令，让自己融入一种全新的语言环境，这种语言环境甚至会改变大脑的思维方式。当你越了解了计算机语言就越会发现除了吃喝拉撒睡以外，人和计算机并没有什么本质的区别，当然计算机还摆脱了妄想、分别和执念……</p>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p>对，我把3.5寸触摸屏摘掉了，因为是在没什么用，并且会导致整台机器发热量很大，摘掉屏幕后清爽了很多，这是Pi本该有的样子～</p>
+<p>首先让我们从配置WIFI开始，SD卡根目录下新建一个名为<code>wpa_supplicant.conf</code>的文件：<br><code>touch /Volumes/boot/wpa_supplicant.conf</code><br>写入WIFI配置：<br><code>country=CN</code> #如果非CN国家代码可能导致5G-Wifi不能被识别<code>&lt;br&gt;ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev&lt;br&gt;update_config=1&lt;br&gt;&lt;br&gt;network={&lt;br&gt;    ssid=&quot;&lt;YOUR-NETWORK-NAME&gt;&quot;&lt;br&gt;    psk=&quot;&lt;YOUR-NETWORK-PASSWORD&gt;&quot;&lt;br&gt;}</code></p>
+<p>开启SSH，只需在SD卡根目录下新建一个名为ssh的空文件：<br><code>touch /Volumes/boot/ssh</code><br>在Macbookl登录树莓派的ssh时遇到了密钥冲突，<br>输入<code>ssh-keygen -R 192.168.1.121</code>清空之前该IP地址储存在本机的密钥。<br>第一次用<code>pi</code>登录后默认密码为<code>raspberry</code>，应使用<code>sudo raspi-config</code>通过树莓派管理工具修改密码、主机名等信息，或是直接使用<code>passwd</code>修改密码。我是直接开启了root权限<code>sudo passwd root</code>然后切换为root用户<code>su root</code><br>允许ROOT权限远程登录<br><code>sudo nano /etc/ssh/sshd_config</code><br>找到<code>PermitRootLogin without-password</code>前面加#注释掉，在下面添加<code>PermitRootLogin yes</code><br><code>service ssh restart</code> #重启ssh服务生效</p>
+<h2 id="环境部署"><a href="#环境部署" class="headerlink" title="环境部署"></a>环境部署</h2><p>无论是人还是机器，只有部署在合适的环境才能够发挥最大的生产力。</p>
+<h4 id="最适合树莓派的系统"><a href="#最适合树莓派的系统" class="headerlink" title="最适合树莓派的系统"></a>最适合树莓派的系统</h4><p>唯一让我纠结的是Raspbian这个64位的cpu却跑着32位系统，意味着Pi的性能大打折扣，于是开始探索在Pi上装64位Ubuntu的可能性，目前官方只给出了Server版，但这就意味着我必须手动安装图形桌面，事实证明官方的Raspbian就是最合适的，树莓派的工程师在论坛给出了切换kernel到64 bit内核的临时方案用于测试，不过这又牵扯到在终端使用<code>rpi-update</code>命令来更新系统环境。输入<code>uname -a</code>会得到<br><code>Linux pi 4.19.108-v7l+ #1298 SMP Fri Mar 6 18:09:54 GMT 2020 armv7l GNU/Linux&lt;br&gt;rpi-update</code>后在/boot/config.txt中加入<code>arm_64bit=1</code>，临时切换内核到64版本，再开机输入<code>uname -a</code>得到aarch64，可以临时装一下64位的程序，不过我安装最新版本的宝塔面板仍人提示不支持32位版本而失败……</p>
+<p>这一周对于私有云的部署让我重新找到小时候的感觉，光是切换到不同的系统去体验Linux就花费了两天时间，最终还是确定用Raspbian原版系统。绕了一大圈回到原点的过程确实是必要的，它会让我知道什么是重要的，什么是需要的，以及各个系统的优势劣势。</p>
+<h4 id="部署LNMP网站环境"><a href="#部署LNMP网站环境" class="headerlink" title="部署LNMP网站环境"></a>部署LNMP网站环境</h4><p>环境安装的是Nginx+Mysql+Php7.3，从安装到运行都没出现任何问题，LNMP适合我对网站部署的全部需求。这是一套非常成熟的环境，所以使用下面的一键部署未发生任何问题。<br><code>sudo apt install -y -t buster php7.3-fpm php7.3-curl php7.3-gd php7.3-intl php7.3-mbstring php7.3-mysql php7.3-imap php7.3-opcache php7.3-sqlite3 php7.3-xml php7.3-xmlrpc php7.3-zip</code></p>
+<h2 id="部署量子云实验室"><a href="#部署量子云实验室" class="headerlink" title="部署量子云实验室"></a>部署量子云实验室</h2><h4 id="Nextcloud部署"><a href="#Nextcloud部署" class="headerlink" title="Nextcloud部署"></a>Nextcloud部署</h4><p>Nextcloud的安装没什么好记录的，之前在韩国服务器使用自动官方的安装文件setup-nextcloud.php顺利一键搞定，但由于网络原因在树莓派这样行不通，于是下载了最新版本解压安装的，依然比较顺利，除了要注意nextcloud所在目录的用户和用户组权限问题，在参阅了ngnix.conf文件后确认了ngnix的默认用户和用户组是<code>www-data</code>，于是修改了在root下创建的nextcloud目录权限后可以完美运行。</p>
+<p>使用过程中偶尔会出现502 Bad Gateway的错误提示，只有重启才能修复，于是想干脆升级到php7.4试试看。但是当升级之后发现nextcloud提示Internet Server 500错误无法打开，直觉告诉我将config.php文件修改为config1.php会得到真正信息，果然再刷新页面提示未安装php dom模块，于是 <code>sudo apt-get install php-xml</code>解决～</p>
+<p>关于nextcloud后台&#8221;<strong>安全与设置警告</strong>&#8220;检测出来的一些问题，逐一Google即可解决，比如<code>在数据表 &quot;oc_calendarobjects_props&quot; 中无法找到索引 &quot;calendarobject_calid_index&quot;。</code><br>通过SSH输入 <code>sudo -u www-data php occ db:add-missing-indices</code> 即可解决，其他的也是同理。倒是关于nginx、php-fpm以及mysql的配置文件方面需要多多参考官方建议进行配置。</p>
+<h4 id="挂载移动硬盘"><a href="#挂载移动硬盘" class="headerlink" title="挂载移动硬盘"></a>挂载移动硬盘</h4><p>挂载外接硬盘出现了一个小插曲，确实应该记录下来。<br>为了打造私有云盘，我需要更大的存储空间，于是利用之前一直吃灰的1T移动硬盘作为外部挂载。<br>通过<code>fdisk -l</code> 指令检查发现我的1T硬盘挂在/dev/sda2的位置，于是通过如下指令进行重新挂载。<br><code>mkdir /media/lab</code> #在media目录下创建lab目录<br><code>umount /dev/sda2</code> #卸载移动硬盘<br><code>mount /dev/sda2 /media/lab</code> #重新挂载到刚刚创建的lab目录<br>现在它挂载到了/media/lab，这样子便可以在nextcloud中作为外部存储添加使用了。</p>
+<h4 id="格式化移动硬盘到Ext4"><a href="#格式化移动硬盘到Ext4" class="headerlink" title="格式化移动硬盘到Ext4"></a>格式化移动硬盘到Ext4</h4><p>先查看UUID<code>sudo blkid</code> 然后格式化为Linux的格式<code>sudo mkfs.ext4 /dev/sda</code><br>linux下的格式普遍为ext2、ext3和ext4，并且版本高的可以向下兼容，这里我选择ext4，<br>之前也考虑用Windows的Fat或者MacOS的NTFS，但是发现在Pi下面接Nextcloud无法顺利使用，<br>好在Ext4在其他系统中也都有很好的识别办法，比如通过下载相应的软件实现。<figure class="wp-block-image size-large"><figure class="mdx-lazyload-container" style=""></p>
+<div style="padding-top:50%">
+</div>
+
+<div class="mdx-img-loading-sp mdui-valign">
+  <div>
+    <div class="mdui-spinner">
+    </div>
+  </div>
+</div>
+
+<p><img class="wp-image-3804 lazyload" title="树莓派：装在口袋里的量子云实验室（软件篇）" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://purel.in/wp-content/uploads/2020/03/7552A5D8-BC12-4174-B808-530EEF44B856-1024x768.jpeg" alt="https://purel.in/wp-content/uploads/2020/03/7552A5D8-BC12-4174-B808-530EEF44B856-1024x768.jpeg" data-srcset="https://purel.in/wp-content/uploads/2020/03/7552A5D8-BC12-4174-B808-530EEF44B856-1024x768.jpeg 1024w, https://purel.in/wp-content/uploads/2020/03/7552A5D8-BC12-4174-B808-530EEF44B856-300x225.jpeg 300w, https://purel.in/wp-content/uploads/2020/03/7552A5D8-BC12-4174-B808-530EEF44B856-768x576.jpeg 768w, https://purel.in/wp-content/uploads/2020/03/7552A5D8-BC12-4174-B808-530EEF44B856-1536x1152.jpeg 1536w, https://purel.in/wp-content/uploads/2020/03/7552A5D8-BC12-4174-B808-530EEF44B856-2048x1536.jpeg 2048w, https://purel.in/wp-content/uploads/2020/03/7552A5D8-BC12-4174-B808-530EEF44B856-320x240.jpeg 320w, https://purel.in/wp-content/uploads/2020/03/7552A5D8-BC12-4174-B808-530EEF44B856-800x600.jpeg 800w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure><figcaption>blood &amp; etc/fstab</figcaption></figure> </p>
+<p>为了让它开机自动挂载，而不是挂载到某个用户文件夹下，需要修改/etc/fstab文件，<br>但是由于误把PARTUUID当作UUID使用，而且设置了开机自检造成无法开机，这就是拿别人代码不检查就用所付出的代价。<br>于是拔出SD卡插入我的Macbook在/cmdlIne.txt中最后一行加入<code>“ S”</code><br><code>dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait S</code><br>于是开机进入了熟悉的命令行，重新sudo nano /etc/fstab加入了正确的指令是这样子的，中间的空格可以随意增减但是必须要有<br><code>UUID=c690611e-42cc-471d-bbab-f718c8961014 /media/disk ext4 defaults 0 0&lt;br&gt;</code>这里备注一下,后面两个0第一个代表dump即不备份。第二个代表fsck检查的顺序0表示不检查，跳过开机检查避免不必要的麻烦。</p>
+<h2 id="科学上网"><a href="#科学上网" class="headerlink" title="科学上网"></a>科学上网</h2><p>互联网将人们的学习能力提升了N级，我们与知识之间最近的距离就是Google一下。在国内完全没有可替代的环境，作为Google、Youtube、Netflix的重度使用患者，让自己的派科学上网是非常必要的，这是与世界连接的第一步，就像是学习英文可以帮助我们更好的理解这个世界是一样的道理。</p>
+<h4 id="树莓派部署酸酸乳"><a href="#树莓派部署酸酸乳" class="headerlink" title="树莓派部署酸酸乳"></a>树莓派部署酸酸乳</h4><p>首先确认一下自己自己安装了Git。<br>sudo apt-get install git #ubuntu<br>sudo yum install git #CentOS<br>然后在具有写权限的目录执行如下命令获取到ssr脚本仓库<br><code>git clone http://git.mrwang.pw/Reed/Linux_ssr_script.git</code><br>进入刚刚克隆的仓库目录并赋予ssr脚本执行权限<br><code>cd Linux_ssr_script &amp;&amp; chmod +x ./ssr</code><br>然后将脚本放入可执行脚本的目录，这样就完成了脚本的安装<br><code>sudo mv ./ssr /usr/local/sbin/</code><br>使用时只需要输入<code>ssr</code>就会看到支持的命令列表。输入<code>ssr config</code>开始配置ssr。<br>我使用的是韩国服务器，不差钱的朋友也可以根据自己需求购置云VPS部署酸酸乳服务端。</p>
+<h4 id="部署ProxyChains代理指定程序"><a href="#部署ProxyChains代理指定程序" class="headerlink" title="部署ProxyChains代理指定程序"></a>部署ProxyChains代理指定程序</h4><p>ProxyChains是一个使用方便的代理工具，它只会代理指定的程序，下载：<br><code>git clone https://github.com/rofl0r/proxychains-ng</code><br>安装：<code>cd proxychains-ng/&lt;br&gt;./configure --prefix=/usr --sysconfdir=/etc&lt;br&gt;make &lt;br&gt;sudo make install&lt;br&gt;sudo make install-config</code><br>配置<code>/etc/proxychains.conf</code>最后一行修改为酸酸乳端口：<code>socks5 127.0.0.1 1080</code><br>测试<code>wget</code>，返回网页源码：<code>proxychains4 wget -qO- https://www.google.com</code></p>
+<h4 id="http代理"><a href="#http代理" class="headerlink" title="http代理"></a>http代理</h4><p>有些程序并不像<code>curl</code>那样能够直接支持socks5代理，有时，按照情况需要配置http代理。<br>安装<code>privoxy</code>，开启全局http代理，其默认代理地址为<code>http://127.0.0.1:8118</code>：</p>
+<p><code>sudo apt-get install privoxy&lt;br&gt;sudo -s&lt;br&gt;echo &#39;forward-socks5 / 127.0.0.1:1080 .&#39; &gt;&gt;/etc/privoxy/config&lt;br&gt;systemctl status privoxy.service</code> #查看代理状态<code>&lt;br&gt;&lt;em&gt;systemctl enable privoxy.service&lt;/em&gt;</code> #开机自动启动<code>&lt;br&gt;&lt;em&gt;systemctl start privoxy.service&lt;/em&gt;</code> #开启http代理<code>&lt;br&gt;&lt;em&gt;systemctl restart privoxy.service&lt;/em&gt;</code> #重启http代理<br>测试http代理：<code>wget -qO- -e use_proxy=yes -e http_proxy=127.0.0.1:8118 http://google.com</code><br>我一般是配合sudo apt指令使用，特别是rpi-update，通过http代理可以很好的实现更新加速。<br><code>sudo http_proxy=http://127.0.0.1:8118 apt-get update&lt;br&gt;sudo http_proxy=http://127.0.0.1:8118 apt-get upgrade&lt;br&gt;sudo http_proxy=http://127.0.0.1:8118 apt-get dist-upgrade&lt;br&gt;sudo http_proxy=http://127.0.0.1:8118 rpi-update</code></p>
+<h2 id="FRP内网穿透"><a href="#FRP内网穿透" class="headerlink" title="FRP内网穿透"></a>FRP内网穿透</h2><p>如果有一对带电粒子相互间量子纠缠，一个在地球而另一个被发射到月球，这两个粒子因量子纠缠效应会完全同步。FRP就是这样一个工具，它帮助我们实现通过互联网直接访问本地主机的网站或资源。安装与配置直接采用<a rel="noreferrer noopener" aria-label="官方指南（在新窗口打开）" href="https://github.com/fatedier/frp/blob/master/README_zh.md" target="_blank">官方指南</a>，非常明晰。<br><code>https://github.com/fatedier/frp/blob/master/README_zh.md</code></p>
+<h4 id="开机自动启动FRP"><a href="#开机自动启动FRP" class="headerlink" title="开机自动启动FRP"></a>开机自动启动FRP</h4><p><code>sudo nano /lib/systemd/system/frps.service&amp;nbsp;</code><br>填入以下代码并Ctrl+O保存，Ctrl+X退出</p>
+<p><code>[Unit]&lt;br&gt; Description=frapc service&lt;br&gt; After=network.target syslog.target&lt;br&gt; Wants=network.target&lt;br&gt;[Service]&lt;br&gt; Type=simple&lt;br&gt;ExecStart=/your/path/frpc -c /your/path/frpc.ini&lt;br&gt;[Install]&lt;br&gt; WantedBy=multi-user.target</code></p>
+<p>然后就启动frpc，输入<code>sudo systemctl start frpc</code><br>再打开自启动，输入<code>sudo systemctl enable frpc</code></p>
+<p>如果要重启应用，可以这样，<code>sudo systemctl restart frpc</code><br>如果要停止应用，可以输入，<code>sudo systemctl stop frpc</code><br>如果要查看应用的日志，可以输入，<code>sudo systemctl status frpc</code><br>这里是以本地树莓派frpc做例子，远程服务器的frps同理。</p>
+<p>先写这么多，后面想到什么在慢慢补充……<br>如果你对树莓派感兴趣，<a href="https://purel.in/raspberry-pi-quantum-cloud-lab-in-your-pocket-hardware/" target="_blank" rel="noreferrer noopener" aria-label="可以阅读我的上一篇文章，关于它的硬件部署。（在新窗口打开）">可以阅读我的上一篇文章，关于它的硬件部署。</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/03/19/raspberry-pi-quantum-cloud-lab-in-your-pocket-software/" data-id="ck8sdrqt50005oxri0aai0ebg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/04/04/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          树莓派：安装0.96寸SPI接口SSD1306屏幕
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/03/17/raspberry-pi-quantum-cloud-lab-in-your-pocket-hardware/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">树莓派：装在口袋里的量子云实验室（硬件篇）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/04/09/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/04/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/">树莓派：安装rtl8812bu双频无线网卡驱动</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/04/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/">树莓派：安装0.96寸SPI接口SSD1306屏幕</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/19/raspberry-pi-quantum-cloud-lab-in-your-pocket-software/">树莓派：装在口袋里的量子云实验室（软件篇）</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/17/raspberry-pi-quantum-cloud-lab-in-your-pocket-hardware/">树莓派：装在口袋里的量子云实验室（硬件篇）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

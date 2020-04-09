@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>从旧金山到新加坡，最终我们抵达首尔 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这几日的Purel.in就像是一个旅行家，穿梭于各大洲的数据中心。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从旧金山到新加坡，最终我们抵达首尔">
+<meta property="og:url" content="http://yoursite.com/2020/02/15/from-san-francisco-to-singapore-we-finally-arrived-in-seoul/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="这几日的Purel.in就像是一个旅行家，穿梭于各大洲的数据中心。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-15T08:30:21.000Z">
+<meta property="article:modified_time" content="2020-04-08T15:28:56.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-from-san-francisco-to-singapore-we-finally-arrived-in-seoul" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/15/from-san-francisco-to-singapore-we-finally-arrived-in-seoul/" class="article-date">
+  <time datetime="2020-02-15T08:30:21.000Z" itemprop="datePublished">2020-02-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      从旧金山到新加坡，最终我们抵达首尔
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="wpwc-reading-time">
+  阅读本文大概需要 3 分钟
+</p>
+
+<p>这几日的Purel.in就像是一个旅行家，穿梭于各大洲的数据中心。</p>
+<p>最初它是准备安放在旧金山DigitalOcean数据中心进行托管的，结果Do的速度实在不能令人满意，从大陆访问过去丢包率竟然高达40%，无奈之下只好搬家。</p>
+<p>在经过多方对比后，选择了业内知名的服务商亚马逊，以及它开在AWS的新加坡数据中心。作为一个亚洲机房，从大陆访问过去的速度明显加快了不少，并且连接非常的稳定不丢包。不成想，在一顿常规的操作后，我还是发现了一个致命的问题，导致最终AWS新加坡只是Purel.in旅途中的一个驿站。</p>
+<p>在对AWS的服务器进行一系列操作后，它的IOPS读写限制会降低到非常离谱的地步，这就像是开车从北京的三环堵到五环。毫不夸张的讲，有时只是单单打开一个动态页面，也能造成CPU负载100%进而网站失去响应，在那之前我只是在服务器后台做了一些常规操作而已。各种调试无果之后就把它放在那里干脆不管了，结果十几分钟后它竟然自己恢复正常，经过研究我发现了AWS用的是IOPS积分制，意味着一段时间内你的读写操作不能太频繁，否则就因扣分而被限制，这对于目前运营的动态网站来说是简直是致命的。怎么办，只有继续寻找合适的服务商，可是还有比亚马逊更棒的吗？</p>
+<p>大概是吸引力法则起了作用，就在我一筹莫展的时候，通过Telegram的讨论组了解到甲骨文的Oracle Cloud，于是几经辗转，终于来到韩国首尔的甲骨文数据中心。它的连接速度简直可以用美妙来形容，比起亚马逊在新加坡的机房还要棒的多。你大可读完这篇文章后在Purel.in里随便逛一逛，相信你一定能体验到它惊人的速度，这甚至超越了国内大部分的服务商。在服务器的负载方面至今未发现CPU超负荷现象，这让我终于松了一口气，因为这意味着环境部署亦告一段落，接下来就是网站平台的功能设计与优化了。</p>
+<p>这应该是下一篇文章的内容了，尽管今天已经实现了完成在线课程后，会生成一张你专属的PDF证书来提供下载和打印，并且解决了它在服务器导出PDF时的中文乱码问题。</p>
+<p>说到这里，我还真的很期待Purel.in未来的样子，想到更多的人会因此而受益，就会满心欢喜。或许这也算是一种妄念吧&#8230;（笑～）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/15/from-san-francisco-to-singapore-we-finally-arrived-in-seoul/" data-id="ck8sdrqt30003oxrifkcj9517" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/03/04/seven-practices-of-great-leaders/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          卓越领导者的七项修炼
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/02/11/meet-again-why-is-purel-in/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">又见面了，为什么是Purel.in？</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/04/09/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/04/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/">树莓派：安装rtl8812bu双频无线网卡驱动</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/04/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/">树莓派：安装0.96寸SPI接口SSD1306屏幕</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/19/raspberry-pi-quantum-cloud-lab-in-your-pocket-software/">树莓派：装在口袋里的量子云实验室（软件篇）</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/17/raspberry-pi-quantum-cloud-lab-in-your-pocket-hardware/">树莓派：装在口袋里的量子云实验室（硬件篇）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
