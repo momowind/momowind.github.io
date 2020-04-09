@@ -93,7 +93,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: cactus
+theme: volantis
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -101,6 +101,7 @@ theme: cactus
 #  type: 'git'
 #  repository: https://github.com/momowind/momowind.github.io
 #  branch: master
+
 deploy:
   type: 'git' 
 #  repo: git@192.168.1.121:/home/git/blog.git
@@ -109,3 +110,7 @@ deploy:
     github: https://github.com/momowind/momowind.github.io
   branch: master
   message:
+
+  ignore_path_re:
+    dir: null
+    file: ".DS_Store$"
