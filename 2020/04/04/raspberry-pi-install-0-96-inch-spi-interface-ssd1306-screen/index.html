@@ -7,17 +7,17 @@
   
   <title>树莓派：安装0.96寸SPI接口SSD1306屏幕 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="硬件的选配淘宝搜索ssd1306 spi选一家十块钱左右有眼缘的，为什么选择spi的7针而不是i2c简单的4针呢？因为i2c刷新率只有10fps，而spi高达64-364fps。然后再加1.5元买40根杜邦线，虽然用不了这么多，但是为了以后扩展GPIO接口做备胎，然后apt-get安装Adafruit的1306库，对example代码稍事调整，然后在cmd输入一条python指令成功点亮…. 连接">
+  <meta name="description" content="当这块小屏幕在夜里散发着光芒，你看到它便能回忆起整个部署的过程……">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树莓派：安装0.96寸SPI接口SSD1306屏幕">
 <meta property="og:url" content="http://yoursite.com/2020/04/04/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="硬件的选配淘宝搜索ssd1306 spi选一家十块钱左右有眼缘的，为什么选择spi的7针而不是i2c简单的4针呢？因为i2c刷新率只有10fps，而spi高达64-364fps。然后再加1.5元买40根杜邦线，虽然用不了这么多，但是为了以后扩展GPIO接口做备胎，然后apt-get安装Adafruit的1306库，对example代码稍事调整，然后在cmd输入一条python指令成功点亮…. 连接">
+<meta property="og:description" content="当这块小屏幕在夜里散发着光芒，你看到它便能回忆起整个部署的过程……">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://purel.in/wp-content/uploads/2020/04/spi.bmp">
 <meta property="og:image" content="https://purel.in/wp-content/uploads/2020/04/sys_info-1024x768.jpg">
 <meta property="article:published_time" content="2020-04-03T21:48:32.000Z">
-<meta property="article:modified_time" content="2020-04-09T06:28:28.854Z">
+<meta property="article:modified_time" content="2020-04-09T06:45:55.379Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://purel.in/wp-content/uploads/2020/04/spi.bmp">
@@ -91,7 +91,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="硬件的选配"><a href="#硬件的选配" class="headerlink" title="硬件的选配"></a>硬件的选配</h2><p>淘宝搜索ssd1306 spi选一家十块钱左右有眼缘的，为什么选择spi的7针而不是i2c简单的4针呢？因为i2c刷新率只有10fps，而spi高达64-364fps。然后再加1.5元买40根杜邦线，虽然用不了这么多，但是为了以后扩展GPIO接口做备胎，然后apt-get安装Adafruit的1306库，对example代码稍事调整，然后在cmd输入一条python指令成功点亮….</p>
+        <p>当这块小屏幕在夜里散发着光芒，你看到它便能回忆起整个部署的过程……</p>
+<a id="more"></a>
+<h2 id="硬件的选配"><a href="#硬件的选配" class="headerlink" title="硬件的选配"></a>硬件的选配</h2><p>淘宝搜索ssd1306 spi选一家十块钱左右有眼缘的，为什么选择spi的7针而不是i2c简单的4针呢？因为i2c刷新率只有10fps，而spi高达64-364fps。然后再加1.5元买40根杜邦线，虽然用不了这么多，但是为了以后扩展GPIO接口做备胎，然后apt-get安装Adafruit的1306库，对example代码稍事调整，然后在cmd输入一条python指令成功点亮….</p>
 <h2 id="连接GPIO排线"><a href="#连接GPIO排线" class="headerlink" title="连接GPIO排线"></a>连接GPIO排线</h2><p>ls /dev/spidev* #如果目录为空，可能之前安装过spi屏幕占用了接口，正常应该显示 /dev/spidev0.0  /dev/spidev0.1 查看config.txt文件是否有dtoverlay开头的命令，如果有就加#注释掉。还可以通过lsmod #查看是否开启了spi模块。</p>
 <figure class="mdx-lazyload-container" style="">
 
@@ -242,7 +244,7 @@ while True:
     # Display image.
     disp.image(image)
     disp.display()
-#    time.sleep(.1)</code></pre>
+    time.sleep(5)</code></pre>
 
 <p>python sys_info.py #运行它，如果提示却什么模块可以直接安装再执行，比如我这边缺了utmp模块，输入 apt-get install python-utmp 来进行安装。</p>
 <p>再次运行python sys_info.py成功点亮～<figure class="wp-block-image size-large"><figure class="mdx-lazyload-container" style=""></p>
