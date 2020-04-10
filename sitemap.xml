@@ -2,9 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://purel.in/404/index.html</loc>
+    
+    <lastmod>2020-04-10T12:21:37.163Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purel.in/friends/index.html</loc>
+    
+    <lastmod>2020-04-10T12:20:49.923Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purel.in/mylist/index.html</loc>
+    
+    <lastmod>2020-04-10T12:15:34.403Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purel.in/tags/index.html</loc>
+    
+    <lastmod>2020-04-10T12:14:58.383Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://purel.in/about/index.html</loc>
     
-    <lastmod>2020-04-10T11:37:33.113Z</lastmod>
+    <lastmod>2020-04-10T12:14:16.703Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purel.in/categories/index.html</loc>
+    
+    <lastmod>2020-04-10T12:13:52.253Z</lastmod>
     
   </url>
   
@@ -16,7 +51,7 @@
   </url>
   
   <url>
-    <loc>https://purel.in/2019-2020-04-10-%E6%B5%8B%E8%AF%95%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</loc>
+    <loc>https://purel.in/%E6%B5%8B%E8%AF%95%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</loc>
     
     <lastmod>2020-04-10T09:20:31.773Z</lastmod>
     
@@ -30,21 +65,7 @@
   </url>
   
   <url>
-    <loc>https://purel.in/from-san-francisco-to-singapore-we-finally-arrived-in-seoul/</loc>
-    
-    <lastmod>2020-04-09T13:57:55.251Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://purel.in/hello-world/</loc>
-    
-    <lastmod>2020-04-09T13:57:55.251Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://purel.in/raspberry-pi-quantum-cloud-lab-in-your-pocket-hardware/</loc>
     
     <lastmod>2020-04-09T13:57:55.251Z</lastmod>
     
@@ -58,7 +79,21 @@
   </url>
   
   <url>
-    <loc>https://purel.in/seven-practices-of-great-leaders/</loc>
+    <loc>https://purel.in/raspberry-pi-quantum-cloud-lab-in-your-pocket-hardware/</loc>
+    
+    <lastmod>2020-04-09T13:57:55.251Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purel.in/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/</loc>
+    
+    <lastmod>2020-04-09T13:57:55.251Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purel.in/from-san-francisco-to-singapore-we-finally-arrived-in-seoul/</loc>
     
     <lastmod>2020-04-09T13:57:55.251Z</lastmod>
     
@@ -72,7 +107,7 @@
   </url>
   
   <url>
-    <loc>https://purel.in/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/</loc>
+    <loc>https://purel.in/seven-practices-of-great-leaders/</loc>
     
     <lastmod>2020-04-09T13:57:55.251Z</lastmod>
     
