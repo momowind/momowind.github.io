@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.5.0'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>树莓派：装在口袋里的量子云实验室（硬件篇） - Purel.in</title>
+  
+  
+    <meta name="description" content="纯粹为了好玩，我花费一周时间用树莓派的板子搭建了一台微型多功能服务器，虽然只有信用卡大小，但是也能科学观看Netflix。">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Purel.in">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            VOLANTIS <b><sup style='color:#3AA757'>2.5.0</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  
+                    <i class='fas fa-rss fa-fw'></i>
+                  
+                  博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  
+                    <i class='fas fa-folder-open fa-fw'></i>
+                  
+                  分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  
+                    <i class='fas fa-tags fa-fw'></i>
+                  
+                  标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  
+                    <i class='fas fa-archive fa-fw'></i>
+                  
+                  归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  
+                    <i class='fas fa-link fa-fw'></i>
+                  
+                  友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  
+                    <i class='fas fa-info-circle fa-fw'></i>
+                  
+                  关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  
+                    <i class='fas fa-rss fa-fw'></i>
+                  
+                  博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  
+                    <i class='fas fa-folder-open fa-fw'></i>
+                  
+                  分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  
+                    <i class='fas fa-tags fa-fw'></i>
+                  
+                  标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  
+                    <i class='fas fa-archive fa-fw'></i>
+                  
+                  归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  
+                    <i class='fas fa-link fa-fw'></i>
+                  
+                  友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  
+                    <i class='fas fa-info-circle fa-fw'></i>
+                  
+                  关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  
+    <h1 class="title">
+      <a href="/2020/03/17/raspberry-pi-quantum-cloud-lab-in-your-pocket-hardware/">
+        树莓派：装在口袋里的量子云实验室（硬件篇）
+      </a>
+    </h1>
+  
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="" rel="nofollow">
+    <img src="">
+    <p></p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Mar 17, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p class="wpwc-reading-time">
+  阅读本文大概需要 8 分钟
+</p>
+
+<p>纯粹为了好玩，我花费一周时间用树莓派的板子搭建了一台微型多功能服务器，虽然只有信用卡大小，但是也能科学观看Netflix。通过部署Nginx+Php7.3+Mysql与<a href="https://purel.in/%e4%bb%8e%e6%97%a7%e9%87%91%e5%b1%b1%e5%88%b0%e6%96%b0%e5%8a%a0%e5%9d%a1%ef%bc%8c%e6%9c%80%e7%bb%88%e6%88%91%e4%bb%ac%e6%8a%b5%e8%be%be%e9%a6%96%e5%b0%94/" target="_blank" rel="noreferrer noopener" aria-label="上个月放在韩国的Linux公网服务器（在新窗口打开）">上个月放在韩国的Linux公网服务器</a>实现了frp内网穿透，你可以从<a href="http://pi.purel.in/dash" target="_blank" rel="noopener">http://pi.purel.in/dash</a> 来访问这台微型计算机的状态面版，它现在就放在我家的客厅。从某种程度上你可以理解为这两台相隔异国的服务器，穿透网络实现了量子纠缠。</p>
+<p>不妨畅想一下未来这台Pi可以做什么，比如成为私有云盘实现资料的存储与分享，或是部署网站并通过公网域名实现访问，它会成为这个全新的物联网世界中一朵无处不在的云，这朵云就是徐老师的实验室，它就在我家客厅或者我的口袋里。我说了我会写一篇超详细的部署日记，现在你看到我实现了我的承诺，鉴于篇幅较长，我会把它暂时分为硬件篇和软件篇两个部分，未来随着磨合与熟悉，或许会有拓展的玩法分享。</p>
+<p>我一直在想这样一件事，鉴于网络服务器的成本和存储空间限制，以及家用带宽的不断提升，我是否可以实现网络服务器的本地化部署？即通过域名<a href="http://xxx.xxx访问到的是本地的服务器，而非异地的IDC数据中心，这将大大提升服务器的操控、管理、以及安全性。部署在远端的服务器只需要做一个跳板或者镜像，那么我可以花费最低的成本购买足够的流量和带宽，而不用担心它的CPU性能和I/O限制。所以不论是从效率提升还是成本控制来看，我都需要想办法实现这个设想。" target="_blank" rel="noopener">http://xxx.xxx访问到的是本地的服务器，而非异地的IDC数据中心，这将大大提升服务器的操控、管理、以及安全性。部署在远端的服务器只需要做一个跳板或者镜像，那么我可以花费最低的成本购买足够的流量和带宽，而不用担心它的CPU性能和I/O限制。所以不论是从效率提升还是成本控制来看，我都需要想办法实现这个设想。</a></p>
+<h2 id="主机"><a href="#主机" class="headerlink" title="主机"></a>主机</h2><p>目前我已经有了部署在韩国甲骨文机房的VM实例，那么接下来我需要一台低功耗且长期开机联网的本地服务器。上一周的某日我正在电报上面闲云野鹤，通过Dig发现了这块神奇的板子“Raspberry Pi”（树莓派）。虽然我的需求本身排除了对性能和功耗要求极高的图形化界面系统，因为我并不是用它来上网冲浪、看视频、打游戏，我只是需要它默默的做一台Server，但是这块小板子的硬件参数还是给了我惊喜。<figure class="wp-block-image size-large"><figure class="mdx-lazyload-container" style=""></p>
+<div style="padding-top:50%">
+</div>
+
+<div class="mdx-img-loading-sp mdui-valign">
+  <div>
+    <div class="mdui-spinner">
+    </div>
+  </div>
+</div>
+
+<p><img class="wp-image-3756 lazyload" title="树莓派：装在口袋里的量子云实验室（硬件篇）" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://purel.in/wp-content/uploads/2020/03/pi-1024x632.png" alt="https://purel.in/wp-content/uploads/2020/03/pi-1024x632.png" data-srcset="https://purel.in/wp-content/uploads/2020/03/pi-1024x632.png 1024w, https://purel.in/wp-content/uploads/2020/03/pi-300x185.png 300w, https://purel.in/wp-content/uploads/2020/03/pi-768x474.png 768w, https://purel.in/wp-content/uploads/2020/03/pi-800x494.png 800w, https://purel.in/wp-content/uploads/2020/03/pi.png 1171w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure></figure> </p>
+<p>Raspberry Pi 4 B 具备1.5Ghz运行的64位四核处理器，最高支持以60fps速度刷新的4K分辨率的双显示屏（下巴跌到地板上），高达4GB RAM（可根据型号选择1GB、2GB、4GB，多多益善所以我选择的是4GB版本），2.4/5.0 Ghz 双频无线LAN（它还可以用无线发射端成为一台软路由），蓝牙5.0/BLE，千兆以太网，USB3.0（这个接口很重要，意味着它完全可以挂载移动硬盘实现超大存储，比如成为私有云盘或家庭多媒体中心），和PoE功能。</p>
+<p>其实树莓派最大的卖点是物联网，也就是说通过编程它的GPIO 40-PIN针脚可以实现更多可能性，比如国外大神们就通过它打造了很多有趣好玩的机器人或者模拟器。最近女儿正饶有兴致的学习编程，这快板子未来可以帮到她。</p>
+<h2 id="屏幕"><a href="#屏幕" class="headerlink" title="屏幕"></a>屏幕</h2><div class="wp-block-image">
+  <figure class="aligncenter size-large"><figure class="mdx-lazyload-container" style="">
+
+  <div style="padding-top:50%">
+  </div>
+
+  <div class="mdx-img-loading-sp mdui-valign">
+    <div>
+      <div class="mdui-spinner">
+      </div>
+    </div>
+  </div>
+
+<p>  <img class="wp-image-3758 lazyload" title="树莓派：装在口袋里的量子云实验室（硬件篇）" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://purel.in/wp-content/uploads/2020/03/pi3.52.jpg" alt="https://purel.in/wp-content/uploads/2020/03/pi3.52.jpg" data-srcset="https://purel.in/wp-content/uploads/2020/03/pi3.52.jpg 640w, https://purel.in/wp-content/uploads/2020/03/pi3.52-300x225.jpg 300w, https://purel.in/wp-content/uploads/2020/03/pi3.52-320x240.jpg 320w" sizes="(max-width: 640px) 100vw, 640px" /></figure><figcaption>树莓派3.5寸LCD触摸显示屏</figcaption></figure></p>
+</div>
+
+<p>尽管我为它搭配的3.5寸触摸屏幕使它一眼上去很酷，但实际上却用处不大，我未来可能会用一块1寸左右只显示本机IP地址的OLED屏幕代替。因为通过这几天的使用发现，我基本不会去看这块屏幕，一旦通过电视或显示器的连接完成了初次的联网设置，我就可以通过Macbook、iPad Pro、iPhone Pro Max的 VNC（远程桌面）或SSH（远程终端）连接和管理它。如果可以重来一次，我一定不会选则给树莓派配一块LCD屏幕，所以这块屏幕的存在纯粹是为了好看和炫酷……</p>
+<h2 id="外设"><a href="#外设" class="headerlink" title="外设"></a>外设</h2><p>实际上一旦作为服务器开始运行，除了电源外并不需要任何外设，只要有网络就可以连接和管理它。但是一开始还是需要鼠标、键盘、显示器或电视来设置它。基于研究和好奇的精神我也尝试过无头安装，就是离开所有外设让它开机自动连接WIFI从而实现部署，但是发现这样更费劲，除非环境有限，否则不推荐小白尝试。先学会走路在学跑步在任何地方都适用。<figure class="wp-block-image size-large"><figure class="mdx-lazyload-container" style=""></p>
+<div style="padding-top:50%">
+</div>
+
+<div class="mdx-img-loading-sp mdui-valign">
+  <div>
+    <div class="mdui-spinner">
+    </div>
+  </div>
+</div>
+
+<p><img class="wp-image-3762 lazyload" title="树莓派：装在口袋里的量子云实验室（硬件篇）" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://purel.in/wp-content/uploads/2020/03/IMG_2377-1024x768.jpg" alt="https://purel.in/wp-content/uploads/2020/03/IMG_2377-1024x768.jpg" data-srcset="https://purel.in/wp-content/uploads/2020/03/IMG_2377-1024x768.jpg 1024w, https://purel.in/wp-content/uploads/2020/03/IMG_2377-300x225.jpg 300w, https://purel.in/wp-content/uploads/2020/03/IMG_2377-768x576.jpg 768w, https://purel.in/wp-content/uploads/2020/03/IMG_2377-1536x1152.jpg 1536w, https://purel.in/wp-content/uploads/2020/03/IMG_2377-2048x1536.jpg 2048w, https://purel.in/wp-content/uploads/2020/03/IMG_2377-320x240.jpg 320w, https://purel.in/wp-content/uploads/2020/03/IMG_2377-800x600.jpg 800w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure><figcaption>Lofree蓝牙无线键盘 &amp; 希捷移动硬盘1T</figcaption></figure> </p>
+<p>我翻出来一只HP小鼠标和一只吃灰已久的Lofree蓝牙无线键盘，它也可以通过USB连接线来使用。另外1T的希捷移动硬盘同样摆脱了吃灰的命，我准备在后面用它作为Nextcloud私有云盘使用。移动硬盘吃灰的最大原因就是网络带宽的提升，这让人们大多数的数据存储通过云盘就能够实现，所以一块不能联网只能够通过拔插进行存储操作的移动硬盘越来越不受这个时代的待见。</p>
+<p>因为Pi的到来，这些老物件突然间焕发了光彩，尽管人们说电子产品买新不买旧，但随着自己年龄的增长，我对这些老物件的爱也是越来越多。</p>
+<h2 id="散热"><a href="#散热" class="headerlink" title="散热"></a>散热</h2><div class="wp-block-image">
+  <figure class="aligncenter size-large"><figure class="mdx-lazyload-container" style="">
+
+  <div style="padding-top:50%">
+  </div>
+
+  <div class="mdx-img-loading-sp mdui-valign">
+    <div>
+      <div class="mdui-spinner">
+      </div>
+    </div>
+  </div>
+
+<p>  <img class="wp-image-3771 lazyload" title="树莓派：装在口袋里的量子云实验室（硬件篇）" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://purel.in/wp-content/uploads/2020/03/pi4shan.png" alt="https://purel.in/wp-content/uploads/2020/03/pi4shan.png" data-srcset="https://purel.in/wp-content/uploads/2020/03/pi4shan.png 741w, https://purel.in/wp-content/uploads/2020/03/pi4shan-300x245.png 300w" sizes="(max-width: 741px) 100vw, 741px" /></figure><figcaption>树莓派4散热风扇和风扇支架</figcaption></figure></p>
+</div>
+
+<p>散热非常重要，原本树莓派的板子是自带金属散热片的，可以贴在CPU和内存上，但是我担心加上屏幕和外壳后散热堪忧，于是又装了一个固定在主板上的散热风扇。即便是这样，开机温度也达到了57度，连续播放1080p的视频会提示主板过热。所以如过把它当作桌面工作站使用的话，真的不如使用Macbook或者PC更合适，话又说回来，如果加强硬件散热的话，比如加大风扇和散热芯片，它真的可以全面替代桌面电脑。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>下面这张照片就是它目前的样子。虽然很折腾，但确实太好玩了，特别在疫情肆虐的特殊时期，这个小东西让我的生活变得十分丰沛。享受整个过程中会忘记时间的流逝，这种体验下来反而收获更多，Just do it。<figure class="wp-block-image size-large"><figure class="mdx-lazyload-container" style=""></p>
+<div style="padding-top:50%">
+</div>
+
+<div class="mdx-img-loading-sp mdui-valign">
+  <div>
+    <div class="mdui-spinner">
+    </div>
+  </div>
+</div>
+
+<p><img class="wp-image-3755 lazyload" title="树莓派：装在口袋里的量子云实验室（硬件篇）" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://purel.in/wp-content/uploads/2020/03/IMG_2372-2-1024x768.jpg" alt="https://purel.in/wp-content/uploads/2020/03/IMG_2372-2-1024x768.jpg" data-srcset="https://purel.in/wp-content/uploads/2020/03/IMG_2372-2-1024x768.jpg 1024w, https://purel.in/wp-content/uploads/2020/03/IMG_2372-2-300x225.jpg 300w, https://purel.in/wp-content/uploads/2020/03/IMG_2372-2-768x576.jpg 768w, https://purel.in/wp-content/uploads/2020/03/IMG_2372-2-1536x1152.jpg 1536w, https://purel.in/wp-content/uploads/2020/03/IMG_2372-2-2048x1536.jpg 2048w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure><figcaption>树莓派4B 徐老师的量子云实验室</figcaption></figure> </p>
+<p>硬件篇大概就是这样子了，接下来是软件篇，因为我是Google、Youtube、Netflix重度使用者，我打造的Pi云也需要能够流畅使用它们，毕竟这个世界上知识搜索方面没有什么可以超过Google的。另外，如果让自己长期置身BAT环境，那么等同于失去和世界的连接。所以软件篇的篇幅会很长，而且涉及大量的计算机术语，假如你不是真的打算像我一样部署一个自己的Pi云的话，真的就不用追了:D。反之，你若崇尚探索的乐趣，那么接下来的干货一定会令你受益。</p>
+
+          
+            <br>
+            
+              
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://momowind.github.io/2020/03/17/raspberry-pi-quantum-cloud-lab-in-your-pocket-hardware/>http://momowind.github.io/2020/03/17/raspberry-pi-quantum-cloud-lab-in-your-pocket-hardware/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+            
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-09T21:57:55+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Apr 9, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://momowind.github.io/2020/03/17/raspberry-pi-quantum-cloud-lab-in-your-pocket-hardware/&title=树莓派：装在口袋里的量子云实验室（硬件篇） - Purel.in&summary=纯粹为了好玩，我花费一周时间用树莓派的板子搭建了一台微型多功能服务器，虽然只有信用卡大小，但是也能科学观看Netflix。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://momowind.github.io/2020/03/17/raspberry-pi-quantum-cloud-lab-in-your-pocket-hardware/&title=树莓派：装在口袋里的量子云实验室（硬件篇） - Purel.in&summary=纯粹为了好玩，我花费一周时间用树莓派的板子搭建了一台微型多功能服务器，虽然只有信用卡大小，但是也能科学观看Netflix。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://momowind.github.io/2020/03/17/raspberry-pi-quantum-cloud-lab-in-your-pocket-hardware/&title=树莓派：装在口袋里的量子云实验室（硬件篇） - Purel.in&summary=纯粹为了好玩，我花费一周时间用树莓派的板子搭建了一台微型多功能服务器，虽然只有信用卡大小，但是也能科学观看Netflix。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/2020/03/19/raspberry-pi-quantum-cloud-lab-in-your-pocket-software/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>树莓派：装在口袋里的量子云实验室（软件篇）</p>
+                <p class='content'>
+  阅读本文大概需要 12 分钟
+
+
+前言还记得自己小时候玩积木，可以一直玩一整天，完全沉浸其中忘记时间。
+那时候父母工作很忙经常把我一个人留在家里，但我一点也不觉得孤独，因为我有各式各样的玩...</p>
+              </a>
+            
+            
+              <a class='next' href='/2020/03/04/seven-practices-of-great-leaders/'>
+                <p class='title'>卓越领导者的七项修炼<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>
+  阅读本文大概需要 18 分钟
+
+
+
+  
+    越是在特殊时期，那些人性中的优点和缺点就越是容易被放大。
+  
+
+  Jacob 徐
+
+
+这就像是一把双刃剑，有些人会陷入混乱、焦虑和担忧...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '树莓派：装在口袋里的量子云实验室（硬件篇）',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#主机"><span class="toc-text">主机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#屏幕"><span class="toc-text">屏幕</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#外设"><span class="toc-text">外设</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#散热"><span class="toc-text">散热</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        Use
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        as theme, total visits
+          <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+          times
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-clipboard-check');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-exclamation-triangle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("div.fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
