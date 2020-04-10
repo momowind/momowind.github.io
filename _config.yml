@@ -4,16 +4,16 @@
 
 # Site
 title: Purel.in
-subtitle: ''
+subtitle: 'Pure Lib/Life/Learn/Leadership/Love...'
 description: '应无所住，而生其心'
 keywords:
 author: Jacob
-language: en
-timezone: ''
+language: zh-CN
+timezone: 'Asia/Shanghai'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://momowind.github.io
+url: https://purel.in
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:

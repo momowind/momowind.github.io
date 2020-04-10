@@ -2,12 +2,12 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Purel.in</title>
   
-  
+  <subtitle>Pure Lib/Life/Learn/Leadership/Love...</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://momowind.github.io/"/>
+  <link href="https://purel.in/"/>
   <updated>2020-04-09T13:57:55.251Z</updated>
-  <id>http://momowind.github.io/</id>
+  <id>https://purel.in/</id>
   
   <author>
     <name>Jacob</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://momowind.github.io/2020/04/09/hello-world/"/>
-    <id>http://momowind.github.io/2020/04/09/hello-world/</id>
+    <link href="https://purel.in/2020/04/09/hello-world/"/>
+    <id>https://purel.in/2020/04/09/hello-world/</id>
     <published>2020-04-09T15:55:08.843Z</published>
     <updated>2020-04-09T13:57:55.251Z</updated>
     
@@ -40,8 +40,8 @@
   
   <entry>
     <title>Ok</title>
-    <link href="http://momowind.github.io/2020/04/09/Ok/"/>
-    <id>http://momowind.github.io/2020/04/09/Ok/</id>
+    <link href="https://purel.in/2020/04/09/Ok/"/>
+    <id>https://purel.in/2020/04/09/Ok/</id>
     <published>2020-04-09T10:13:17.000Z</published>
     <updated>2020-04-09T17:09:13.073Z</updated>
     
@@ -63,8 +63,8 @@
   
   <entry>
     <title>树莓派：安装rtl8812bu双频无线网卡驱动</title>
-    <link href="http://momowind.github.io/2020/04/04/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/"/>
-    <id>http://momowind.github.io/2020/04/04/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/</id>
+    <link href="https://purel.in/2020/04/04/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/"/>
+    <id>https://purel.in/2020/04/04/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/</id>
     <published>2020-04-03T21:49:36.000Z</published>
     <updated>2020-04-09T13:57:55.251Z</updated>
     
@@ -82,8 +82,8 @@
   
   <entry>
     <title>树莓派：安装0.96寸SPI接口SSD1306屏幕</title>
-    <link href="http://momowind.github.io/2020/04/04/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/"/>
-    <id>http://momowind.github.io/2020/04/04/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/</id>
+    <link href="https://purel.in/2020/04/04/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/"/>
+    <id>https://purel.in/2020/04/04/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/</id>
     <published>2020-04-03T21:48:32.000Z</published>
     <updated>2020-04-09T13:57:55.251Z</updated>
     
@@ -101,8 +101,8 @@
   
   <entry>
     <title>树莓派：装在口袋里的量子云实验室（软件篇）</title>
-    <link href="http://momowind.github.io/2020/03/19/raspberry-pi-quantum-cloud-lab-in-your-pocket-software/"/>
-    <id>http://momowind.github.io/2020/03/19/raspberry-pi-quantum-cloud-lab-in-your-pocket-software/</id>
+    <link href="https://purel.in/2020/03/19/raspberry-pi-quantum-cloud-lab-in-your-pocket-software/"/>
+    <id>https://purel.in/2020/03/19/raspberry-pi-quantum-cloud-lab-in-your-pocket-software/</id>
     <published>2020-03-19T00:11:56.000Z</published>
     <updated>2020-04-09T13:57:55.251Z</updated>
     
@@ -120,8 +120,8 @@
   
   <entry>
     <title>树莓派：装在口袋里的量子云实验室（硬件篇）</title>
-    <link href="http://momowind.github.io/2020/03/17/raspberry-pi-quantum-cloud-lab-in-your-pocket-hardware/"/>
-    <id>http://momowind.github.io/2020/03/17/raspberry-pi-quantum-cloud-lab-in-your-pocket-hardware/</id>
+    <link href="https://purel.in/2020/03/17/raspberry-pi-quantum-cloud-lab-in-your-pocket-hardware/"/>
+    <id>https://purel.in/2020/03/17/raspberry-pi-quantum-cloud-lab-in-your-pocket-hardware/</id>
     <published>2020-03-16T23:47:24.000Z</published>
     <updated>2020-04-09T13:57:55.251Z</updated>
     
@@ -139,8 +139,8 @@
   
   <entry>
     <title>卓越领导者的七项修炼</title>
-    <link href="http://momowind.github.io/2020/03/04/seven-practices-of-great-leaders/"/>
-    <id>http://momowind.github.io/2020/03/04/seven-practices-of-great-leaders/</id>
+    <link href="https://purel.in/2020/03/04/seven-practices-of-great-leaders/"/>
+    <id>https://purel.in/2020/03/04/seven-practices-of-great-leaders/</id>
     <published>2020-03-04T05:11:15.000Z</published>
     <updated>2020-04-09T13:57:55.251Z</updated>
     
@@ -158,8 +158,8 @@
   
   <entry>
     <title>从旧金山到新加坡，最终我们抵达首尔</title>
-    <link href="http://momowind.github.io/2020/02/15/from-san-francisco-to-singapore-we-finally-arrived-in-seoul/"/>
-    <id>http://momowind.github.io/2020/02/15/from-san-francisco-to-singapore-we-finally-arrived-in-seoul/</id>
+    <link href="https://purel.in/2020/02/15/from-san-francisco-to-singapore-we-finally-arrived-in-seoul/"/>
+    <id>https://purel.in/2020/02/15/from-san-francisco-to-singapore-we-finally-arrived-in-seoul/</id>
     <published>2020-02-15T08:30:21.000Z</published>
     <updated>2020-04-09T13:57:55.251Z</updated>
     
@@ -177,8 +177,8 @@
   
   <entry>
     <title>又见面了，为什么是Purel.in？</title>
-    <link href="http://momowind.github.io/2020/02/11/meet-again-why-is-purel-in/"/>
-    <id>http://momowind.github.io/2020/02/11/meet-again-why-is-purel-in/</id>
+    <link href="https://purel.in/2020/02/11/meet-again-why-is-purel-in/"/>
+    <id>https://purel.in/2020/02/11/meet-again-why-is-purel-in/</id>
     <published>2020-02-11T06:03:44.000Z</published>
     <updated>2020-04-09T13:57:55.251Z</updated>
     
