@@ -1,51 +1,55 @@
-# This is a basic workflow to help you get started with Actions
+name: Build and Update Github Pages
 
-name: Deploy Hexo
+on: push
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
-on:
-  push:
-    branches: [ hexo ]
-#  pull_request:
-#    branches: [ master ]
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - name: Checkout # 将仓库内master分支的内容下载到工作目录
-
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      uses: actions/checkout@v2
+      - uses: actions/checkout@v1
       
-    - name: Use Node.js 10.x # 配置Node环境
-      uses: actions/setup-node@v1 # 配置脚本来自 https://github.com/actions/setup-node
-      with:
-        node-version: "10.x"
-    
-    - name: Setup Hexo env
-      env:
-        ACTION_DEPLOY_KEY: ${{ secrets.ACTION_DEPLOY_KEY }}
-      run: |
-        # set up private key for deploy
-        mkdir -p ~/.ssh/
-        echo "$ACTION_DEPLOY_KEY" | tr -d '\r' > ~/.ssh/id_rsa # 配置秘钥
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan github.com >> ~/.ssh/known_hosts
-        # set git infomation
-        git config --global user.name 'momowind' # 换成你自己的邮箱和名字
-        git config --global user.email 'momowind@gmail.com'
-        # install dependencies
-        npm i -g hexo-cli # 安装hexo
-        npm i
-  
-    - name: Deploy
-      run: |
-        # publish
-        hexo clean && hexo g -d # 执行部署程序
+      - name: Use Node.js 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: "10.x"
+
+      - name: Setup Hexo env
+        env:
+          ACTION_DEPLOY_KEY: ${{ secrets.ACTION_DEPLOY_KEY }}
+        run: |
+          # set up private key for deploy
+          mkdir -p ~/.ssh/
+          echo "$ACTION_DEPLOY_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          # set git infomation
+          git config --global user.name 'momowind'
+          git config --global user.email 'momowind@gmail.com'
+          # install dependencies
+          npm i -g hexo-cli
+          npm i
+          # install pandoc
+          #curl -s -L https://github.com/jgm/pandoc/releases/download/2.7.3/pandoc-2.7.3-linux.tar.gz | tar xvzf - -C $RUNNER_TOOL_CACHE/
+
+          npm install hexo-deployer-git --save
+          #安装git部署
+          npm install --save hexo-admin
+          #安装后台发布
+          npm install hexo-generator-feed --save
+          #安装rss生成
+          npm install hexo-generator-sitemap --save
+          #安装sitemap
+          npm i -S hexo-generator-search hexo-generator-json-content
+          #搜索依赖包
+          npm i -S hexo-renderer-stylus
+          #安装stylus渲染器
+
+
+
+      - name: Deploy
+        run: |
+          # add pandoc to PATH
+          export PATH="$PATH:$RUNNER_TOOL_CACHE/pandoc-2.7.3/bin"
+          # publish
+          hexo generate && hexo deploy
