@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.5.0'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>树莓派：安装rtl8812bu双频无线网卡驱动 - Purel.in</title>
+  
+  
+    <meta name="description" content="突发奇想，可不可以将Pi作为一个无线中继，转发5G的WIFI信号并共享给所有连接到它的设备呢？说干就干吧">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Purel.in">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            VOLANTIS <b><sup style='color:#3AA757'>2.5.0</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  
+                    <i class='fas fa-rss fa-fw'></i>
+                  
+                  博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  
+                    <i class='fas fa-folder-open fa-fw'></i>
+                  
+                  分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  
+                    <i class='fas fa-tags fa-fw'></i>
+                  
+                  标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  
+                    <i class='fas fa-archive fa-fw'></i>
+                  
+                  归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  
+                    <i class='fas fa-link fa-fw'></i>
+                  
+                  友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  
+                    <i class='fas fa-info-circle fa-fw'></i>
+                  
+                  关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  
+                    <i class='fas fa-rss fa-fw'></i>
+                  
+                  博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  
+                    <i class='fas fa-folder-open fa-fw'></i>
+                  
+                  分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  
+                    <i class='fas fa-tags fa-fw'></i>
+                  
+                  标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  
+                    <i class='fas fa-archive fa-fw'></i>
+                  
+                  归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  
+                    <i class='fas fa-link fa-fw'></i>
+                  
+                  友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  
+                    <i class='fas fa-info-circle fa-fw'></i>
+                  
+                  关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  
+    <h1 class="title">
+      <a href="/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/">
+        树莓派：安装rtl8812bu双频无线网卡驱动
+      </a>
+    </h1>
+  
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="" rel="nofollow">
+    <img src="">
+    <p></p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年4月4日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>突发奇想，可不可以将Pi作为一个无线中继，转发5G的WIFI信号并共享给所有连接到它的设备呢？说干就干吧，第一步先从搭配硬件环境开始。树莓派本身是千兆以太网口，以及5G/2.4G双频WIFI无线网卡，但是要让它彻底作为无线中继，那个前兆以太网口就不用了，取而代之的是需要另一块无线WIFI，为了使网络带宽最大化被利用起来，我需要一款双频的无线网卡。<figure class="mdx-lazyload-container" style=""></p>
+<div style="padding-top:50%">
+</div>
+
+<div class="mdx-img-loading-sp mdui-valign">
+  <div>
+    <div class="mdui-spinner">
+    </div>
+  </div>
+</div>
+
+<p><img class="wp-image-3825 lazyload" style="width: 600px;" title="树莓派：安装rtl8812bu双频无线网卡驱动" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/wp-content/uploads/2020/04/ac1200m.jpg" alt="/wp-content/uploads/2020/04/ac1200m.jpg" data-srcset="/wp-content/uploads/2020/04/ac1200m.jpg 837w, /uploads/2020/04/ac1200m-300x300.jpg 300w, /wp-content/uploads/2020/04/ac1200m-150x150.jpg 150w, /wp-content/uploads/2020/04/ac1200m-768x768.jpg 768w" sizes="(max-width: 837px) 100vw, 837px" /></figure> </p>
+<p>在淘宝看了很久，最终选择了一款超级迷你款的rtl8812bu芯片作为双频发射端，客服说是出口外贸的商品，这款和ASUS的AC53很像，功能上基本一致，但是增加了USB3.0接口，这样能让5G的WIFI网速最大限度跑起来，目前大部分5G无线网卡还都是USB2.0接口，并且个头比较大插在Pi上面很突兀，这也是经常被我们忽略的部分。</p>
+<p>理论上所有rtl8812bu芯片都可以在树莓派或者linux上安装驱动，但我还是废了一些周折，因为之前rpi-update升级了kernel内核，于是初次安装rtl8812bu驱动无法正常工作，现在写一下正确安装方法。</p>
+<p>首先卸载之前安装无法工作的驱动版本</p>
+<p><code>ls /lib/modules/*/build -la #查看所有已经建立的驱动模块&lt;br&gt;dkms uninstall -m rtl88x2bu -v 5.6.1 #卸载驱动模块</code></p>
+<p><code>&lt;em&gt;rpi-update #升级内核到最新版，也可以跳过&lt;/em&gt;&lt;br&gt;rpi-source #构建正在运行的最新内核的源代码，&lt;strong&gt;这一步很重要&lt;/strong&gt;</code></p>
+<p>开始安装rtl8812bu驱动</p>
+<p><code>git clone &lt;a href=&quot;https://github.com/cilynx/rtl88x2bu&quot;&gt;https://github.com/cilynx/rtl88x2bu&lt;/a&gt; #下载驱动，通过proxychains指令走代理下载会更快，&lt;a href=&quot;https://purel.in/raspberry-pi-quantum-cloud-lab-in-your-pocket-software/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;可以参照我前面的文章来设置代理。&lt;/a&gt;</code></p>
+<p>以下是驱动作者给出在树莓派的安装步骤</p>
+<pre class="wp-block-preformatted"><code># Update all packages per normal
+sudo apt update
+sudo apt upgrade
+
+# Install prereqs
+sudo apt install git dnsmasq hostapd bc build-essential dkms raspberrypi-kernel-headers
+
+# Reboot just in case there were any kernel updates
+sudo reboot
+
+# Pull down the driver source
+git clone https://github.com/cilynx/rtl88x2bu
+cd rtl88x2bu/
+
+# Configure for RasPi
+sed -i 's/I386_PC = y/I386_PC = n/' Makefile
+sed -i 's/ARM_RPI = n/ARM_RPI = y/' Makefile
+
+# DKMS as above
+VER=$(sed -n 's/\PACKAGE_VERSION="\(.*\)"/\1/p' dkms.conf)
+sudo rsync -rvhP ./ /usr/src/rtl88x2bu-${VER}
+sudo dkms add -m rtl88x2bu -v ${VER}
+sudo dkms build -m rtl88x2bu -v ${VER} # Takes ~3-minutes on a 3B+
+sudo dkms install -m rtl88x2bu -v ${VER}
+
+# Plug in your adapter then confirm your new interface name
+ip addr</code></pre>
+
+<p>最后敲入lsmod看到88x2bu，完美。<br>至此，我的rtl88x2bu无线双频网卡已经可以使用了～</p>
+
+          
+            <br>
+            
+              
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=https://purel.in/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/>https://purel.in/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+            
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-09T21:57:55+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年4月9日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://purel.in/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/&title=树莓派：安装rtl8812bu双频无线网卡驱动 - Purel.in&summary=突发奇想，可不可以将Pi作为一个无线中继，转发5G的WIFI信号并共享给所有连接到它的设备呢？说干就干吧"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://purel.in/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/&title=树莓派：安装rtl8812bu双频无线网卡驱动 - Purel.in&summary=突发奇想，可不可以将Pi作为一个无线中继，转发5G的WIFI信号并共享给所有连接到它的设备呢？说干就干吧"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://purel.in/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/&title=树莓派：安装rtl8812bu双频无线网卡驱动 - Purel.in&summary=突发奇想，可不可以将Pi作为一个无线中继，转发5G的WIFI信号并共享给所有连接到它的设备呢？说干就干吧"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <div class='hoverbox'>
+          <a><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/wechat.png"></a>
+          <div class='target'>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVgAAAFYCAAAAAAzB7ucAAAEXUlEQVR42u3aQW4jQQgF0Nz/0jMHiCLDh8ZO9Ni13KqueuUFIL7+iUfiCwFYsAIsWLAC7AnsVxjfFiy+/+r5xw0vvVf9PfUACxYsWLBgwYIFewtbToB/gHkFX10nBa1CpfsonwMsWLBgwYIFCxbsW2DTBH/7gqqJexc0fS6vBxYsWLBgwYIFC/ZXwXYT72khUd3ntEAACxYsWLBgwYIF+zdh00GIFK4K+VQBBBYsWLBgwYIFC/YzYbsJ+/bgRLeQSBvgHz8JAxYsWLBgwYIFC7YEO03M/9pz7AEWLFiwYMGCBQv2BHYa04GOrYOn+9sOsGDBggULFixYsDew48bucLCi2gBPv9+94PF7YMGCBQsWLFiwYE9gqx/uDnB0gafffapB390fWLBgwYIFCxYs2BvY7ofjDy4VBF3gbsGTrgMWLFiwYMGCBQv2FnZrsGJr4GP74FuN8fJFgQULFixYsGDBgj2BnYJWE/StxH26v6cLDLBgwYIFCxYsWLA3sFcHvC4YtgMsWLBgwYIFCxbsZ8E+1vBtDmh0L2gKsl3QgAULFixYsGDBgr2F7X6w2iCubnirkb6179QDLFiwYMGCBQsW7Hth00S+PdiwlNB3C5H0uXxxYMGCBQsWLFiwYD8SNt1wtyBIG+BPDXaUG+RgwYIFCxYsWLBgT2HTwYruAdMG+HbCH8O9egYLFixYsGDBggV7Ats9eHeg4aoxnRYI0z/Cj41usGDBggULFixYsCewacN5qzCYDnakF9iNdoEAFixYsGDBggUL9hHY6ganje/uwbYGLqYN7HZhAhYsWLBgwYIFC/YUNm38Tg92lchvBViwYMGCBQsWLNjPhp0m3GminTbCq/vZKjheDmyABQsWLFiwYMGCfRR2a2BjepD0wqrf6V543AgHCxYsWLBgwYIFewJbPfBT8OkB0/1NG/sv3wcLFixYsGDBggV7Art1sGojeqshvfX+VuEDFixYsGDBggUL9hY2XeCp2Co4tsHLgxxgwYIFCxYsWLBgT2GvN75dADzV+G432MGCBQsWLFiwYMGewHYT5vRCqo3wrcZ6tcE+vQCwYMGCBQsWLFiwnwGbfiiNbkHSXS8Fiv8IYMGCBQsWLFiwYE9h0wW7DePtBva0kOkWGC/dwIIFCxYsWLBgwb4FNk3I04S6Cpo2uLcKm3GBABYsWLBgwYIFC3YVdhrbjefuwEX3AtNCoFx4gAULFixYsGDBgj2BnQ5abCX+XchuQbN1QS/XBQsWLFiwYMGCBXsK2y0Ipg3urcby04l/d3AELFiwYMGCBQsW7HtguwdNNzAtMLoDHd11YwewYMGCBQsWLFiwvwq2e7DuAacDIil8uxACCxYsWLBgwYIF+6tg00b31sDGNNFPB1XOKi+wYMGCBQsWLFiwJwMb6cV1v7890DH9o4EFCxYsWLBgwYK9hd1KsKfQVwMc04KjXCCABQsWLFiwYMGCfQRW7AZYsGAFWLBgBdhH4z9zERDUgQIS5wAAAABJRU5ErkJggg==">
+          </div>
+        </div>
+      
+    
+      
+        <a class="-mob-share-telegram" title="" rel="external nofollow noopener noreferrer"
+          
+            href="https://t.me/share/url?url=https://purel.in/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/&text=树莓派：安装rtl8812bu双频无线网卡驱动 - Purel.in"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/telegram.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/Ok/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Ok</p>
+                <p class='content'>Just test edit post from my iPhone via raspberry pi很久不用byword，还是很亲切。这条来自Pretext。
+</p>
+              </a>
+            
+            
+              <a class='next' href='/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/'>
+                <p class='title'>树莓派：安装0.96寸SPI接口SSD1306屏幕<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>当这块小屏幕在夜里散发着光芒，你看到它便能回忆起整个部署的过程……
+
+硬件的选配淘宝搜索ssd1306 spi选一家十块钱左右有眼缘的，为什么选择spi的7针而不是i2c简单的4针呢？因为i2c...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '树莓派：安装rtl8812bu双频无线网卡驱动',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.4.2/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'true' == 'true';
+  var verify = 'true' == 'true';
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "jhjh5GBKlIoWCt3E3kruPmtw-gzGzoHsz# your appId",
+    appKey: "W3kxdwrE90OEgHm9sQ9I2tHn# your appKey",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'monsterid',
+    lang:'zh-cn',
+    visitor: 'false',
+    highlight:'true'
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-clipboard-check');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-exclamation-triangle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("div.fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

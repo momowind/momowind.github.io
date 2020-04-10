@@ -6,7 +6,7 @@
 title: Purel.in
 subtitle: 'Pure Lib/Life/Learn/Leadership/Love...'
 description: '应无所住，而生其心'
-keywords:
+keywords: 徐老师的实验室/生活/学习/领导力/爱
 author: Jacob
 language: zh-CN
 timezone: 'Asia/Shanghai'
@@ -15,7 +15,7 @@ timezone: 'Asia/Shanghai'
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://purel.in
 root: /
-permalink: :year/:month/:day/:title/
+permalink: :name/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -109,6 +109,7 @@ deploy:
   repo: 
     pi: ssh://git@132.145.90.18:6000/home/git/blog.git
 #git@132.145.90.18 -p 6000 /home/git/blog.git
+#    github: https://github.com/momowind/momowind.github.io.git
     github: git@github.com:momowind/momowind.github.io.git
   branch: master
   message:
