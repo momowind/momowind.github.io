@@ -109,7 +109,7 @@ deploy:
   repo: 
     pi: ssh://git@132.145.90.18:6000/home/git/blog.git
 #git@132.145.90.18 -p 6000 /home/git/blog.git
-    github: git@github.com/momowind/momowind.github.io
+    github: git@github.com:momowind/momowind.github.io.git
   branch: master
   message:
 
