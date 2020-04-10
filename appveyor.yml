@@ -10,7 +10,6 @@ install:
   - npm install
   - npm install hexo-cli -g
   - npm install hexo-deployer-git --save
-  - npm install --save hexo-admin
   - npm install hexo-generator-feed --save
   - npm install hexo-generator-sitemap --save
   - npm i -S hexo-generator-search hexo-generator-json-content
@@ -19,8 +18,7 @@ install:
 
 
 build_script:
-  - hexo generate
-
+  - hexo g -d
 artifacts:
   - path: public
 
