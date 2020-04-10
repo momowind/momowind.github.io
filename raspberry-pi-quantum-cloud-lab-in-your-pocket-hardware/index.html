@@ -438,7 +438,7 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <p><img src="/images/2020/03/IMG_2372-2.jpg" alt=""><br>纯粹为了好玩，我花费一周时间用树莓派的板子搭建了一台微型多功能服务器，虽然只有信用卡大小，但是也能科学观看Netflix。<a id="more"></a>通过部署Nginx+Php7.3+Mysql与<a href="https://purel.in/from-san-francisco-to-singapore-we-finally-arrived-in-seoul.html">上个月放在韩国的Linux公网服务器</a>实现了frp内网穿透，你可以从 <a href="http://pi.purel.in/dash" target="_blank" rel="noopener">http://pi.purel.in/dash</a> 来访问这台微型计算机的状态面版，它现在就放在我家的客厅。从某种程度上你可以理解为这两台相隔异国的服务器，穿透网络实现了量子纠缠。</p>
+          <p><img src="/images/2020/03/IMG_2372-2.JPG" alt=""><br>纯粹为了好玩，我花费一周时间用树莓派的板子搭建了一台微型多功能服务器，虽然只有信用卡大小，但是也能科学观看Netflix。<a id="more"></a>通过部署Nginx+Php7.3+Mysql与<a href="https://purel.in/from-san-francisco-to-singapore-we-finally-arrived-in-seoul.html">上个月放在韩国的Linux公网服务器</a>实现了frp内网穿透，你可以从 <a href="http://pi.purel.in/dash" target="_blank" rel="noopener">http://pi.purel.in/dash</a> 来访问这台微型计算机的状态面版，它现在就放在我家的客厅。从某种程度上你可以理解为这两台相隔异国的服务器，穿透网络实现了量子纠缠。</p>
 <p>不妨畅想一下未来这台Pi可以做什么，比如成为私有云盘实现资料的存储与分享，或是部署网站并通过公网域名实现访问，它会成为这个全新的物联网世界中一朵无处不在的云，这朵云就是徐老师的实验室，它就在我家客厅或者我的口袋里。我说了我会写一篇超详细的部署日记，现在你看到我实现了我的承诺，鉴于篇幅较长，我会把它暂时分为硬件篇和软件篇两个部分，未来随着磨合与熟悉，或许会有拓展的玩法分享。</p>
 <p>我一直在想这样一件事，鉴于网络服务器的成本和存储空间限制，以及家用带宽的不断提升，我是否可以实现网络服务器的本地化部署？即通过域名 <a href="http://xxx.xxx" target="_blank" rel="noopener">http://xxx.xxx</a> 访问到的是本地的服务器，而非异地的IDC数据中心，这将大大提升服务器的操控、管理、以及安全性。部署在远端的服务器只需要做一个跳板或者镜像，那么我可以花费最低的成本购买足够的流量和带宽，而不用担心它的CPU性能和I/O限制。所以不论是从效率提升还是成本控制来看，我都需要想办法实现这个设想。</p>
 <h3 id="主机"><a href="#主机" class="headerlink" title="主机"></a>主机</h3><p>目前我已经有了部署在韩国甲骨文机房的VM实例，那么接下来我需要一台低功耗且长期开机联网的本地服务器。上一周的某日我正在电报上面闲云野鹤，通过Dig发现了这块神奇的板子“Raspberry Pi”（树莓派）。虽然我的需求本身排除了对性能和功耗要求极高的图形化界面系统，因为我并不是用它来上网冲浪、看视频、打游戏，我只是需要它默默的做一台Server，但是这块小板子的硬件参数还是给了我惊喜。</p>
@@ -531,7 +531,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-11T00:10:09+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-11T00:44:21+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2020年4月11日</p>
