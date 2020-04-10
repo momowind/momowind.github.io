@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://purel.in/"/>
-  <updated>2020-04-10T09:20:31.773Z</updated>
+  <updated>2020-04-09T13:57:55.251Z</updated>
   <id>https://purel.in/</id>
   
   <author>
@@ -15,21 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>测试一篇文章</title>
-    <link href="https://purel.in/%E6%B5%8B%E8%AF%95%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
-    <id>https://purel.in/%E6%B5%8B%E8%AF%95%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</id>
-    <published>2020-04-10T09:20:31.000Z</published>
-    <updated>2020-04-10T09:20:31.773Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-    
-  </entry>
   
   <entry>
     <title>Hello World</title>
