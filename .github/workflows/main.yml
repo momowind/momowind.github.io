@@ -1,55 +1,55 @@
-name: Build and Update Github Pages
+name: Hexo Deploy Automatically
 
-on: push
-
+on:
+  push:
+    branches:
+      - hexo
 jobs:
-  build:
+  deploy-blog:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
-      
-      - name: Use Node.js 10.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: "10.x"
+      - name: Checkout Latest Version
+        uses: actions/checkout@v2
 
-      - name: Setup Hexo env
-        env:
-          ACTION_DEPLOY_KEY: ${{ secrets.ACTION_DEPLOY_KEY }}
+      - name: Setup Node Env
+        uses: actions/setup-node@v1
+
+      - name: Cache Node Dependencies
+        id: cache
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{runner.OS}}-npm-caches-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
-          # set up private key for deploy
+         npm install
+         npm install hexo-cli -g
+         
+      - name: Setup Hexo Modules
+        run: |
+         npm install hexo-deployer-git --save 
+         npm install --save hexo-admin 
+         npm install hexo-generator-feed --save 
+         npm install hexo-generator-sitemap --save 
+         npm i -S hexo-generator-search hexo-generator-json-content 
+         npm i -S hexo-renderer-stylus 
+      - name: Key Deploy
+        env:
+          HEXO_DEPLOY_PRI: ${{secrets.HEXO_DEPLOY_PRI}}
+        run: |
           mkdir -p ~/.ssh/
-          echo "$ACTION_DEPLOY_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+          echo "$HEXO_DEPLOY_PRI" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
-          # set git infomation
           git config --global user.name 'momowind'
           git config --global user.email 'momowind@gmail.com'
-          # install dependencies
-          npm i -g hexo-cli
-          npm i
-          # install pandoc
-          #curl -s -L https://github.com/jgm/pandoc/releases/download/2.7.3/pandoc-2.7.3-linux.tar.gz | tar xvzf - -C $RUNNER_TOOL_CACHE/
-
-          npm install hexo-deployer-git --save
-          #安装git部署
-          npm install --save hexo-admin
-          #安装后台发布
-          npm install hexo-generator-feed --save
-          #安装rss生成
-          npm install hexo-generator-sitemap --save
-          #安装sitemap
-          npm i -S hexo-generator-search hexo-generator-json-content
-          #搜索依赖包
-          npm i -S hexo-renderer-stylus
-          #安装stylus渲染器
-
-
-
-      - name: Deploy
+          
+      - name: Hexo deploy
         run: |
-          # add pandoc to PATH
-          export PATH="$PATH:$RUNNER_TOOL_CACHE/pandoc-2.7.3/bin"
-          # publish
-          hexo generate && hexo deploy
+          rm -rf .deploy_git
+          hexo clean
+          hexo generate
+          hexo deploy
