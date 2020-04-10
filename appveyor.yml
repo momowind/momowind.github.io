@@ -18,6 +18,7 @@ install:
 
 
 build_script:
+  - rm -rf .deploy_git
   - hexo g -d
 artifacts:
   - path: public
