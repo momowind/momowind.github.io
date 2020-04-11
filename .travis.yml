@@ -1,0 +1,37 @@
+language: node_js
+node_js:
+  - lts/*
+
+cache:
+  directories:
+    - node_modules
+
+before_install:
+  - export TZ='Asia/Shanghai'
+
+install:
+  - npm install hexo-cli -g
+  - npm install
+  - npm install hexo-deployer-git --save
+  - npm install --save hexo-admin
+  - npm install hexo-generator-feed --save
+  - npm install hexo-generator-sitemap --save
+  - npm i -S hexo-generator-search hexo-generator-json-content
+  - npm i -S hexo-renderer-stylus
+  - npm i -S hexo-helper-qrcode
+
+script:
+  - hexo g
+
+after_script:
+  - cd ./public
+  - git init
+  - git config user.name "momowind"
+  - git config user.email "momowind@gmail.com"
+  - git add .
+  - git commit -m "Travis CI Auto Builder at $(date +'%Y-%m-%d %H:%M:%S')"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+
+branches:
+  only:
+    - master
