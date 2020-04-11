@@ -117,3 +117,31 @@ deploy:
   ignore_path_re:
     dir: null
     file: ".DS_Store$"
+    
+# 以下是插件    
+# offline config passed to sw-precache.
+offline:
+  maximumFileSizeToCacheInBytes: 5242880
+  staticFileGlobs:
+    - public/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff,woff2}
+  stripPrefix: public
+  verbose: true
+  
+  lazyload:
+  enable: true 
+  onlypost: false
+  loadingImg: # eg ./images/loading.gif
+        
+  sitemap:
+    path: sitemap.xml
+
+  nofollow:
+    enable: true
+    field: site
+    exclude:
+      - 'exclude1.com'
+      - 'exclude2.com'
+
+# use_cdn: true
+
+baidu_analytics_key: 57cf54f00f7109cc953ac39f01ef5781
