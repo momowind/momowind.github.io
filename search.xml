@@ -20,13 +20,13 @@
       
         <tags>
             
-            <tag> Purel.in </tag>
-            
             <tag> Hexo </tag>
             
             <tag> Markdown </tag>
             
             <tag> Blog </tag>
+            
+            <tag> Purel.in </tag>
             
         </tags>
       
@@ -86,13 +86,13 @@
             
             <tag> 树梅派 </tag>
             
-            <tag> LCD </tag>
-            
-            <tag> Pi </tag>
-            
             <tag> ssd1306 </tag>
             
+            <tag> LCD </tag>
+            
             <tag> SPI </tag>
+            
+            <tag> Pi </tag>
             
             <tag> Python </tag>
             
@@ -158,17 +158,17 @@
       
         <tags>
             
-            <tag> 树梅派 </tag>
-            
             <tag> 服务器 </tag>
             
-            <tag> 3.5inch </tag>
+            <tag> 树梅派 </tag>
             
             <tag> LCD </tag>
             
-            <tag> Lofree </tag>
-            
             <tag> Pi </tag>
+            
+            <tag> 3.5inch </tag>
+            
+            <tag> Lofree </tag>
             
         </tags>
       
@@ -226,13 +226,13 @@
       
         <tags>
             
+            <tag> Purel.in </tag>
+            
             <tag> 服务器 </tag>
             
             <tag> 数据中心 </tag>
             
             <tag> Wordpress </tag>
-            
-            <tag> Purel.in </tag>
             
         </tags>
       
@@ -257,9 +257,9 @@
       
         <tags>
             
-            <tag> Wordpress </tag>
-            
             <tag> Purel.in </tag>
+            
+            <tag> Wordpress </tag>
             
         </tags>
       
