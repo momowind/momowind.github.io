@@ -1,8 +1,9 @@
 ---
 title: 又见面了，为什么是Purel.in？
-author: Jacob
 type: post
 date: 2020-02-11T14:03:44+00:00
+categories: [网站]
+tags: [Purel.in,Wordpress]
 ---
 ![](/images/2020/02/Apple-iMac.jpg)
 这一切都源于一个纯粹的念头逐渐清晰，这次我抓住了它，并没有让它和往常的同伴一样在我脑海一闪而过。

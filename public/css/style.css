@@ -18,13 +18,19 @@
 }
 @font-face {
   font-family: 'UbuntuMono';
-  src: url("https://cdn.jsdelivr.net/gh/xaoxuu/cdn-fonts/UbuntuMono/UbuntuMono-Regular.ttf");
+  src: url("/fonts/UbuntuMono/UbuntuMono-Regular.ttf");
+  font-weight: 'normal';
+  font-style: 'normal';
+}
+@font-face {
+  font-family: 'Monaco';
+  src: url("/fonts/Monaco/Monaco.ttf");
   font-weight: 'normal';
   font-style: 'normal';
 }
 @font-face {
   font-family: 'Varela Round';
-  src: url("https://cdn.jsdelivr.net/gh/xaoxuu/cdn-fonts/VarelaRound/VarelaRound-Regular.ttf");
+  src: url("/fonts/VarelaRound/VarelaRound-Regular.ttf");
   font-weight: 'normal';
   font-style: 'normal';
 }
@@ -2560,7 +2566,7 @@ article .readmore >a {
   align-items: center;
   align-self: center;
   align-content: center;
-  color: #555;
+  color: #fff;
   padding: 16px;
 }
 .cover-wrapper .cover .cover-body div.b {
@@ -2766,15 +2772,15 @@ article .readmore >a {
   -moz-transition: all 0.28s ease;
   -webkit-transition: all 0.28s ease;
   -o-transition: all 0.28s ease;
-  color: rgba(85,85,85,0.65);
+  color: rgba(255,255,255,0.65);
   text-shadow: 0 1px 2px rgba(0,0,0,0.05);
   border-bottom: 2px solid transparent;
 }
 .cover-wrapper .cover .cover-body .menu ul>li>a:hover,
 .cover-wrapper .cover .cover-body .menu ul>li>a.active,
 .cover-wrapper .cover .cover-body .menu ul>li>a:active {
-  color: #555;
-  border-bottom: 2px solid #555;
+  color: #fff;
+  border-bottom: 2px solid #fff;
 }
 .cover-wrapper .cover .cover-body .switcher > li a:hover {
   background: rgba(68,68,68,0.15);
@@ -2783,7 +2789,7 @@ footer {
   position: relative;
   padding: 40px 10px 120px 10px;
   width: 100%;
-  color: rgba(255,255,255,0.5);
+  color: rgba(85,85,85,0.5);
   margin: 0px auto;
   overflow: hidden;
   text-align: center;
@@ -2807,7 +2813,7 @@ footer .social-wrapper {
   font-size: 16px;
 }
 footer a {
-  color: rgba(255,255,255,0.75);
+  color: rgba(85,85,85,0.75);
   padding: 0;
   transition: all 0.28s ease;
   -moz-transition: all 0.28s ease;
@@ -2815,7 +2821,7 @@ footer a {
   -o-transition: all 0.28s ease;
 }
 footer a:hover {
-  color: #fff;
+  color: #555;
 }
 footer a.social {
   position: relative;
@@ -2828,11 +2834,11 @@ footer a.social {
   height: 36px;
   margin: 4px;
   border-radius: 100px;
-  color: rgba(255,255,255,0.75);
+  color: rgba(85,85,85,0.75);
 }
 footer a.social:hover {
-  background: rgba(255,255,255,0.1);
-  color: #fff;
+  background: rgba(85,85,85,0.1);
+  color: #555;
 }
 footer .copyright {
   margin-top: 16px;

@@ -1,8 +1,16 @@
 ---
 title: 树莓派：装在口袋里的量子云实验室（硬件篇）
-author: Jacob
 type: post
 date: 2020-03-17T07:47:24+00:00
+categories: 
+           - 树梅派
+tags:
+           - 树梅派
+           - 3.5inch
+           - LCD
+           - Lofree
+           - Pi
+           - 服务器
 ---
 ![](/images/2020/03/IMG_2372-2.JPG)
 纯粹为了好玩，我花费一周时间用树莓派的板子搭建了一台微型多功能服务器，虽然只有信用卡大小，但是也能科学观看Netflix。<!--more-->通过部署Nginx+Php7.3+Mysql与[上个月放在韩国的Linux公网服务器](https://purel.in/from-san-francisco-to-singapore-we-finally-arrived-in-seoul.html)实现了frp内网穿透，你可以从 http://pi.purel.in/dash 来访问这台微型计算机的状态面版，它现在就放在我家的客厅。从某种程度上你可以理解为这两台相隔异国的服务器，穿透网络实现了量子纠缠。

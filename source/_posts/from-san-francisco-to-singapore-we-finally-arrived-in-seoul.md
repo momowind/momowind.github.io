@@ -1,8 +1,9 @@
 ---
 title: 从旧金山到新加坡，最终我们抵达首尔
-author: Jacob
 type: post
 date: 2020-02-15T16:30:21+00:00
+categories: [网站]
+tags: [Purel.in,服务器,数据中心,Wordpress]
 ---
 ![](/images/2020/02/seoul.jpg)
 这几日的Purel.in就像是一个旅行家，穿梭于各大洲的数据中心。

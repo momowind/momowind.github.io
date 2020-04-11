@@ -36,6 +36,9 @@ style:
     note: # style for default note: {% note text %}
       icon: '\f054'
       color: ''
+    checkbox:
+      enable: true # enable for user
+      color: '' # color for default checkbox
   gap:
     h2: 48px # Spacing above H2 (only px unit)
     h3: 24px # Spacing above H3 (only px unit)
@@ -64,25 +67,28 @@ style:
     logofont:
       fontfamily: '"Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
       name: 'Varela Round'
-      url: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-fonts/VarelaRound/VarelaRound-Regular.ttf
+      #url: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-fonts/VarelaRound/VarelaRound-Regular.ttf
+      url: /fonts/VarelaRound/VarelaRound-Regular.ttf
       weight: normal
       style: normal
     bodyfont:
       fontfamily: 'UbuntuMono, "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
       name: 'UbuntuMono'
-      url: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-fonts/UbuntuMono/UbuntuMono-Regular.ttf
+      #url: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-fonts/UbuntuMono/UbuntuMono-Regular.ttf
+      url: /fonts/UbuntuMono/UbuntuMono-Regular.ttf
       weight: normal
       style: normal
     codefont:
       fontfamily: 'Menlo, UbuntuMono, Monaco'
-      # name: 'Monaco'
-      # url: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-fonts/Monaco/Monaco.ttf
-      # weight: normal
-      # style: normal
-  # color:
-  #   site: '#21232F' # Website background color
-  #   site_inner: '#fff' # Text color inside the website background
-  #   site_footer: '#fff' # Footer text color inside the website background
+      name: 'Monaco'
+      #url: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-fonts/Monaco/Monaco.ttf
+      url: /fonts/Monaco/Monaco.ttf
+      weight: normal
+      style: normal
+    color:
+      site: '#21232F' # Website background color
+      site_inner: '#fff' # Text color inside the website background
+      site_footer: '#555' # Footer text color inside the website background
   #   card: '#444' # Card background color
   #   text: '#fff' # The color of the text on the card.
   #   theme: '#ff9800' # Main color
@@ -106,7 +112,7 @@ cover:
     others: false # can be written in front-matter 'cover: true'
   logo: # https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/256/google_logo.png
   title: Purel.in
-  subtitle: 'Pure Life, Learn, Leadership, Love'
+  subtitle: 'Pure Life, Learn, Leadership & Love in'
   search: # search bar placeholder
   features:
     - name: 博客
@@ -134,7 +140,7 @@ navbar:
   logo: # choose [img] or [icon + title]
     img:
     icon:
-    title:
+    title: Purel.in
   menu:
     # The following can be written in `blog/source/_data/menu.yml`
     - name: 博客
@@ -168,7 +174,7 @@ layout:
     # 列表类页面的侧边栏
     sidebar: [blogger, category, tagcloud, qrcode]
     # read more button
-    readmore: Read More <i class="fas fa-chevron-right"></i>
+    readmore: 阅读全文 <i class="fas fa-chevron-right"></i>
   # 页面布局
   on_page:
     # 文章页面主体元素，你也可以在页面的Front-matter中设置
@@ -180,7 +186,7 @@ layout:
       header: [title, author, category, date, top]
       footer: [updated, tags, btns, share]
     # 文章页面的侧边栏
-    sidebar: [qrcode, toc]
+    sidebar: [category, tagcloud, qrcode, toc]
   # 文章布局，参数继承自 on_page
   on_post:
     # 文章页脚，自动在每一篇文章末尾添加
@@ -195,7 +201,7 @@ meta:
   # 默认文章作者（可在front-matter中覆盖）
   author:
     avatar: /images/waterboy.JPG
-    name: Jacob
+    name: 徐哞哞
     url: https://purel.in
   # 文章创建日期
   date:
@@ -231,8 +237,7 @@ meta:
       img: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png
     - id: weibo
       img: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png
-    - id: qrcode
- # 当id为qrcode时需要安装插件  npm i -S hexo-helper-qrcode
+    - id: qrcode # 当id为qrcode时需要安装插件  npm i -S hexo-helper-qrcode
       img: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/wechat.png
     - id: telegram
       img: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/telegram.png
@@ -276,8 +281,8 @@ widget:
     class: blogger
     display: [desktop] # [desktop, mobile]
     avatar: /images/waterboy.JPG
-    title:
-    subtitle:
+    title: 徐哞哞
+    subtitle: I'm Diamond.
     jinrishici: true # Poetry Today. You can set a string, and it will be displayed when loading fails.
     social: true
   # ---------------------------------------
@@ -339,7 +344,7 @@ widget:
     class: qrcode
     display: [desktop, mobile] # [desktop, mobile]
     height: 64px  # Automatic height if not set
-    fancybox: true
+    fancybox: false
     images:
       - /images/qrcode/wechat.JPG
       - /images/qrcode/wechat.JPG
@@ -369,7 +374,7 @@ footer:
       url: https://github.com/momowind
     - icon: fas fa-headphones-alt
       url: https://music.163.com/#/user/home?id=98046
-  copyright: '[Copyright © 2017-2020 徐老师](https://purel.in)'
+  copyright: '[Copyright © 2017-2020 Purel.in](https://purel.in)'
   # You can add your own property here. (Support markdown, for example: br: '<br>')
   br: '<br>'
 
@@ -393,7 +398,7 @@ seo:
 plugins:
   ######## Plugins to improve loading speed:
   # Preload (The menu's url must end with ‘/’)
-  instant_page: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js
+  instant_page: /js/instant_page.js
 
   ######## Plugins to optimize the experience:
   # highlight.js
@@ -417,7 +422,7 @@ plugins:
 
   ######## Plugins for SEO:
   # Traffic statistics (very slow loading)
-  busuanzi: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js
+  busuanzi: /js/busuanzi.pure.mini.js
 
   # npm i --save hexo-wordcount
   wordcount: #true
@@ -429,7 +434,7 @@ plugins:
     js: https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js
 
   # Typing Effects
-  comment_typing: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js
+  comment_typing: /js/comment_typing.js
 
   # Slide Background
   backstretch:
@@ -440,13 +445,12 @@ plugins:
     duration: 20000       # Duration (ms)
     fade: 1500            # fade duration (ms) (Not more than 1500)
     images:               # For personal use only. At your own risk if used for commercial purposes !!!
-      # - https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg
+      - /images/background/index.jpeg
       - /images/background/index.jpg
-      - /images/background/index1.jpeg
       - /images/background/index2.jpg-slim
       # - /images/background/index3.jpg
-      #- https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpeg
-      #- https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg
+      # - https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpeg
+      # - https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg
       # - https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/35F12181-F0E9-45BD-B134-37E4B4A660CF.jpeg
       # - https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg
       # - https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/67239FBB-E15D-4F4F-8EE8-0F1C9F3C4E7C.jpeg
@@ -535,7 +539,7 @@ comments:
 search:
   enable: true
   service: hexo  # hexo, google, algolia, azure, baidu
-  js: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.4/js/search.js
+  js: /js/search.js
   google:
     apiKey:
     engineId:

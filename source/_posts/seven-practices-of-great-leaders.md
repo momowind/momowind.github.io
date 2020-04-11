@@ -1,8 +1,15 @@
 ---
 title: 卓越领导者的七项修炼
-author: Jacob
 type: post
 date: 2020-03-04T13:11:15+00:00
+categories: 
+           - 领导力
+tags:
+           - 领导力
+           - Leadership
+           - 修炼
+           - 合一
+           - 疫情
 ---
 ![](/images/2020/03/psychedelic-treatments-consciousness-disorder-news-oct-2019.jpg)
 >越是在特殊时期，那些人性中的优点和缺点就越是容易被放大。

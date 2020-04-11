@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head hexo-theme='https://volantis.js.org/#2.5.0'>
+<head>
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -18,8 +18,10 @@
   
     <title>树莓派：安装rtl8812bu双频无线网卡驱动 - Purel.in</title>
   
+    <meta name="keywords" content="树梅派,Pi,驱动,无线网卡,rtl8812bu">
   
-    <meta name="description" content="突发奇想，可不可以将Pi作为一个无线中继，转发5G的WIFI信号并共享给所有连接到它的设备呢？说干就干吧">
+  
+    <meta name="description" content="突发奇想，可不可以将Pi作为一个无线中继，转发5G的WIFI信号并共享给所有连接到它的设备呢？说干就干吧，第一步先从搭配硬件环境开始。">
   
 
   <!-- feed -->
@@ -67,6 +69,7 @@
 
   
   
+<link rel="alternate" href="/atom.xml" title="Purel.in" type="application/atom+xml">
 </head>
 
 <body>
@@ -93,8 +96,8 @@
           
           
           
+            Purel.in
           
-            VOLANTIS <b><sup style='color:#3AA757'>2.5.0</sup></b>
           
         </a>
       
@@ -398,9 +401,9 @@
             
               
 <div class='new-meta-item author'>
-  <a href="" rel="nofollow">
-    <img src="">
-    <p></p>
+  <a href="https://purel.in" rel="nofollow">
+    <img src="/images/waterboy.JPG">
+    <p>徐哞哞</p>
   </a>
 </div>
 
@@ -408,6 +411,14 @@
           
             
               
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E6%A0%91%E6%A2%85%E6%B4%BE/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>树梅派</p>
+    </a>
+  </div>
+
 
             
           
@@ -438,55 +449,18 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <p>突发奇想，可不可以将Pi作为一个无线中继，转发5G的WIFI信号并共享给所有连接到它的设备呢？说干就干吧，第一步先从搭配硬件环境开始。树莓派本身是千兆以太网口，以及5G/2.4G双频WIFI无线网卡，但是要让它彻底作为无线中继，那个前兆以太网口就不用了，取而代之的是需要另一块无线WIFI，为了使网络带宽最大化被利用起来，我需要一款双频的无线网卡。<figure class="mdx-lazyload-container" style=""></p>
-<div style="padding-top:50%">
-</div>
-
-<div class="mdx-img-loading-sp mdui-valign">
-  <div>
-    <div class="mdui-spinner">
-    </div>
-  </div>
-</div>
-
-<p><img class="wp-image-3825 lazyload" style="width: 600px;" title="树莓派：安装rtl8812bu双频无线网卡驱动" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/wp-content/uploads/2020/04/ac1200m.jpg" alt="/wp-content/uploads/2020/04/ac1200m.jpg" data-srcset="/wp-content/uploads/2020/04/ac1200m.jpg 837w, /uploads/2020/04/ac1200m-300x300.jpg 300w, /wp-content/uploads/2020/04/ac1200m-150x150.jpg 150w, /wp-content/uploads/2020/04/ac1200m-768x768.jpg 768w" sizes="(max-width: 837px) 100vw, 837px" /></figure> </p>
+          <p><img src="/images/2020/04/ac1200.jpg" alt=""><br>突发奇想，可不可以将Pi作为一个无线中继，转发5G的WIFI信号并共享给所有连接到它的设备呢？说干就干吧，第一步先从搭配硬件环境开始。</p>
+<a id="more"></a>
+<h2 id="1-选择无线网卡"><a href="#1-选择无线网卡" class="headerlink" title="1. 选择无线网卡"></a>1. 选择无线网卡</h2><p>树莓派本身是千兆以太网口，以及5G/2.4G双频WIFI无线网卡，但是要让它彻底作为无线中继，那个前兆以太网口就不用了，取而代之的是需要另一块无线WIFI，为了使网络带宽最大化被利用起来，我需要一款双频的无线网卡。</p>
+<p><img src="/images/2020/04/ac1200m.jpg" alt="" title="rtl8812bu"></p>
 <p>在淘宝看了很久，最终选择了一款超级迷你款的rtl8812bu芯片作为双频发射端，客服说是出口外贸的商品，这款和ASUS的AC53很像，功能上基本一致，但是增加了USB3.0接口，这样能让5G的WIFI网速最大限度跑起来，目前大部分5G无线网卡还都是USB2.0接口，并且个头比较大插在Pi上面很突兀，这也是经常被我们忽略的部分。</p>
 <p>理论上所有rtl8812bu芯片都可以在树莓派或者linux上安装驱动，但我还是废了一些周折，因为之前rpi-update升级了kernel内核，于是初次安装rtl8812bu驱动无法正常工作，现在写一下正确安装方法。</p>
-<p>首先卸载之前安装无法工作的驱动版本</p>
-<p><code>ls /lib/modules/*/build -la #查看所有已经建立的驱动模块&lt;br&gt;dkms uninstall -m rtl88x2bu -v 5.6.1 #卸载驱动模块</code></p>
-<p><code>&lt;em&gt;rpi-update #升级内核到最新版，也可以跳过&lt;/em&gt;&lt;br&gt;rpi-source #构建正在运行的最新内核的源代码，&lt;strong&gt;这一步很重要&lt;/strong&gt;</code></p>
-<p>开始安装rtl8812bu驱动</p>
-<p><code>git clone &lt;a href=&quot;https://github.com/cilynx/rtl88x2bu&quot;&gt;https://github.com/cilynx/rtl88x2bu&lt;/a&gt; #下载驱动，通过proxychains指令走代理下载会更快，&lt;a href=&quot;https://purel.in/raspberry-pi-quantum-cloud-lab-in-your-pocket-software/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;可以参照我前面的文章来设置代理。&lt;/a&gt;</code></p>
-<p>以下是驱动作者给出在树莓派的安装步骤</p>
-<pre class="wp-block-preformatted"><code># Update all packages per normal
-sudo apt update
-sudo apt upgrade
+<h2 id="2-卸载旧驱动"><a href="#2-卸载旧驱动" class="headerlink" title="2. 卸载旧驱动"></a>2. 卸载旧驱动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ls &#x2F;lib&#x2F;modules&#x2F;*&#x2F;build -la #查看所有已经建立的驱动模块</span><br><span class="line">dkms uninstall -m rtl88x2bu -v 5.6.1 # 卸载驱动模块</span><br><span class="line">rpi-update # 升级内核到最新版，也可以跳过</span><br><span class="line">rpi-source # 构建正在运行的最新内核的源代码</span><br></pre></td></tr></table></figure>
 
-# Install prereqs
-sudo apt install git dnsmasq hostapd bc build-essential dkms raspberrypi-kernel-headers
+<h2 id="3-安装rtl8812bu驱动"><a href="#3-安装rtl8812bu驱动" class="headerlink" title="3. 安装rtl8812bu驱动"></a>3. 安装rtl8812bu驱动</h2><p><code>git clone https://github.com/cilynx/rtl88x2bu</code> #下载驱动<br>如果配置了代理，通过proxychains指令代理下载会更快，<a href="https://purel.in/raspberry-pi-quantum-cloud-lab-in-your-pocket-software/">可以参照我前面的文章来设置代理。</a></p>
+<h2 id="4-树莓派安装步骤"><a href="#4-树莓派安装步骤" class="headerlink" title="4. 树莓派安装步骤"></a>4. 树莓派安装步骤</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"># Update all packages per normal</span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br><span class="line"></span><br><span class="line"># Install prereqs</span><br><span class="line">sudo apt install git dnsmasq hostapd bc build-essential dkms raspberrypi-kernel-headers</span><br><span class="line"></span><br><span class="line"># Reboot just in case there were any kernel updates</span><br><span class="line">sudo reboot</span><br><span class="line"></span><br><span class="line"># Pull down the driver source</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;cilynx&#x2F;rtl88x2bu</span><br><span class="line">cd rtl88x2bu&#x2F;</span><br><span class="line"></span><br><span class="line"># Configure for RasPi</span><br><span class="line">sed -i &#39;s&#x2F;I386_PC &#x3D; y&#x2F;I386_PC &#x3D; n&#x2F;&#39; Makefile</span><br><span class="line">sed -i &#39;s&#x2F;ARM_RPI &#x3D; n&#x2F;ARM_RPI &#x3D; y&#x2F;&#39; Makefile</span><br><span class="line"></span><br><span class="line"># DKMS as above</span><br><span class="line">VER&#x3D;$(sed -n &#39;s&#x2F;\PACKAGE_VERSION&#x3D;\(.*\)&#x2F;\1&#x2F;p&#39; dkms.conf)</span><br><span class="line">sudo rsync -rvhP .&#x2F; &#x2F;usr&#x2F;src&#x2F;rtl88x2bu-$&#123;VER&#125;</span><br><span class="line">sudo dkms add -m rtl88x2bu -v $&#123;VER&#125;</span><br><span class="line">sudo dkms build -m rtl88x2bu -v $&#123;VER&#125; # Takes ~3-minutes on a 3B+</span><br><span class="line">sudo dkms install -m rtl88x2bu -v $&#123;VER&#125;</span><br><span class="line"></span><br><span class="line"># Plug in your adapter then confirm your new interface name</span><br><span class="line">ip addr</span><br></pre></td></tr></table></figure>
 
-# Reboot just in case there were any kernel updates
-sudo reboot
-
-# Pull down the driver source
-git clone https://github.com/cilynx/rtl88x2bu
-cd rtl88x2bu/
-
-# Configure for RasPi
-sed -i 's/I386_PC = y/I386_PC = n/' Makefile
-sed -i 's/ARM_RPI = n/ARM_RPI = y/' Makefile
-
-# DKMS as above
-VER=$(sed -n 's/\PACKAGE_VERSION="\(.*\)"/\1/p' dkms.conf)
-sudo rsync -rvhP ./ /usr/src/rtl88x2bu-${VER}
-sudo dkms add -m rtl88x2bu -v ${VER}
-sudo dkms build -m rtl88x2bu -v ${VER} # Takes ~3-minutes on a 3B+
-sudo dkms install -m rtl88x2bu -v ${VER}
-
-# Plug in your adapter then confirm your new interface name
-ip addr</code></pre>
-
-<p>最后敲入lsmod看到88x2bu，完美。<br>至此，我的rtl88x2bu无线双频网卡已经可以使用了～</p>
+<p>最后敲入<code>lsmod</code>看到88x2bu赫然在列，完美。<br>至此，我的rtl88x2bu无线双频网卡已经可以使用了～</p>
 
           
             <br>
@@ -535,17 +509,17 @@ ip addr</code></pre>
   <div class='content article-entry'>
     
       
-        <div class='fancybox'><img src='/images/qrcode/wechat.JPG'
+        <img src='/images/qrcode/wechat.JPG'
         
           height='64px'
-        ></div>
+        >
       
     
       
-        <div class='fancybox'><img src='/images/qrcode/wechat.JPG'
+        <img src='/images/qrcode/wechat.JPG'
         
           height='64px'
-        ></div>
+        >
       
     
   </div>
@@ -565,10 +539,10 @@ ip addr</code></pre>
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-09T21:57:55+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-11T17:12:30+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年4月9日</p>
+    <p>更新于：2020年4月11日</p>
   </a>
 </div>
 
@@ -576,6 +550,9 @@ ip addr</code></pre>
       
         
           
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>树梅派</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Pi/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Pi</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%A9%B1%E5%8A%A8/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>驱动</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%97%A0%E7%BA%BF%E7%BD%91%E5%8D%A1/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>无线网卡</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/rtl8812bu/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>rtl8812bu</p></a></div>
+
 
         
       
@@ -592,7 +569,7 @@ ip addr</code></pre>
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://purel.in/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/&title=树莓派：安装rtl8812bu双频无线网卡驱动 - Purel.in&summary=突发奇想，可不可以将Pi作为一个无线中继，转发5G的WIFI信号并共享给所有连接到它的设备呢？说干就干吧"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://purel.in/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/&title=树莓派：安装rtl8812bu双频无线网卡驱动 - Purel.in&summary=突发奇想，可不可以将Pi作为一个无线中继，转发5G的WIFI信号并共享给所有连接到它的设备呢？说干就干吧，第一步先从搭配硬件环境开始。"
           
           >
           
@@ -604,7 +581,7 @@ ip addr</code></pre>
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://purel.in/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/&title=树莓派：安装rtl8812bu双频无线网卡驱动 - Purel.in&summary=突发奇想，可不可以将Pi作为一个无线中继，转发5G的WIFI信号并共享给所有连接到它的设备呢？说干就干吧"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://purel.in/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/&title=树莓派：安装rtl8812bu双频无线网卡驱动 - Purel.in&summary=突发奇想，可不可以将Pi作为一个无线中继，转发5G的WIFI信号并共享给所有连接到它的设备呢？说干就干吧，第一步先从搭配硬件环境开始。"
           
           >
           
@@ -616,7 +593,7 @@ ip addr</code></pre>
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://purel.in/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/&title=树莓派：安装rtl8812bu双频无线网卡驱动 - Purel.in&summary=突发奇想，可不可以将Pi作为一个无线中继，转发5G的WIFI信号并共享给所有连接到它的设备呢？说干就干吧"
+          href="http://service.weibo.com/share/share.php?url=https://purel.in/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/&title=树莓派：安装rtl8812bu双频无线网卡驱动 - Purel.in&summary=突发奇想，可不可以将Pi作为一个无线中继，转发5G的WIFI信号并共享给所有连接到它的设备呢？说干就干吧，第一步先从搭配硬件环境开始。"
           
           >
           
@@ -662,10 +639,11 @@ ip addr</code></pre>
         
           <div class="prev-next">
             
-              <a class='prev' href='/Ok/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Ok</p>
-                <p class='content'>Just test edit post from my iPhone via raspberry pi很久不用byword，还是很亲切。这条来自Pretext。
-</p>
+              <a class='prev' href='/Hexo-Github-Overclocked-Blog/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Hexo + Github = Overclocked Blog</p>
+                <p class='content'>这篇文章基于Markdown标准写作而成，并由Hexo生成纯静态网页发布在Github和我的树莓派上，通过甲骨文在首尔数据中心的服务器对树莓派进行Frp反向代理加速。
+
+抛弃臃肿的Wordpre...</p>
               </a>
             
             
@@ -673,7 +651,7 @@ ip addr</code></pre>
                 <p class='title'>树莓派：安装0.96寸SPI接口SSD1306屏幕<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
                 <p class='content'>当这块小屏幕在夜里散发着光芒，你看到它便能回忆起整个部署的过程……
 
-硬件的选配淘宝搜索ssd1306 spi选一家十块钱左右有眼缘的，为什么选择spi的7针而不是i2c简单的4针呢？因为i2c...</p>
+1. 硬件的选配淘宝搜索ssd1306 spi选一家十块钱左右有眼缘的，为什么选择spi的7针而不是i2c简单的4针呢？因为...</p>
               </a>
             
           </div>
@@ -727,11 +705,86 @@ ip addr</code></pre>
 <aside class='l_side'>
   
   
+    
+    
+  
+
+  <section class="widget category shadow desktop">
+    
+  <header>
+    
+      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/categories/%E6%A0%91%E6%A2%85%E6%B4%BE/" href="/categories/%E6%A0%91%E6%A2%85%E6%B4%BE/"
+            id="categoriesE6A091E6A285E6B4BE"
+            ><div class='name'>树梅派</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E7%BD%91%E7%AB%99/" href="/categories/%E7%BD%91%E7%AB%99/"
+            id="categoriesE7BD91E7AB99"
+            ><div class='name'>网站</div><div class='badge'>(3)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E9%A2%86%E5%AF%BC%E5%8A%9B/" href="/categories/%E9%A2%86%E5%AF%BC%E5%8A%9B/"
+            id="categoriesE9A286E5AFBCE58A9B"
+            ><div class='name'>领导力</div><div class='badge'>(1)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget tagcloud shadow desktop mobile">
+    
+  <header>
+    
+      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <a href="/tags/3-5inch/" style="font-size: 14px; color: #999">3.5inch</a> <a href="/tags/Blog/" style="font-size: 14px; color: #999">Blog</a> <a href="/tags/Frp/" style="font-size: 14px; color: #999">Frp</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/LCD/" style="font-size: 17.33px; color: #828282">LCD</a> <a href="/tags/Leadership/" style="font-size: 14px; color: #999">Leadership</a> <a href="/tags/Lofree/" style="font-size: 14px; color: #999">Lofree</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/Pi/" style="font-size: 20.67px; color: #6c6c6c">Pi</a> <a href="/tags/Purel-in/" style="font-size: 20.67px; color: #6c6c6c">Purel.in</a> <a href="/tags/Python/" style="font-size: 14px; color: #999">Python</a> <a href="/tags/SPI/" style="font-size: 14px; color: #999">SPI</a> <a href="/tags/SSH/" style="font-size: 14px; color: #999">SSH</a> <a href="/tags/SSR/" style="font-size: 14px; color: #999">SSR</a> <a href="/tags/WIFI/" style="font-size: 14px; color: #999">WIFI</a> <a href="/tags/Wordpress/" style="font-size: 17.33px; color: #828282">Wordpress</a> <a href="/tags/root/" style="font-size: 14px; color: #999">root</a> <a href="/tags/rtl8812bu/" style="font-size: 14px; color: #999">rtl8812bu</a> <a href="/tags/ssd1306/" style="font-size: 14px; color: #999">ssd1306</a> <a href="/tags/%E4%BF%AE%E7%82%BC/" style="font-size: 14px; color: #999">修炼</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" style="font-size: 14px; color: #999">内网穿透</a> <a href="/tags/%E5%90%88%E4%B8%80/" style="font-size: 14px; color: #999">合一</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83/" style="font-size: 14px; color: #999">数据中心</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E7%BD%91%E5%8D%A1/" style="font-size: 14px; color: #999">无线网卡</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 17.33px; color: #828282">服务器</a> <a href="/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/" style="font-size: 24px; color: #555">树梅派</a> <a href="/tags/%E7%96%AB%E6%83%85/" style="font-size: 14px; color: #999">疫情</a> <a href="/tags/%E9%A2%86%E5%AF%BC%E5%8A%9B/" style="font-size: 14px; color: #999">领导力</a> <a href="/tags/%E9%A9%B1%E5%8A%A8/" style="font-size: 17.33px; color: #828282">驱动</a>
+    </div>
+  </section>
+
+
+  
+
+  
 
   
     
     
 
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-选择无线网卡"><span class="toc-text">1. 选择无线网卡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-卸载旧驱动"><span class="toc-text">2. 卸载旧驱动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-安装rtl8812bu驱动"><span class="toc-text">3. 安装rtl8812bu驱动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-树莓派安装步骤"><span class="toc-text">4. 树莓派安装步骤</span></a></li></ol>
+    </div>
+  </section>
 
 
   
@@ -823,7 +876,7 @@ ip addr</code></pre>
     
       
         <div class='copyright'>
-        <p><a href="https://purel.in">Copyright © 2017-2020 徐老师</a></p>
+        <p><a href="https://purel.in">Copyright © 2017-2020 Purel.in</a></p>
 
         </div>
       
@@ -831,6 +884,16 @@ ip addr</code></pre>
   </footer>
 
 <script>setLoadingBarProgress(80);</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?57cf54f00f7109cc953ac39f01ef5781";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
 
 
       <script>setLoadingBarProgress(60);</script>
@@ -849,7 +912,7 @@ ip addr</code></pre>
   </script>
 
 
-  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <script async src="/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
 
 
 
@@ -869,7 +932,7 @@ ip addr</code></pre>
   </script>
 
 
-  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+  <script async src="/js/busuanzi.pure.mini.js"></script>
 
 
 
@@ -881,7 +944,7 @@ ip addr</code></pre>
 
     <script type="text/javascript">
       $(function(){
-        var imgs=["/images/background/index.jpg", "/images/background/index1.jpeg", "/images/background/index2.jpg-slim"];
+        var imgs=["/images/background/index.jpeg", "/images/background/index.jpg", "/images/background/index2.jpg-slim"];
         if ('true' == 'true') {
           function shuffle(arr){
             /*From countercurrent-time*/
@@ -973,12 +1036,12 @@ ip addr</code></pre>
 
 
   
-<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.4/js/search.js"></script>
+<script src="/js/search.js"></script>
 
 
 
   
-<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+<script src="/js/comment_typing.js"></script>
 
 
 
