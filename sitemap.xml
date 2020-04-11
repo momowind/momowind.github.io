@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://purel.in/new-blog-hexo/</loc>
+    
+    <lastmod>2020-04-11T09:32:49.401Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://purel.in/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/</loc>
     
     <lastmod>2020-04-11T09:12:30.801Z</lastmod>
@@ -51,13 +58,6 @@
   </url>
   
   <url>
-    <loc>https://purel.in/hey/</loc>
-    
-    <lastmod>2020-04-11T03:49:36.213Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://purel.in/404/index.html</loc>
     
     <lastmod>2020-04-10T12:21:37.163Z</lastmod>
@@ -96,13 +96,6 @@
     <loc>https://purel.in/categories/index.html</loc>
     
     <lastmod>2020-04-10T12:13:52.253Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://purel.in/Ok/</loc>
-    
-    <lastmod>2020-04-09T17:09:13.073Z</lastmod>
     
   </url>
   

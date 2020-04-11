@@ -4,26 +4,31 @@
   
     
     <entry>
-      <title>hey</title>
-      <link href="/hey/"/>
-      <url>/hey/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Ok</title>
-      <link href="/Ok/"/>
-      <url>/Ok/</url>
+      <link href="/new-blog-hexo/"/>
+      <url>/new-blog-hexo/</url>
       
-        <content type="html"><![CDATA[<p>Just test edit post from my iPhone via raspberry pi<br>很久不用byword，还是很亲切。<br>这条来自Pretext。</p>]]></content>
+        <content type="html"><![CDATA[<p><img src="/images/2020/04/hexo-index.png" alt=""><br>Just test edit post from my iPhone via raspberry pi<br>很久不用Byword感觉还是n亲切，但是这篇文章来自Pretext。</p><a id="more"></a>]]></content>
       
       
+      <categories>
+          
+          <category> 网站 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Purel.in </tag>
+            
+            <tag> Hexo </tag>
+            
+            <tag> Markdown </tag>
+            
+            <tag> Blog </tag>
+            
+        </tags>
       
     </entry>
     

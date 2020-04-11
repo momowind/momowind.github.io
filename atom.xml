@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://purel.in/"/>
-  <updated>2020-04-11T03:49:36.213Z</updated>
+  <updated>2020-04-11T09:32:49.401Z</updated>
   <id>https://purel.in/</id>
   
   <author>
@@ -17,40 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>hey</title>
-    <link href="https://purel.in/hey/"/>
-    <id>https://purel.in/hey/</id>
-    <published>2020-04-11T03:49:36.000Z</published>
-    <updated>2020-04-11T03:49:36.213Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>Ok</title>
-    <link href="https://purel.in/Ok/"/>
-    <id>https://purel.in/Ok/</id>
+    <link href="https://purel.in/new-blog-hexo/"/>
+    <id>https://purel.in/new-blog-hexo/</id>
     <published>2020-04-09T10:13:17.000Z</published>
-    <updated>2020-04-09T17:09:13.073Z</updated>
+    <updated>2020-04-11T09:32:49.401Z</updated>
     
-    <content type="html"><![CDATA[<p>Just test edit post from my iPhone via raspberry pi<br>很久不用byword，还是很亲切。<br>这条来自Pretext。</p>]]></content>
+    <content type="html"><![CDATA[<p><img src="/images/2020/04/hexo-index.png" alt=""><br>Just test edit post from my iPhone via raspberry pi<br>很久不用Byword感觉还是n亲切，但是这篇文章来自Pretext。</p><a id="more"></a>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;Just test edit post from my iPhone via raspberry pi&lt;br&gt;很久不用byword，还是很亲切。&lt;br&gt;这条来自Pretext。&lt;/p&gt;
-
-      
+      &lt;p&gt;&lt;img src=&quot;/images/2020/04/hexo-index.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;Just test edit post from my iPhone via raspberry pi&lt;br&gt;很久不用Byword感觉还是n亲切，但是这篇文章来自Pretext。&lt;/p&gt;
     
     </summary>
     
     
+      <category term="网站" scheme="https://purel.in/categories/%E7%BD%91%E7%AB%99/"/>
+    
+    
+      <category term="Purel.in" scheme="https://purel.in/tags/Purel-in/"/>
+    
+      <category term="Hexo" scheme="https://purel.in/tags/Hexo/"/>
+    
+      <category term="Markdown" scheme="https://purel.in/tags/Markdown/"/>
+    
+      <category term="Blog" scheme="https://purel.in/tags/Blog/"/>
     
   </entry>
   
