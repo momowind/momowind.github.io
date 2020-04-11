@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://purel.in/about/index.html</loc>
+    
+    <lastmod>2020-04-11T11:56:57.149Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://purel.in/Hexo-Github-Overclocked-Blog/</loc>
     
     <lastmod>2020-04-11T10:00:37.271Z</lastmod>
@@ -82,13 +89,6 @@
     <loc>https://purel.in/tags/index.html</loc>
     
     <lastmod>2020-04-10T12:14:58.383Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://purel.in/about/index.html</loc>
-    
-    <lastmod>2020-04-10T12:14:16.703Z</lastmod>
     
   </url>
   
