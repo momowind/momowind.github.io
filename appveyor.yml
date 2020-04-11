@@ -16,9 +16,6 @@ install:
   - npm i -S hexo-renderer-stylus
   - npm i -S hexo-helper-qrcode
 
-cache:
-  - node_modules -> package.json
-
 build_script:
   - hexo generate
 
