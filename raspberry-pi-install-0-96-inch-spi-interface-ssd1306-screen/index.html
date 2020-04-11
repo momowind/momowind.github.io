@@ -448,7 +448,7 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <p><img src="/images/2020/04/spi-black.jpg" alt=""><br>当这块小屏幕在夜里散发着光芒，你看到它便能回忆起整个部署的过程……</p>
+          <p><img src="/images/2020/04/spi-night.jpg" alt=""><br>当这块小屏幕在夜里散发着光芒，你看到它便能回忆起整个部署的过程……</p>
 <a id="more"></a>
 <h2 id="1-硬件的选配"><a href="#1-硬件的选配" class="headerlink" title="1. 硬件的选配"></a>1. 硬件的选配</h2><p>淘宝搜索ssd1306 spi选一家十块钱左右有眼缘的，为什么选择spi的7针而不是i2c简单的4针呢？因为i2c刷新率只有10fps，而spi高达64-364fps。然后再加1.5元买40根杜邦线，虽然用不了这么多，但是为了以后扩展GPIO接口做备胎，然后apt-get安装Adafruit的1306库，对example代码稍事调整，然后在cmd输入一条python指令成功点亮….</p>
 <h2 id="2-连接GPIO排线"><a href="#2-连接GPIO排线" class="headerlink" title="2. 连接GPIO排线"></a>2. 连接GPIO排线</h2><p>ls /dev/spidev* #如果目录为空，可能之前安装过spi屏幕占用了接口，正常应该显示 /dev/spidev0.0 /dev/spidev0.1 查看config.txt文件是否有dtoverlay开头的命令，如果有就加#注释掉。还可以通过lsmod #查看是否开启了spi模块。</p>
@@ -542,7 +542,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-11T16:56:48+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-11T17:00:18+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2020年4月11日</p>
