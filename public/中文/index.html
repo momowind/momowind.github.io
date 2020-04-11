@@ -16,10 +16,8 @@
 
   <!-- 页面元数据 -->
   
-    <title>树莓派：装在口袋里的量子云实验室（硬件篇） - Purel.in</title>
+    <title>中文 - Purel.in</title>
   
-  
-    <meta name="description" content="纯粹为了好玩，我花费一周时间用树莓派的板子搭建了一台微型多功能服务器，虽然只有信用卡大小，但是也能科学观看Netflix。">
   
 
   <!-- feed -->
@@ -383,8 +381,8 @@
           
   
     <h1 class="title">
-      <a href="/raspberry-pi-quantum-cloud-lab-in-your-pocket-hardware/">
-        树莓派：装在口袋里的量子云实验室（硬件篇）
+      <a href="/%E4%B8%AD%E6%96%87/">
+        中文
       </a>
     </h1>
   
@@ -398,9 +396,9 @@
             
               
 <div class='new-meta-item author'>
-  <a href="" rel="nofollow">
-    <img src="">
-    <p></p>
+  <a href="https://purel.in" rel="nofollow">
+    <img src="/images/waterboy.JPG">
+    <p>Jacob</p>
   </a>
 </div>
 
@@ -415,7 +413,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年3月17日</p>
+    <p>发布于：2020年4月11日</p>
   </a>
 </div>
 
@@ -438,22 +436,7 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <p><img src="/images/2020/03/IMG_2372-2.JPG" alt=""><br>纯粹为了好玩，我花费一周时间用树莓派的板子搭建了一台微型多功能服务器，虽然只有信用卡大小，但是也能科学观看Netflix。<a id="more"></a>通过部署Nginx+Php7.3+Mysql与<a href="https://purel.in/from-san-francisco-to-singapore-we-finally-arrived-in-seoul.html">上个月放在韩国的Linux公网服务器</a>实现了frp内网穿透，你可以从 <a href="http://pi.purel.in/dash" target="_blank" rel="noopener">http://pi.purel.in/dash</a> 来访问这台微型计算机的状态面版，它现在就放在我家的客厅。从某种程度上你可以理解为这两台相隔异国的服务器，穿透网络实现了量子纠缠。</p>
-<p>不妨畅想一下未来这台Pi可以做什么，比如成为私有云盘实现资料的存储与分享，或是部署网站并通过公网域名实现访问，它会成为这个全新的物联网世界中一朵无处不在的云，这朵云就是徐老师的实验室，它就在我家客厅或者我的口袋里。我说了我会写一篇超详细的部署日记，现在你看到我实现了我的承诺，鉴于篇幅较长，我会把它暂时分为硬件篇和软件篇两个部分，未来随着磨合与熟悉，或许会有拓展的玩法分享。</p>
-<p>我一直在想这样一件事，鉴于网络服务器的成本和存储空间限制，以及家用带宽的不断提升，我是否可以实现网络服务器的本地化部署？即通过域名 <a href="http://xxx.xxx" target="_blank" rel="noopener">http://xxx.xxx</a> 访问到的是本地的服务器，而非异地的IDC数据中心，这将大大提升服务器的操控、管理、以及安全性。部署在远端的服务器只需要做一个跳板或者镜像，那么我可以花费最低的成本购买足够的流量和带宽，而不用担心它的CPU性能和I/O限制。所以不论是从效率提升还是成本控制来看，我都需要想办法实现这个设想。</p>
-<h3 id="主机"><a href="#主机" class="headerlink" title="主机"></a>主机</h3><p>目前我已经有了部署在韩国甲骨文机房的VM实例，那么接下来我需要一台低功耗且长期开机联网的本地服务器。上一周的某日我正在电报上面闲云野鹤，通过Dig发现了这块神奇的板子“Raspberry Pi”（树莓派）。虽然我的需求本身排除了对性能和功耗要求极高的图形化界面系统，因为我并不是用它来上网冲浪、看视频、打游戏，我只是需要它默默的做一台Server，但是这块小板子的硬件参数还是给了我惊喜。</p>
-<p><img src="/images/2020/03/pi.png" alt="">Raspberry Pi 4 B 具备1.5Ghz运行的64位四核处理器，最高支持以60fps速度刷新的4K分辨率的双显示屏（下巴跌到地板上），高达4GB RAM（可根据型号选择1GB、2GB、4GB，多多益善所以我选择的是4GB版本），2.4/5.0 Ghz 双频无线LAN（它还可以用无线发射端成为一台软路由），蓝牙5.0/BLE，千兆以太网，USB3.0（这个接口很重要，意味着它完全可以挂载移动硬盘实现超大存储，比如成为私有云盘或家庭多媒体中心），和PoE功能。</p>
-<p>其实树莓派最大的卖点是物联网，也就是说通过编程它的GPIO 40-PIN针脚可以实现更多可能性，比如国外大神们就通过它打造了很多有趣好玩的机器人或者模拟器。最近女儿正饶有兴致的学习编程，这快板子未来可以帮到她。</p>
-<h3 id="屏幕"><a href="#屏幕" class="headerlink" title="屏幕"></a>屏幕</h3><p><img src="/images/2020/03/pi3.52.jpg" alt="">树莓派3.5寸LCD触摸显示屏</p>
-<p>尽管我为它搭配的3.5寸触摸屏幕使它一眼上去很酷，但实际上却用处不大，我未来可能会用一块1寸左右只显示本机IP地址的OLED屏幕代替。因为通过这几天的使用发现，我基本不会去看这块屏幕，一旦通过电视或显示器的连接完成了初次的联网设置，我就可以通过Macbook、iPad Pro、iPhone Pro Max的 VNC（远程桌面）或SSH（远程终端）连接和管理它。如果可以重来一次，我一定不会选则给树莓派配一块LCD屏幕，所以这块屏幕的存在纯粹是为了好看和炫酷……</p>
-<h3 id="外设"><a href="#外设" class="headerlink" title="外设"></a>外设</h3><p>实际上一旦作为服务器开始运行，除了电源外并不需要任何外设，只要有网络就可以连接和管理它。但是一开始还是需要鼠标、键盘、显示器或电视来设置它。基于研究和好奇的精神我也尝试过无头安装，就是离开所有外设让它开机自动连接WIFI从而实现部署，但是发现这样更费劲，除非环境有限，否则不推荐小白尝试。先学会走路在学跑步在任何地方都适用。</p>
-<p><img src="/images/2020/03/IMG_2377.jpg" alt="">Lofree蓝牙无线键盘 &amp; 希捷移动硬盘1T我翻出来一只HP小鼠标和一只吃灰已久的Lofree蓝牙无线键盘，它也可以通过USB连接线来使用。另外1T的希捷移动硬盘同样摆脱了吃灰的命，我准备在后面用它作为Nextcloud私有云盘使用。移动硬盘吃灰的最大原因就是网络带宽的提升，这让人们大多数的数据存储通过云盘就能够实现，所以一块不能联网只能够通过拔插进行存储操作的移动硬盘越来越不受这个时代的待见。</p>
-<p>因为Pi的到来，这些老物件突然间焕发了光彩，尽管人们说电子产品买新不买旧，但随着自己年龄的增长，我对这些老物件的爱也是越来越多。</p>
-<h3 id="散热"><a href="#散热" class="headerlink" title="散热"></a>散热</h3><p><img src="/images/2020/03/pi4shan.png" alt="">树莓派4散热风扇和风扇支架</p>
-<p>散热非常重要，原本树莓派的板子是自带金属散热片的，可以贴在CPU和内存上，但是我担心加上屏幕和外壳后散热堪忧，于是又装了一个固定在主板上的散热风扇。即便是这样，开机温度也达到了57度，连续播放1080p的视频会提示主板过热。所以如过把它当作桌面工作站使用的话，真的不如使用Macbook或者PC更合适，话又说回来，如果加强硬件散热的话，比如加大风扇和散热芯片，它真的可以全面替代桌面电脑。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>下面这张照片就是它目前的样子。虽然很折腾，但确实太好玩了，特别在疫情肆虐的特殊时期，这个小东西让我的生活变得十分丰沛。享受整个过程中会忘记时间的流逝，这种体验下来反而收获更多，Just do it。</p>
-<p><img src="/images/2020/03/IMG_2372-2.jpg" alt="">树莓派4B 徐老师的量子云实验室硬件篇大概就是这样子了，接下来是软件篇，因为我是Google、Youtube、Netflix重度使用者，我打造的Pi云也需要能够流畅使用它们，毕竟这个世界上知识搜索方面没有什么可以超过Google的。另外，如果让自己长期置身BAT环境，那么等同于失去和世界的连接。所以软件篇的篇幅会很长，而且涉及大量的计算机术语，假如你不是真的打算像我一样部署一个自己的Pi云的话，真的就不用追了:D。反之，你若崇尚探索的乐趣，那么接下来的干货一定会令你受益。</p>
-
+          
           
             <br>
             
@@ -481,7 +464,7 @@
           
         
           
-            <p>本文永久链接是：<a href=https://purel.in/raspberry-pi-quantum-cloud-lab-in-your-pocket-hardware/>https://purel.in/raspberry-pi-quantum-cloud-lab-in-your-pocket-hardware/</a></p>
+            <p>本文永久链接是：<a href=https://purel.in/%E4%B8%AD%E6%96%87/>https://purel.in/%E4%B8%AD%E6%96%87/</a></p>
           
         
       </blockquote>
@@ -531,7 +514,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-11T00:44:21+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-11T10:58:18+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2020年4月11日</p>
@@ -558,7 +541,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://purel.in/raspberry-pi-quantum-cloud-lab-in-your-pocket-hardware/&title=树莓派：装在口袋里的量子云实验室（硬件篇） - Purel.in&summary=纯粹为了好玩，我花费一周时间用树莓派的板子搭建了一台微型多功能服务器，虽然只有信用卡大小，但是也能科学观看Netflix。"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://purel.in/%E4%B8%AD%E6%96%87/&title=中文 - Purel.in&summary="
           
           >
           
@@ -570,7 +553,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://purel.in/raspberry-pi-quantum-cloud-lab-in-your-pocket-hardware/&title=树莓派：装在口袋里的量子云实验室（硬件篇） - Purel.in&summary=纯粹为了好玩，我花费一周时间用树莓派的板子搭建了一台微型多功能服务器，虽然只有信用卡大小，但是也能科学观看Netflix。"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://purel.in/%E4%B8%AD%E6%96%87/&title=中文 - Purel.in&summary="
           
           >
           
@@ -582,7 +565,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://purel.in/raspberry-pi-quantum-cloud-lab-in-your-pocket-hardware/&title=树莓派：装在口袋里的量子云实验室（硬件篇） - Purel.in&summary=纯粹为了好玩，我花费一周时间用树莓派的板子搭建了一台微型多功能服务器，虽然只有信用卡大小，但是也能科学观看Netflix。"
+          href="http://service.weibo.com/share/share.php?url=https://purel.in/%E4%B8%AD%E6%96%87/&title=中文 - Purel.in&summary="
           
           >
           
@@ -596,7 +579,7 @@
         <div class='hoverbox'>
           <a><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/wechat.png"></a>
           <div class='target'>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATgAAAE4CAAAAADqFLC2AAADp0lEQVR42u3ZS3LjMAwFQN//0sl+qlTmAyALnjR3imV+ml68AK8fozReCMCBAwfOAAduCdyrONob+Geeq+fTfVztqzrv5TrgwIEDBw4cOHDL4KoHvvq8e8Dueun6xxcMDhw4cODAgQO3FC5d+N17aZA+nf/uoA0OHDhw4MCBA/dX4LoHOZ2nGpTBgQMHDhw4cODA9d5/V4jsBuiv/c8BHDhw4MCBAweuCdfdSLqhNGBXC6nrOvngwIEDBw4cOHBDcOnoHvTp5/J5wYEDBw4cOHDglsB1RxoopwN1t8Ed7xccOHDgwIEDB24J3FQjOH0v/d7096uNbnDgwIEDBw4cuC1w6QLdoHn3BZyul74PDhw4cODAgQO3Ha46YVrgnJqvG9RPgzU4cODAgQMHDtw2uHJBr1ng7BY6q8G8XTgFBw4cOHDgwIFbCpcG0epzeoDpwms6wIEDBw4cOHDgvg1uKrDGBcOb5jkttF5eEDhw4MCBAwcO3DK4apA8bRhPN5DTYN4NzODAgQMHDhw4cNvgphrHYw3f8CKnG9rgwIEDBw4cOHDfAnfciB1uIJ9eRPXCpgui4MCBAwcOHDhw2+C6BcFuMJ4qpE5fCDhw4MCBAwcO3Ha4OACGjeipoFzdVxqAxzr54MCBAwcOHDhwN8NVA2M34E4H5vT75QY3OHDgwIEDBw7ccripBu9UgE2D7lTDOq4AgwMHDhw4cODAfQiuO1FauEwLjtXgmgb743OCAwcOHDhw4MAtgTstMJ4GyO5Gu/PcFZzBgQMHDhw4cOC2wpUD4XBhc6rQmRZk2w1pcODAgQMHDhy4D8NVC4vdgNq9qOmG9PEPARw4cODAgQMHbhlcClQNlmMHCC/gdL24kw8OHDhw4MCBA/cwXPXgaUHw9P10P+nfywVQcODAgQMHDhy4L4ObKiB2AauF0urFtAMwOHDgwIEDBw7ch+C2HKAaVKfG5bnAgQMHDhw4cOCWwHVHtZCZBuu0Id3d19sADA4cOHDgwIED9zBcNyCWNzDUyL7r+bghDQ4cOHDgwIED9zBctZBZDbDp/GkQTj8/bsyDAwcOHDhw4MAthasGzrsKmtUg3W1AgwMHDhw4cODA/RW4uw+YBtvphjg4cODAgQMHDtz/CpcetBuYu5BlaHDgwIEDBw4cuKVwacM4DcYpdLVQeldDGxw4cODAgQMHbhvcVAO3GlDbBwovolpIBQcOHDhw4MCB2wJnhAVOBODAgQNngAP37PgFWa3/JhoZ/AYAAAAASUVORK5CYII=">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAAAAACi5bZQAAADB0lEQVR42u3aQVLEMAwEwPz/03AHtiKNBUTQvu1W4lh9mpJ8vVlfrgsBGDBgwIABswbmCtfH9z994Ob/V/tUv9Pdp1wPGDBgwIABA2YdTDkA3Tz/6oPdfavg1ffK3wUDBgwYMGDArIVJA101YLUbR8UgN1UPGDBgwIABA+b/wFQPPFVoGhTBgAEDBgwYMGCmAt9pQOw2ssCAAQMGDBgwfx9majCWBr6pxtSvTyLBgAEDBgwYMD8G013pRZ6f+h3XAwYMGDBgwIBZA3O6Tgdu0w2s43rAgAEDBgwYMGtgqgf67sbSacDsvnfcwQMDBgwYMGDAPAame0GnGuhOB2NTg7byOcGAAQMGDBgw62Cmgl23YTUdNKvvgwEDBgwYMGD2w8QbNBtH3fe6jajTQSEYMGDAgAEDZj9MNfhNgdzt3y08vcgEBgwYMGDAgNkH073Y0x2EnUJP/S7DggEDBgwYMGDWwHQPng7o0oZXGiBTODBgwIABAwbMPpi0UZQW1oWd3r8c8MCAAQMGDBgwj4U5HYSlwTAtbGrf24AHBgwYMGDAgHk8TBqwqsFpqsF0OlAr1wMGDBgwYMCAWQczfZFoCjp9LoUEAwYMGDBgwOyBmQpw1UFc+6BDUOX9wYABAwYMGDBrYKYDWHrxKP1//MISGDBgwIABA2YNzNVcpwOtdDDWDXBxowwMGDBgwIABswamW2C1MZVeBEobUykQGDBgwIABA+bvwZw2qNIA1x3gjV9AAgMGDBgwYMCsgekeKB2kdRtY3aCYnrPcwQMDBgwYMGDAPA7mdKWg3SB3+lx5UAcGDBgwYMCAWQNzhasaxKahqg2zOFiCAQMGDBgwYNbBnAa6qQFe+6JPM+Dd/g8GDBgwYMCAWQszFai6AXD6+W4dYMCAAQMGDJj/B9MNaN39qgDpc2DAgAEDBgwYMOnAK/1ON+jFF4fAgAEDBgwYMGtgpgZuKWga5NJ6wIABAwYMGDD7YcYHV83BXBXsdEB3e04wYMCAAQMGzBoY60XAs8CAAQMGDJinrneoRCEZWM5tsgAAAABJRU5ErkJggg==">
           </div>
         </div>
       
@@ -604,7 +587,7 @@
       
         <a class="-mob-share-telegram" title="" rel="external nofollow noopener noreferrer"
           
-            href="https://t.me/share/url?url=https://purel.in/raspberry-pi-quantum-cloud-lab-in-your-pocket-hardware/&text=树莓派：装在口袋里的量子云实验室（硬件篇） - Purel.in"
+            href="https://t.me/share/url?url=https://purel.in/%E4%B8%AD%E6%96%87/&text=中文 - Purel.in"
           
           >
           
@@ -628,25 +611,11 @@
         
           <div class="prev-next">
             
-              <a class='prev' href='/raspberry-pi-quantum-cloud-lab-in-your-pocket-software/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>树莓派：装在口袋里的量子云实验室（软件篇）</p>
-                <p class='content'>
-  阅读本文大概需要 12 分钟
-
-
-前言还记得自己小时候玩积木，可以一直玩一整天，完全沉浸其中忘记时间。
-那时候父母工作很忙经常把我一个人留在家里，但我一点也不觉得孤独，因为我有各式各样的玩...</p>
-              </a>
             
-            
-              <a class='next' href='/seven-practices-of-great-leaders/'>
-                <p class='title'>卓越领导者的七项修炼<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>
-
-越是在特殊时期，那些人性中的优点和缺点就越是容易被放大。有些人焦虑和混乱，另一些人则更清晰自己。——Jacob Xu
-
-
-这就像是一把双刃剑，有些人会陷入混乱、焦虑和担忧，无论是对工作还是对...</p>
+              <a class='next' href='/Ok/'>
+                <p class='title'>Ok<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>Just test edit post from my iPhone via raspberry pi很久不用byword，还是很亲切。这条来自Pretext。
+</p>
               </a>
             
           </div>
@@ -690,7 +659,7 @@
 
   <script>
     window.subData = {
-      title: '树莓派：装在口袋里的量子云实验室（硬件篇）',
+      title: '中文',
       tools: true
     }
   </script>
@@ -705,20 +674,6 @@
     
     
 
-
-  <section class="widget toc-wrapper shadow desktop mobile">
-    
-  <header>
-    
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#主机"><span class="toc-text">主机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#屏幕"><span class="toc-text">屏幕</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#外设"><span class="toc-text">外设</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#散热"><span class="toc-text">散热</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
-    </div>
-  </section>
 
 
   
