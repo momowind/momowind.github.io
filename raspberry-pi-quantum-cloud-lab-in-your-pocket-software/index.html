@@ -462,8 +462,8 @@
 <h4 id="允许ROOT权限远程登录"><a href="#允许ROOT权限远程登录" class="headerlink" title="允许ROOT权限远程登录"></a>允许ROOT权限远程登录</h4><p><code>sudo nano /etc/ssh/sshd_config</code><br>找到 <code>PermitRootLogin without-password</code> 前面加<code>#</code>注释掉，在下面添加<code>PermitRootLogin yes</code> 然后通过 <code>service ssh restart</code> 重启ssh服务生效。</p>
 <h2 id="2-环境部署"><a href="#2-环境部署" class="headerlink" title="2.环境部署"></a>2.环境部署</h2><p>无论是人还是机器，只有部署在合适的环境才能够发挥最大的生产力。</p>
 <h4 id="最适合树莓派的系统"><a href="#最适合树莓派的系统" class="headerlink" title="最适合树莓派的系统"></a>最适合树莓派的系统</h4><p>唯一让我纠结的是Raspbian这个64位的cpu却跑着32位系统，意味着Pi的性能大打折扣，于是开始探索在Pi上装64位Ubuntu的可能性，目前官方只给出了Server版，但这就意味着我必须手动安装图形桌面，事实证明官方的Raspbian就是最合适的，树莓派的工程师在论坛给出了切换kernel到64 bit内核的临时方案用于测试，不过这又牵扯到在终端使用<code>rpi-update</code>命令来更新系统环境。输入<code>uname -a</code>会得到以下信息：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Linux pi 4.19.108-v7l+ #1298 SMP Fri Mar 6 18:09:54 GMT 2020 armv7l GNU&#x2F;Linux&lt;br&gt;&lt;&#x2F;br&gt;rpi-update&#96;后在&#x2F;boot&#x2F;config.txt中加入&#96;arm_64bit&#x3D;1</span><br></pre></td></tr></table></figure>
-<p>临时切换内核到64版本，再开机输入<code>uname -a</code> 得到    <code>aarch64</code>，可以临时装一下64位的程序，不过我安装最新版本的宝塔面板仍人提示不支持32位版本而失败……</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Linux pi 4.19.108-v7l+ #1298 SMP Fri Mar 6 18:09:54 GMT 2020 armv7l GNU&#x2F;Linux</span><br></pre></td></tr></table></figure>
+<p>通过<code>rpi-update</code>更新后在/boot/config.txt中加入<code>arm_64bit=1</code>可以切换内核到64版本，再开机时输入<code>uname -a</code> 得到<code>aarch64</code>。这个方法可以临时装一下64位的程序，不过我安装最新版本的宝塔面板仍人提示不支持32位版本而失败……</p>
 <p>这一周对于私有云的部署让我重新找到小时候的感觉，光是切换到不同的系统去体验Linux就花费了两天时间，最终还是确定用Raspbian原版系统。绕了一大圈回到原点的过程确实是必要的，它会让我知道什么是重要的，什么是需要的，以及各个系统的优势劣势。</p>
 <h4 id="部署LNMP网站环境"><a href="#部署LNMP网站环境" class="headerlink" title="部署LNMP网站环境"></a>部署LNMP网站环境</h4><p>环境安装的是Nginx+Mysql+Php7.3，从安装到运行都没出现任何问题，LNMP适合我对网站部署的全部需求。这是一套非常成熟的环境，推荐使用OneInStack一键部署lnmp环境指令。打开<a href="https://oneinstack.com/auto/" target="_blank" rel="noopener">OneInStack官方网站</a>自定义自己的一键部署指令非常方便。</p>
 <h2 id="3-部署量子云实验室"><a href="#3-部署量子云实验室" class="headerlink" title="3.部署量子云实验室"></a>3.部署量子云实验室</h2><h4 id="Nextcloud部署"><a href="#Nextcloud部署" class="headerlink" title="Nextcloud部署"></a>Nextcloud部署</h4><p>Nextcloud的安装没什么好记录的，之前在韩国服务器使用自动官方的安装文件setup-nextcloud.php顺利一键搞定，但由于网络原因在树莓派这样行不通，于是下载了最新版本解压安装的，依然比较顺利，除了要注意nextcloud所在目录的用户和用户组权限问题，在参阅了ngnix.conf文件后确认了ngnix的默认用户和用户组是<code>www-data</code>，于是修改了在root下创建的nextcloud目录权限后可以完美运行。</p>
@@ -582,7 +582,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-11T13:15:30+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-11T13:31:07+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2020年4月11日</p>
