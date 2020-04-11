@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,8 +16,12 @@
 
   <!-- 页面元数据 -->
   
-    <title>标签：修炼 - Purel.in</title>
+    <title>Hexo + Frp + iAWriter = Overclocked Blogger - Purel.in</title>
   
+    <meta name="keywords" content="Hexo,Markdown,Blog,Purel.in,树莓派,iA Writer,Samba">
+  
+  
+    <meta name="description" content="这篇文章通过我的iPhone和iPad基于Markdown标准写作而成，并由Hexo生成纯静态网页发布在Github和我的树莓派上，通过甲骨文在首尔数据中心的服务器对树莓派进行Frp反向代理，最终实现加速访问。">
   
 
   <!-- feed -->
@@ -496,25 +498,12 @@
     <div class='body-wrapper'>
       
 
-
 <div class='l_main'>
   
-    
-      
-  <section class="post-list ">
-    
-      
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
+
   
+    <article id="post" class="post white-box shadow article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -524,11 +513,13 @@
       <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/seven-practices-of-great-leaders/">
-      卓越领导者的七项修炼
-    </a>
-  </h2>
+  
+    <h1 class="title">
+      <a href="/Hexo-Frp-iAWriter-Overclocked-Blogger/">
+        Hexo + Frp + iAWriter = Overclocked Blogger
+      </a>
+    </h1>
+  
 
 
         
@@ -551,9 +542,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E5%AD%A6%E4%B9%A0/' rel="nofollow">
+    <a href='/categories/%E7%BD%91%E7%AB%99/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>学习</p>
+      <p>网站</p>
     </a>
   </div>
 
@@ -564,14 +555,9 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年3月4日</p>
+    <p>发布于：2020年4月9日</p>
   </a>
 </div>
-
-            
-          
-            
-              
 
             
           
@@ -589,114 +575,258 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/images/2020/03/psychedelic-treatments-consciousness-disorder-news-oct-2019.jpg" alt=""></p>
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p><img src="/images/2020/04/hexo-index.png" alt=""><br>这篇文章通过我的iPhone和iPad基于Markdown标准写作而成，并由Hexo生成纯静态网页发布在Github和我的树莓派上，通过甲骨文在首尔数据中心的服务器对树莓派进行Frp反向代理，最终实现加速访问。</p>
+<a id="more"></a>
+<p>抛弃臃肿的Wordpress迫在眉睫，博客作为一个专注于码字的工具越是精简越好，如此我们才能聚焦在脑海中每一个转瞬即逝的思绪中。</p>
+<p>最早发现此类静态博客生成器是因为Github的码农们的博客基本都部署于Hexo或Hugo，这似乎成了计算机“大佬”的标志。自从入手树莓派之后，对于Linux环境愈发熟悉，那么选择一款静态博客生成器，并部署在树莓派上，通过Frp反向代理让我随时随地都能访问、编辑和发布文章岂不是很有趣的一件事，那么说干就干吧。</p>
+<p>那么市面上的静态博客生成器那么多，我到底该选哪一款呢，毕竟初衷是为了专注于写作这件事而不是来回的折腾（打脸～）。</p>
 <blockquote>
-<p>越是在特殊时期，那些人性中的优点和缺点就越是容易被放大。<br>有些人焦虑和混乱，另一些人则更清晰自己。<br>——Jacob Xu</p>
+<p>困扰我们的不是没有选择，往往是因为选择太多。</p>
 </blockquote>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/seven-practices-of-great-leaders/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
+<p>最终我在Hexo和Hugo中做出了选择，如果你去Google就会发现，几乎所有人都在从Hexo搬家到Hugo，因为Hugo基于Go语言使网页生成速度快到可以忽略不计，而Hexo的页面生成对于文章和页面众多的博客主来说就要花些时间，但这依然不妨碍我对Hexo的青睐，因为Hugo由一群搞后端的程序员们开发和维护，而Hexo则是由一群搞前端的设计师们簇拥的。</p>
+<blockquote>
+<p>赏心悦目绝不仅仅是表面的光鲜，而是与每个人的内在相互关联。</p>
+</blockquote>
+<p>随时随地用iA Writer在iPad或iPhone上就可以轻松编辑Markdown文章，通过Samba实时同步连接到我的树莓派，这个我专属的微型云计算数据中心会透过Frp将文章发布到互联网上。即便没有Wifi的情况下，比如我乘坐高铁或者公交出行时，我依然可以通过手机给树莓派的共享热点来发布文章。如果乘坐飞机或者进入深山老林没有了任何网络和蜂窝信号该怎么办？这时候树莓派的双Wifi中的一个就可以作为AP热点开放一个5G共享Wifi给附近的人，通过这个私有网络依然可以办公，包括更新文章到Purel.in。</p>
 
-          </div>
-        
-      
-    
-  </section>
-  
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
-
-  
-
-
-    
-  
-</div>
-<aside class='l_side'>
-  
+          
+            <br>
+            
+              
   
     
     
 
-<section class="widget blogger shadow desktop">
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
   <div class='content'>
     
-      <div class='avatar'>
-        <img class='avatar' src='/images/waterboy.JPG'/>
-      </div>
-    
-    
-      <div class='text'>
+      <blockquote>
         
-          <h2>徐哞哞</h2>
-        
-        
-          <p>I’m Diamond.</p>
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
 
-        
-        
-          <p><span id="jinrishici-sentence">Purel.in</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
           
         
           
-            <a href="mailto:momowind@gmail.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>本文永久链接是：<a href=https://purel.in/Hexo-Frp-iAWriter-Overclocked-Blogger/>https://purel.in/Hexo-Frp-iAWriter-Overclocked-Blogger/</a></p>
           
         
-          
-            <a href="https://github.com/momowind"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-          
-            <a href="https://music.163.com/#/user/home?id=98046"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-      </div>
+      </blockquote>
     
   </div>
 </section>
 
   
 
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <img src='/images/qrcode/wechat.JPG'
+        
+          height='64px'
+        >
+      
+    
+      
+        <img src='/images/qrcode/wechat.JPG'
+        
+          height='64px'
+        >
+      
+    
+  </div>
+</section>
+
+  
+
+
+            
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-12T01:34:35+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年4月12日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Hexo/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Hexo</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Markdown/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Markdown</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Blog/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Blog</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Purel-in/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Purel.in</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>树莓派</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/iA-Writer/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>iA Writer</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Samba/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Samba</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://purel.in/Hexo-Frp-iAWriter-Overclocked-Blogger/&title=Hexo + Frp + iAWriter = Overclocked Blogger - Purel.in&summary=这篇文章通过我的iPhone和iPad基于Markdown标准写作而成，并由Hexo生成纯静态网页发布在Github和我的树莓派上，通过甲骨文在首尔数据中心的服务器对树莓派进行Frp反向代理，最终实现加速访问。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://purel.in/Hexo-Frp-iAWriter-Overclocked-Blogger/&title=Hexo + Frp + iAWriter = Overclocked Blogger - Purel.in&summary=这篇文章通过我的iPhone和iPad基于Markdown标准写作而成，并由Hexo生成纯静态网页发布在Github和我的树莓派上，通过甲骨文在首尔数据中心的服务器对树莓派进行Frp反向代理，最终实现加速访问。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://purel.in/Hexo-Frp-iAWriter-Overclocked-Blogger/&title=Hexo + Frp + iAWriter = Overclocked Blogger - Purel.in&summary=这篇文章通过我的iPhone和iPad基于Markdown标准写作而成，并由Hexo生成纯静态网页发布在Github和我的树莓派上，通过甲骨文在首尔数据中心的服务器对树莓派进行Frp反向代理，最终实现加速访问。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <div class='hoverbox'>
+          <a><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/wechat.png"></a>
+          <div class='target'>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATgAAAE4CAAAAADqFLC2AAADqElEQVR42u3aQXIbMQwEQP3/08ndqdQSA9CCVM2bSmsabPowBvb1x4rWCwE4cODAWeDALYF7heufDR++f/p9P7+vPv9U19R5wYEDBw4cOHDgtsEdB8BDmOrzVdDqhUydFxw4cODAgQMHbivcdECdeq4KMR2wwYEDBw4cOHDgvh2uG3BPwdLgDQ4cOHDgwIEDBy4rsHuQakNyfQAGBw4cOHDgwIEbgksLOQ22UwedgnjbJB8cOHDgwIEDB24IrrqmD/rbn+PzggMHDhw4cODALYHrrrTxmAbi0xcHq0H3+LzgwIEDBw4cOHBL4NKAWD3IKVi3UXq6f/oiIzhw4MCBAwcO3Ba46sZdsLTgahA/DdDl4A0OHDhw4MCBA7cMLg2a1YZiFejVXN3G6+NAGhw4cODAgQMHbhlcdcA7HTRvDb6rgRscOHDgwIEDB24rXDfYpgVMNyxPL7AbpMGBAwcOHDhw4LbAdQutBt20QXoabLuD6kcPcODAgQMHDhy4D4XrBtn0IGngHR+ogwMHDhw4cODALYWrviAYD3abjdN0kN1uiIIDBw4cOHDgwC2B6zYYTxuL3YZitVGZBu/HfcCBAwcOHDhw4JbB3WpI3nquHWTTxik4cODAgQMHDtwSuNMB9Gkj8V0vDnbPMTaQBgcOHDhw4MCB+yW4LlA1SKaNx9sD8OM/BHDgwIEDBw4cuGVwaeHdYDoVnNOLrl4MOHDgwIEDBw7cNrhuwEwHvd2A3R0wVwfz4MCBAwcOHDhwW+C6B0oPmA6iq3WljczjST44cODAgQMHDtyb4NIG4SlUGmi7a6rxWf7PARw4cODAgQMH7k1wadAtB8kwYN8aSB9/BgcOHDhw4MCBWw4XD2yL+6UD52498UAdHDhw4MCBAwduGdytxma7cXh54F0GBwcOHDhw4MCBWw5XDYrpwDm9gNv7gQMHDhw4cODAfSpcNfhOBd1qsO3WV60XHDhw4MCBAwduC1x3VQNyFyRdY4NxcODAgQMHDhy4JXBThVS/rw6Kqw3StFH7WCc4cODAgQMHDtwyuG4haQCtwqb7VgPwf/8AwIEDBw4cOHDglsJVg+qtwDx1Yd0BNjhw4MCBAwcO3LfDVQN1dZDdPnDz58CBAwcOHDhw4L4drgp0WnD3otJGKjhw4MCBAwcO3KfAdYPrrUFxd8A9dfHgwIEDBw4cOHDb4LoD3GphaWMybXSmFwQOHDhw4MCBA7cVzio2PBGAAwcOnAUO3HvXX3qTgYjWrG/EAAAAAElFTkSuQmCC">
+          </div>
+        </div>
+      
+    
+      
+        <a class="-mob-share-telegram" title="" rel="external nofollow noopener noreferrer"
+          
+            href="https://t.me/share/url?url=https://purel.in/Hexo-Frp-iAWriter-Overclocked-Blogger/&text=Hexo + Frp + iAWriter = Overclocked Blogger - Purel.in"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/telegram.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+            
+              <a class='next' href='/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/'>
+                <p class='title'>树莓派：安装rtl8812bu双频无线网卡驱动<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>突发奇想，可不可以将Pi作为一个无线中继，转发5G的WIFI信号并共享给所有连接到它的设备呢？说干就干吧，第一步先从搭配硬件环境开始。
+
+1. 选择无线网卡树莓派本身是千兆以太网口，以及5G/2...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'Hexo + Frp + iAWriter = Overclocked Blogger',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
   
     
     
@@ -757,6 +887,14 @@
 
 
   
+
+  
+
+  
+    
+    
+
+
 
   
 
@@ -958,6 +1096,36 @@
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.4.2/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'true' == 'true';
+  var verify = 'true' == 'true';
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "jhjh5GBKlIoWCt3E3kruPmtw-gzGzoHsz",
+    appKey: "W3kxdwrE90OEgHm9sQ9I2tHn",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'monsterid',
+    lang:'zh-cn',
+    visitor: 'false',
+    highlight:'true'
+  })
+  </script>
 
 
 
