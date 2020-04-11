@@ -35,13 +35,13 @@
       <category term="网站" scheme="https://purel.in/categories/%E7%BD%91%E7%AB%99/"/>
     
     
-      <category term="Purel.in" scheme="https://purel.in/tags/Purel-in/"/>
-    
       <category term="Hexo" scheme="https://purel.in/tags/Hexo/"/>
     
       <category term="Markdown" scheme="https://purel.in/tags/Markdown/"/>
     
       <category term="Blog" scheme="https://purel.in/tags/Blog/"/>
+    
+      <category term="Purel.in" scheme="https://purel.in/tags/Purel-in/"/>
     
   </entry>
   
