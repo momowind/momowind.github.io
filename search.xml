@@ -20,13 +20,13 @@
       
         <tags>
             
-            <tag> Purel.in </tag>
-            
             <tag> 树梅派 </tag>
             
             <tag> Hexo </tag>
             
             <tag> Github </tag>
+            
+            <tag> Purel.in </tag>
             
         </tags>
       
@@ -51,9 +51,9 @@
       
         <tags>
             
-            <tag> Purel.in </tag>
-            
             <tag> Hexo </tag>
+            
+            <tag> Purel.in </tag>
             
             <tag> Markdown </tag>
             
@@ -90,13 +90,13 @@
             
             <tag> 树梅派 </tag>
             
-            <tag> 无线网卡 </tag>
-            
-            <tag> rtl8812bu </tag>
+            <tag> Pi </tag>
             
             <tag> 驱动 </tag>
             
-            <tag> Pi </tag>
+            <tag> 无线网卡 </tag>
+            
+            <tag> rtl8812bu </tag>
             
         </tags>
       
@@ -123,17 +123,17 @@
             
             <tag> 树梅派 </tag>
             
-            <tag> 驱动 </tag>
-            
-            <tag> Pi </tag>
-            
             <tag> ssd1306 </tag>
             
             <tag> LCD </tag>
             
             <tag> SPI </tag>
             
+            <tag> Pi </tag>
+            
             <tag> Python </tag>
+            
+            <tag> 驱动 </tag>
             
         </tags>
       
@@ -195,13 +195,13 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> 树梅派 </tag>
             
-            <tag> Pi </tag>
+            <tag> 服务器 </tag>
             
             <tag> LCD </tag>
+            
+            <tag> Pi </tag>
             
             <tag> 3.5inch </tag>
             

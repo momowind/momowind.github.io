@@ -35,13 +35,13 @@
       <category term="网站" scheme="https://purel.in/categories/%E7%BD%91%E7%AB%99/"/>
     
     
-      <category term="Purel.in" scheme="https://purel.in/tags/Purel-in/"/>
-    
       <category term="树梅派" scheme="https://purel.in/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/"/>
     
       <category term="Hexo" scheme="https://purel.in/tags/Hexo/"/>
     
       <category term="Github" scheme="https://purel.in/tags/Github/"/>
+    
+      <category term="Purel.in" scheme="https://purel.in/tags/Purel-in/"/>
     
   </entry>
   
@@ -64,9 +64,9 @@
       <category term="网站" scheme="https://purel.in/categories/%E7%BD%91%E7%AB%99/"/>
     
     
-      <category term="Purel.in" scheme="https://purel.in/tags/Purel-in/"/>
-    
       <category term="Hexo" scheme="https://purel.in/tags/Hexo/"/>
+    
+      <category term="Purel.in" scheme="https://purel.in/tags/Purel-in/"/>
     
       <category term="Markdown" scheme="https://purel.in/tags/Markdown/"/>
     
@@ -101,13 +101,13 @@
     
       <category term="树梅派" scheme="https://purel.in/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/"/>
     
-      <category term="无线网卡" scheme="https://purel.in/tags/%E6%97%A0%E7%BA%BF%E7%BD%91%E5%8D%A1/"/>
-    
-      <category term="rtl8812bu" scheme="https://purel.in/tags/rtl8812bu/"/>
+      <category term="Pi" scheme="https://purel.in/tags/Pi/"/>
     
       <category term="驱动" scheme="https://purel.in/tags/%E9%A9%B1%E5%8A%A8/"/>
     
-      <category term="Pi" scheme="https://purel.in/tags/Pi/"/>
+      <category term="无线网卡" scheme="https://purel.in/tags/%E6%97%A0%E7%BA%BF%E7%BD%91%E5%8D%A1/"/>
+    
+      <category term="rtl8812bu" scheme="https://purel.in/tags/rtl8812bu/"/>
     
   </entry>
   
@@ -132,17 +132,17 @@
     
       <category term="树梅派" scheme="https://purel.in/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/"/>
     
-      <category term="驱动" scheme="https://purel.in/tags/%E9%A9%B1%E5%8A%A8/"/>
-    
-      <category term="Pi" scheme="https://purel.in/tags/Pi/"/>
-    
       <category term="ssd1306" scheme="https://purel.in/tags/ssd1306/"/>
     
       <category term="LCD" scheme="https://purel.in/tags/LCD/"/>
     
       <category term="SPI" scheme="https://purel.in/tags/SPI/"/>
     
+      <category term="Pi" scheme="https://purel.in/tags/Pi/"/>
+    
       <category term="Python" scheme="https://purel.in/tags/Python/"/>
+    
+      <category term="驱动" scheme="https://purel.in/tags/%E9%A9%B1%E5%8A%A8/"/>
     
   </entry>
   
@@ -200,13 +200,13 @@
       <category term="树梅派" scheme="https://purel.in/categories/%E6%A0%91%E6%A2%85%E6%B4%BE/"/>
     
     
-      <category term="服务器" scheme="https://purel.in/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
       <category term="树梅派" scheme="https://purel.in/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/"/>
     
-      <category term="Pi" scheme="https://purel.in/tags/Pi/"/>
+      <category term="服务器" scheme="https://purel.in/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
       <category term="LCD" scheme="https://purel.in/tags/LCD/"/>
+    
+      <category term="Pi" scheme="https://purel.in/tags/Pi/"/>
     
       <category term="3.5inch" scheme="https://purel.in/tags/3-5inch/"/>
     
