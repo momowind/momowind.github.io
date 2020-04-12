@@ -35,13 +35,13 @@
       <category term="网站" scheme="https://purel.in/categories/%E7%BD%91%E7%AB%99/"/>
     
     
-      <category term="Hexo" scheme="https://purel.in/tags/Hexo/"/>
-    
-      <category term="Purel.in" scheme="https://purel.in/tags/Purel-in/"/>
-    
       <category term="树梅派" scheme="https://purel.in/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/"/>
     
+      <category term="Hexo" scheme="https://purel.in/tags/Hexo/"/>
+    
       <category term="Github" scheme="https://purel.in/tags/Github/"/>
+    
+      <category term="Purel.in" scheme="https://purel.in/tags/Purel-in/"/>
     
   </entry>
   
@@ -66,11 +66,11 @@
     
       <category term="Hexo" scheme="https://purel.in/tags/Hexo/"/>
     
+      <category term="Purel.in" scheme="https://purel.in/tags/Purel-in/"/>
+    
       <category term="Markdown" scheme="https://purel.in/tags/Markdown/"/>
     
       <category term="Blog" scheme="https://purel.in/tags/Blog/"/>
-    
-      <category term="Purel.in" scheme="https://purel.in/tags/Purel-in/"/>
     
       <category term="树莓派" scheme="https://purel.in/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
     

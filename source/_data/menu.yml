@@ -1,6 +1,6 @@
-    - name: 首页
-      icon: fas fa-home
-      url: /
+#    - name: 首页
+#      icon: fas fa-home
+#      url: /
     - name: 文章
       icon: fas fa-newspaper
       rows:
