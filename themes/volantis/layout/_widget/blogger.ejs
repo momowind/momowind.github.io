@@ -18,6 +18,11 @@
           <p><span id="jinrishici-sentence"><%- item.jinrishici != true ? item.jinrishici : config.title %></span></p>
           <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
         <% } %>
+           
+        <% if (item.hitokoto){ %>   
+           <p id="hitokoto">:D 获取中...</p><script src="https://v1.hitokoto.cn/?c=j&c=k&encode=js&select=%23hitokoto" defer></script>
+        <% } %>
+ 
       </div>
     <% } %>
     <% if (item.social == true && theme.footer.social) { %>

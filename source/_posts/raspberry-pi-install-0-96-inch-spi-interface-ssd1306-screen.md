@@ -121,6 +121,7 @@ while True:
 通过 `python sys_info.py` 运行它，如果提示却什么模块可以直接安装再执行，比如我这边缺了utmp模块，输入 `apt-get install python-utmp` 来进行安装。
 
 再次运行python sys_info.py成功点亮～
+这里值得注意的是`time.sleep(5)`参数，起初的demo值默认为`.1`，这意味着每0.1秒就刷新一次屏幕，不管我是否注释掉这一行CPU负载都会迅速提升。所以我的建议值是5秒，这足够我们获取到刷新的信息而不烦躁，并且有效降低树莓派的CPU复杂。
 
 ![](/images/2020/04/sys_info.jpg "Processed with VSCO with a8 preset")
 ## 4. 设置开机启动

@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/</loc>
+    
+    <lastmod>2020-04-12T05:50:47.451Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purel.in/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/</loc>
+    
+    <lastmod>2020-04-12T01:45:48.850Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://purel.in/Hexo-Frp-iAWriter-Overclocked-Blogger/</loc>
     
-    <lastmod>2020-04-11T17:34:35.808Z</lastmod>
+    <lastmod>2020-04-12T01:35:41.866Z</lastmod>
     
   </url>
   
@@ -26,13 +40,6 @@
     <loc>https://purel.in/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/</loc>
     
     <lastmod>2020-04-11T09:12:30.801Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://purel.in/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/</loc>
-    
-    <lastmod>2020-04-11T09:00:18.861Z</lastmod>
     
   </url>
   

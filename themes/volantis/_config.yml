@@ -115,9 +115,9 @@ cover:
   subtitle: 'Pure Life, Learn, Leadership & Love in'
   search: # search bar placeholder
   features:
-    - name: 首页
-      icon: fas fa-home
-      url: /
+#    - name: 首页
+#      icon: fas fa-home
+#      url: /
     - name: 文章
       icon: fas fa-newspaper
       rows:
@@ -151,9 +151,9 @@ navbar:
     title: Purel.in
   menu:
     # The following can be written in `blog/source/_data/menu.yml`
-    - name: 首页
-      icon: fas fa-home
-      url: /
+#    - name: 首页
+#      icon: fas fa-home
+#      url: /
     - name: 分类
       icon: fas fa-folder-open
       url: categories/
@@ -293,7 +293,8 @@ widget:
     avatar: /images/waterboy.JPG
     title: 徐哞哞
     subtitle: I'm Diamond.
-    jinrishici: true # Poetry Today. You can set a string, and it will be displayed when loading fails.
+    hitokoto: true # 一言
+    jinrishici: false # Poetry Today. You can set a string, and it will be displayed when loading fails.
     social: true
   # ---------------------------------------
   # toc widget (valid only in articles)
@@ -344,20 +345,20 @@ widget:
     class: copyright
     display: [desktop, mobile] # [desktop, mobile]
     blockquote: true
-    permalink: '本文永久链接是：'
+    permalink: '本文永久链接：'
     content:
-      - '博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议'
+      - '博客内容遵循 [署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议]'
       - permalink
   # ---------------------------------------
   # qrcode widget
   donate:
     class: qrcode
-    display: [desktop, mobile] # [desktop, mobile]
+    display: # [desktop, mobile]
     height: 64px  # Automatic height if not set
-    fancybox: false
+    fancybox: true
     images:
-      - /images/qrcode/wechat.JPG
-      - /images/qrcode/wechat.JPG
+       #- /images/qrcode/wechat.JPG
+       #- /images/qrcode/wechat.JPG
   # ---------------------------------------
   # references widget
   references:
@@ -376,14 +377,17 @@ footer:
   # layout of footer: [aplayer, social, license, info, copyright]
   layout: [aplayer, social, license, info, copyright]
   social:
-    - icon: fas fa-rss
+    - icon: fas fa-rss-square
       url: atom.xml
-    - icon: fas fa-envelope
-      url: mailto:momowind@gmail.com
+    - icon: fab fa-telegram-plane
+      url: https://t.me/Jacobx
     - icon: fab fa-github
       url: https://github.com/momowind
     - icon: fas fa-headphones-alt
       url: https://music.163.com/#/user/home?id=98046
+    - icon: fab fa-weibo
+      url: https://www.weibo.com/382041
+
   copyright: '[Copyright © 2017-2020 Purel.in](https://purel.in)'
   # You can add your own property here. (Support markdown, for example: br: '<br>')
   br: '<br>'
@@ -504,7 +508,10 @@ comments:
   valine:
     appId: jhjh5GBKlIoWCt3E3kruPmtw-gzGzoHsz
     appKey: W3kxdwrE90OEgHm9sQ9I2tHn
-    js: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.4.2/js/valine.js
+  # js: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.4.2/js/valine.js
+  # js: https://valine.js.org/script/Valine.min.js
+    js: https://unpkg.com/valine@latest/dist/Valine.min.js
+
     path: # All pages use the same path (share the same comments data)
     meta: nick,mail,link #valine comment header info
     placeholder: 快来评论吧~ # valine comment input placeholder(like: Please leave your footprints )
@@ -563,3 +570,5 @@ search:
     queryKey:
   baidu:
     apiId:
+    
+    

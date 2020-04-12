@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <!-- SEO相关 -->
+  <link rel="icon" type="image/png" href="/images/favicon.ico">
   
     
   
@@ -69,17 +70,7 @@
 
   
   
-    <!-- ba -->
-    <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?57cf54f00f7109cc953ac39f01ef5781";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-    </script>
-  
+
 <link rel="alternate" href="/atom.xml" title="Purel.in" type="application/atom+xml">
 </head>
 
@@ -94,9 +85,9 @@
     <div class='nav-sub'>
       <p class="title"></p>
       <ul class='switcher nav-list-h'>
-        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)' rel="external nofollow noreferrer"></a></li>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
         
-          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)' rel="external nofollow noreferrer"></a></li>
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
         
       </ul>
     </div>
@@ -109,7 +100,7 @@
           
             Purel.in
           
-          
+
         </a>
       
 
@@ -303,10 +294,10 @@
 
 			<ul class='switcher nav-list-h'>
 				
-					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)' rel="external nofollow noreferrer"></a></li>
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
 				
 				<li>
-          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)' rel="external nofollow noreferrer"></a>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
           <ul class="menu-phone list-v navigation white-box">
             
               
@@ -588,7 +579,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line">import Adafruit_GPIO.SPI as SPI</span><br><span class="line">import Adafruit_SSD1306</span><br><span class="line">from PIL import Image</span><br><span class="line">from PIL import ImageDraw</span><br><span class="line">from PIL import ImageFont</span><br><span class="line">import subprocess</span><br><span class="line"></span><br><span class="line"># Raspberry Pi pin configuration:</span><br><span class="line">RST &#x3D; 17     # 注意这里填BCM标准的针脚号</span><br><span class="line"># Note the following are only used with SPI:</span><br><span class="line">DC &#x3D; 22</span><br><span class="line">SPI_PORT &#x3D; 0</span><br><span class="line">SPI_DEVICE &#x3D; 0</span><br><span class="line"></span><br><span class="line"># 128x64 display with hardware SPI:</span><br><span class="line">disp &#x3D; Adafruit_SSD1306.SSD1306_128_64(rst&#x3D;RST, dc&#x3D;DC, spi&#x3D;SPI.SpiDev(SPI_PORT, SPI_DEVICE, max_speed_hz&#x3D;8000000))</span><br><span class="line"></span><br><span class="line"># Initialize library.</span><br><span class="line">disp.begin()</span><br><span class="line"></span><br><span class="line"># Clear display.</span><br><span class="line">disp.clear()</span><br><span class="line">disp.display()</span><br><span class="line"></span><br><span class="line"># Create blank image for drawing.</span><br><span class="line"># Make sure to create image with mode &#39;1&#39; for 1-bit color.</span><br><span class="line">width &#x3D; disp.width</span><br><span class="line">height &#x3D; disp.height</span><br><span class="line">image &#x3D; Image.new(&#39;1&#39;, (width, height))</span><br><span class="line"></span><br><span class="line"># Get drawing object to draw on image.</span><br><span class="line">draw &#x3D; ImageDraw.Draw(image)</span><br><span class="line"></span><br><span class="line"># Draw a black filled box to clear the image.</span><br><span class="line">draw.rectangle((0,0,width,height), outline&#x3D;0, fill&#x3D;0)</span><br><span class="line"></span><br><span class="line"># Draw some shapes.</span><br><span class="line"># First define some constants to allow easy resizing of shapes.</span><br><span class="line">padding &#x3D; -2</span><br><span class="line">top &#x3D; padding</span><br><span class="line">bottom &#x3D; height-padding</span><br><span class="line"># Move left to right keeping track of the current x position for drawing shapes.</span><br><span class="line">x &#x3D; 0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Load default font.</span><br><span class="line">font &#x3D; ImageFont.load_default()</span><br><span class="line"></span><br><span class="line"># Alternatively load a TTF font.  Make sure the .ttf font file is in the same directory as the python script!</span><br><span class="line"># Some other nice fonts to try: http:&#x2F;&#x2F;www.dafont.com&#x2F;bitmap.php</span><br><span class="line"># font &#x3D; ImageFont.truetype(&#39;Minecraftia.ttf&#39;, 8)</span><br><span class="line"></span><br><span class="line">while True:</span><br><span class="line"></span><br><span class="line">    # Draw a black filled box to clear the image.</span><br><span class="line">    draw.rectangle((0,0,width,height), outline&#x3D;0, fill&#x3D;0)</span><br><span class="line"></span><br><span class="line">    # Shell scripts for system monitoring from here : https:&#x2F;&#x2F;unix.stackexchange.com&#x2F;questions&#x2F;119126&#x2F;command-to-display-memory-usage-disk-usage-and-cpu-load</span><br><span class="line">    cmd &#x3D; hostname -I | cut -d\&#39; \&#39; -f1</span><br><span class="line">    IP &#x3D; subprocess.check_output(cmd, shell &#x3D; True )</span><br><span class="line">    cmd &#x3D; top -bn1 | grep load | awk &#39;&#123;printf \CPU: %.2f\, $(NF-2)&#125;&#39;</span><br><span class="line">    CPU &#x3D; subprocess.check_output(cmd, shell &#x3D; True )</span><br><span class="line">    cmd &#x3D; free -m | awk &#39;NR&#x3D;&#x3D;2&#123;printf \Mem: %s&#x2F;%sMB %.2f%%\, $3,$2,$3*100&#x2F;$2 &#125;&#39;</span><br><span class="line">    MemUsage &#x3D; subprocess.check_output(cmd, shell &#x3D; True )</span><br><span class="line">    cmd &#x3D; df -h | awk &#39;$NF&#x3D;&#x3D;\&#x2F;\&#123;printf \Disk: %d&#x2F;%dGB %s\, $3,$2,$5&#125;&#39;</span><br><span class="line">    Disk &#x3D; subprocess.check_output(cmd, shell &#x3D; True )</span><br><span class="line">    cmd &#x3D; vcgencmd measure_temp</span><br><span class="line">    Temp &#x3D; subprocess.check_output(cmd, shell &#x3D; True )</span><br><span class="line"></span><br><span class="line">  # Return CPU temperature as a character string</span><br><span class="line"></span><br><span class="line">    # Write two lines of text.</span><br><span class="line"></span><br><span class="line">    draw.text((x, top),       IP:  + str(IP),  font&#x3D;font, fill&#x3D;255)</span><br><span class="line">    draw.text((x, top+9),     str(CPU), font&#x3D;font, fill&#x3D;255)</span><br><span class="line">    draw.text((x, top+18),    str(MemUsage),  font&#x3D;font, fill&#x3D;255)</span><br><span class="line">    draw.text((x, top+27),    str(Disk),  font&#x3D;font, fill&#x3D;255)</span><br><span class="line">    draw.text((60, top+9),    str(Temp), font&#x3D;font, fill&#x3D;255)</span><br><span class="line"></span><br><span class="line">    # Display image.</span><br><span class="line">    disp.image(image)</span><br><span class="line">    disp.display()</span><br><span class="line">	# 设置屏幕刷新间隔秒数，与CPU损耗相关</span><br><span class="line">    time.sleep(5)</span><br></pre></td></tr></table></figure>
 
 <p>通过 <code>python sys_info.py</code> 运行它，如果提示却什么模块可以直接安装再执行，比如我这边缺了utmp模块，输入 <code>apt-get install python-utmp</code> 来进行安装。</p>
-<p>再次运行python sys_info.py成功点亮～</p>
+<p>再次运行python sys_info.py成功点亮～<br>这里值得注意的是<code>time.sleep(5)</code>参数，起初的demo值默认为<code>.1</code>，这意味着每0.1秒就刷新一次屏幕，不管我是否注释掉这一行CPU负载都会迅速提升。所以我的建议值是5秒，这足够我们获取到刷新的信息而不烦躁，并且有效降低树莓派的CPU复杂。</p>
 <p><img src="/images/2020/04/sys_info.jpg" alt="" title="Processed with VSCO with a8 preset"></p>
 <h2 id="4-设置开机启动"><a href="#4-设置开机启动" class="headerlink" title="4. 设置开机启动"></a>4. 设置开机启动</h2><p>进入目录 /lib/systemd/system 创建<code>sys_info.service</code>文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description&#x3D;sys——info service</span><br><span class="line">After&#x3D;network.target syslog.target</span><br><span class="line">Wants&#x3D;network.target</span><br><span class="line">[Service]</span><br><span class="line">Type&#x3D;simple</span><br><span class="line">启动服务的命令（此处写你的frps的实际安装目录）</span><br><span class="line">ExecStart&#x3D;python &#x2F;root&#x2F;sys_info.py</span><br><span class="line">[Install]</span><br><span class="line">WantedBy&#x3D;multi-user.target&#96;</span><br></pre></td></tr></table></figure>
@@ -617,12 +608,12 @@
       <blockquote>
         
           
-            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+            <p>博客内容遵循 [署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议]</p>
 
           
         
           
-            <p>本文永久链接是：<a href=https://purel.in/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/>https://purel.in/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/</a></p>
+            <p>本文永久链接：<a href=https://purel.in/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/>https://purel.in/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/</a></p>
           
         
       </blockquote>
@@ -641,20 +632,6 @@
 
   <div class='content article-entry'>
     
-      
-        <img src='/images/qrcode/wechat.JPG'
-        
-          height='64px'
-        >
-      
-    
-      
-        <img src='/images/qrcode/wechat.JPG'
-        
-          height='64px'
-        >
-      
-    
   </div>
 </section>
 
@@ -672,10 +649,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-11T17:00:18+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-12T09:45:48+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年4月11日</p>
+    <p>更新于：2020年4月12日</p>
   </a>
 </div>
 
@@ -867,7 +844,7 @@
           <li><a class="flat-box"
             title="/categories/%E7%BD%91%E7%AB%99/" href="/categories/%E7%BD%91%E7%AB%99/"
             id="categoriesE7BD91E7AB99"
-            ><div class='name'>网站</div><div class='badge'>(3)</div></a></li>
+            ><div class='name'>网站</div><div class='badge'>(4)</div></a></li>
         
       </ul>
     </div>
@@ -891,7 +868,7 @@
 
 
     <div class='content'>
-      <a href="/tags/3-5inch/" style="font-size: 14px; color: #999">3.5inch</a> <a href="/tags/Blog/" style="font-size: 14px; color: #999">Blog</a> <a href="/tags/Frp/" style="font-size: 14px; color: #999">Frp</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/LCD/" style="font-size: 17.33px; color: #828282">LCD</a> <a href="/tags/Leadership/" style="font-size: 14px; color: #999">Leadership</a> <a href="/tags/Lofree/" style="font-size: 14px; color: #999">Lofree</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/Pi/" style="font-size: 20.67px; color: #6c6c6c">Pi</a> <a href="/tags/Purel-in/" style="font-size: 20.67px; color: #6c6c6c">Purel.in</a> <a href="/tags/Python/" style="font-size: 14px; color: #999">Python</a> <a href="/tags/SPI/" style="font-size: 14px; color: #999">SPI</a> <a href="/tags/SSH/" style="font-size: 14px; color: #999">SSH</a> <a href="/tags/SSR/" style="font-size: 14px; color: #999">SSR</a> <a href="/tags/Samba/" style="font-size: 14px; color: #999">Samba</a> <a href="/tags/WIFI/" style="font-size: 14px; color: #999">WIFI</a> <a href="/tags/Wordpress/" style="font-size: 17.33px; color: #828282">Wordpress</a> <a href="/tags/iA-Writer/" style="font-size: 14px; color: #999">iA Writer</a> <a href="/tags/root/" style="font-size: 14px; color: #999">root</a> <a href="/tags/rtl8812bu/" style="font-size: 14px; color: #999">rtl8812bu</a> <a href="/tags/ssd1306/" style="font-size: 14px; color: #999">ssd1306</a> <a href="/tags/%E4%BF%AE%E7%82%BC/" style="font-size: 14px; color: #999">修炼</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" style="font-size: 14px; color: #999">内网穿透</a> <a href="/tags/%E5%90%88%E4%B8%80/" style="font-size: 14px; color: #999">合一</a> <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">学习</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83/" style="font-size: 14px; color: #999">数据中心</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E7%BD%91%E5%8D%A1/" style="font-size: 14px; color: #999">无线网卡</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 17.33px; color: #828282">服务器</a> <a href="/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/" style="font-size: 24px; color: #555">树梅派</a> <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 14px; color: #999">树莓派</a> <a href="/tags/%E7%96%AB%E6%83%85/" style="font-size: 14px; color: #999">疫情</a> <a href="/tags/%E9%A2%86%E5%AF%BC%E5%8A%9B/" style="font-size: 14px; color: #999">领导力</a> <a href="/tags/%E9%A9%B1%E5%8A%A8/" style="font-size: 17.33px; color: #828282">驱动</a>
+      <a href="/tags/3-5inch/" style="font-size: 14px; color: #999">3.5inch</a> <a href="/tags/Blog/" style="font-size: 14px; color: #999">Blog</a> <a href="/tags/Frp/" style="font-size: 14px; color: #999">Frp</a> <a href="/tags/Github/" style="font-size: 14px; color: #999">Github</a> <a href="/tags/Hexo/" style="font-size: 16.5px; color: #888">Hexo</a> <a href="/tags/LCD/" style="font-size: 16.5px; color: #888">LCD</a> <a href="/tags/Leadership/" style="font-size: 14px; color: #999">Leadership</a> <a href="/tags/Lofree/" style="font-size: 14px; color: #999">Lofree</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/Pi/" style="font-size: 19px; color: #777">Pi</a> <a href="/tags/Purel-in/" style="font-size: 21.5px; color: #666">Purel.in</a> <a href="/tags/Python/" style="font-size: 14px; color: #999">Python</a> <a href="/tags/SPI/" style="font-size: 14px; color: #999">SPI</a> <a href="/tags/SSH/" style="font-size: 14px; color: #999">SSH</a> <a href="/tags/SSR/" style="font-size: 14px; color: #999">SSR</a> <a href="/tags/Samba/" style="font-size: 14px; color: #999">Samba</a> <a href="/tags/WIFI/" style="font-size: 14px; color: #999">WIFI</a> <a href="/tags/Wordpress/" style="font-size: 16.5px; color: #888">Wordpress</a> <a href="/tags/iA-Writer/" style="font-size: 14px; color: #999">iA Writer</a> <a href="/tags/root/" style="font-size: 14px; color: #999">root</a> <a href="/tags/rtl8812bu/" style="font-size: 14px; color: #999">rtl8812bu</a> <a href="/tags/ssd1306/" style="font-size: 14px; color: #999">ssd1306</a> <a href="/tags/%E4%BF%AE%E7%82%BC/" style="font-size: 14px; color: #999">修炼</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" style="font-size: 14px; color: #999">内网穿透</a> <a href="/tags/%E5%90%88%E4%B8%80/" style="font-size: 14px; color: #999">合一</a> <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">学习</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83/" style="font-size: 14px; color: #999">数据中心</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E7%BD%91%E5%8D%A1/" style="font-size: 14px; color: #999">无线网卡</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 16.5px; color: #888">服务器</a> <a href="/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/" style="font-size: 24px; color: #555">树梅派</a> <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 14px; color: #999">树莓派</a> <a href="/tags/%E7%96%AB%E6%83%85/" style="font-size: 14px; color: #999">疫情</a> <a href="/tags/%E9%A2%86%E5%AF%BC%E5%8A%9B/" style="font-size: 14px; color: #999">领导力</a> <a href="/tags/%E9%A9%B1%E5%8A%A8/" style="font-size: 16.5px; color: #888">驱动</a>
     </div>
   </section>
 
@@ -960,15 +937,15 @@
           
             
               <a href="/atom.xml"
-                class="social fas fa-rss flat-btn"
+                class="social fas fa-rss-square flat-btn"
                 target="_blank"
                 rel="external nofollow noopener noreferrer">
               </a>
             
           
             
-              <a href="mailto:momowind@gmail.com"
-                class="social fas fa-envelope flat-btn"
+              <a href="https://t.me/Jacobx"
+                class="social fab fa-telegram-plane flat-btn"
                 target="_blank"
                 rel="external nofollow noopener noreferrer">
               </a>
@@ -990,18 +967,25 @@
               </a>
             
           
+            
+              <a href="https://www.weibo.com/382041"
+                class="social fab fa-weibo flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
         </div>
       
     
       
-        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener external nofollow noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">(CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
       
-        本站使用
-        <a href="https://volantis.js.org/" rel="external nofollow noreferrer" target="_blank" class="codename">Volantis</a>
-        作为主题，总访问量为
+        
+        总访问量为
           <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
           次
         
@@ -1018,12 +1002,9 @@
 
 <script>setLoadingBarProgress(80);</script>
 
-
-
-
       <script>setLoadingBarProgress(60);</script>
     </div>
-    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)' rel="external nofollow noreferrer"></a>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
   </div>
   
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
@@ -1123,7 +1104,7 @@
 
   
     
-<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.4.2/js/valine.js"></script>
+<script src="https://unpkg.com/valine@latest/dist/Valine.min.js"></script>
 
   
   <script>

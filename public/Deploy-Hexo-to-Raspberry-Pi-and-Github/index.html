@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  <link rel="icon" type="image/png" href="/images/favicon.ico">
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>Hexo同步部署到树莓派与Github - Purel.in</title>
+  
+    <meta name="keywords" content="Hexo,Purel.in,树梅派,Github">
+  
+  
+    <meta name="description" content="这篇文章记录了我是如何实现通过一个指令将树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Purel.in">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+
+<link rel="alternate" href="/atom.xml" title="Purel.in" type="application/atom+xml">
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+            Purel.in
+          
+
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  
+                    <i class='fas fa-home fa-fw'></i>
+                  
+                  首页
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" 
+                  
+                  
+                  >
+                  
+                    <i class='fas fa-newspaper fa-fw'></i>
+                  
+                  文章
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  
+                    <i class='fas fa-folder-open fa-fw'></i>
+                  
+                  分类
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  
+                    <i class='fas fa-tags fa-fw'></i>
+                  
+                  标签
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  
+                    <i class='fas fa-archive fa-fw'></i>
+                  
+                  归档
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  
+                    <i class='fas fa-link fa-fw'></i>
+                  
+                  友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  
+                    <i class='fas fa-info-circle fa-fw'></i>
+                  
+                  关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=https://pi.purel.in
+                  
+                  
+                  
+                    id="https:pipurelin"
+                  >
+                  
+                    <i class='fab fa-raspberry-pi fa-fw'></i>
+                  
+                  Pi
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=https://d.purel.in
+                  
+                  
+                  
+                    id="https:dpurelin"
+                  >
+                  
+                    <i class='fas fa-flask fa-fw'></i>
+                  
+                  实验室
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  
+                    <i class='fas fa-home fa-fw'></i>
+                  
+                  首页
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" 
+                  
+                  
+                  >
+                  
+                    <i class='fas fa-newspaper fa-fw'></i>
+                  
+                  文章
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  
+                    <i class='fas fa-folder-open fa-fw'></i>
+                  
+                  分类
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  
+                    <i class='fas fa-tags fa-fw'></i>
+                  
+                  标签
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  
+                    <i class='fas fa-archive fa-fw'></i>
+                  
+                  归档
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  
+                    <i class='fas fa-link fa-fw'></i>
+                  
+                  友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  
+                    <i class='fas fa-info-circle fa-fw'></i>
+                  
+                  关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=https://pi.purel.in
+                  
+                  
+                  
+                    id="https:pipurelin"
+                  >
+                  
+                    <i class='fab fa-raspberry-pi fa-fw'></i>
+                  
+                  Pi
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=https://d.purel.in
+                  
+                  
+                  
+                    id="https:dpurelin"
+                  >
+                  
+                    <i class='fas fa-flask fa-fw'></i>
+                  
+                  实验室
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  
+    <h1 class="title">
+      <a href="/Deploy-Hexo-to-Raspberry-Pi-and-Github/">
+        Hexo同步部署到树莓派与Github
+      </a>
+    </h1>
+  
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://purel.in" rel="nofollow">
+    <img src="/images/waterboy.JPG">
+    <p>徐哞哞</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E7%BD%91%E7%AB%99/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>网站</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年4月12日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p><img src="/images/2020/04/hexopi.jpg" alt=""><br>这篇文章记录了我是如何实现通过一个指令将树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。</p>
+<a id="more"></a>
+<h2 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1. 安装Git"></a>1. 安装Git</h2><h3 id="1-1-将Git部署到树莓派"><a href="#1-1-将Git部署到树莓派" class="headerlink" title="1.1 将Git部署到树莓派"></a>1.1 将Git部署到树莓派</h3><p>VPS服务器请注意设置防火墙相关端口开放，树莓派则建议安装ufw解决一切防火墙端口问题造成的坑。<br>首先通过指令<code>apt install git</code>安装Git和Node.js，如果是CentOS服务器需要把apt换成yum，我这里主要以树莓派的Debian环境来记录整个部署过程。</p>
+<h3 id="1-2-全局修改Github用户名"><a href="#1-2-全局修改Github用户名" class="headerlink" title="1.2 全局修改Github用户名"></a>1.2 全局修改Github用户名</h3><p>在树莓派终端输入下列命令修改全局用户名（注意将引号内替换为个人帐号）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;你的GitHub用户名&quot;</span><br><span class="line">git config --global user.email &quot;你的GitHub邮箱&quot;</span><br></pre></td></tr></table></figure>
+<p>然后查看是否已经全局修改用户名：<br><code>git config --list</code><br>返回显示下面信息就是正确了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">user.name&#x3D;你的用户名</span><br><span class="line">user.email&#x3D;你的邮箱</span><br></pre></td></tr></table></figure>
+<p>安装NodeJS</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl --silent --location https:&#x2F;&#x2F;rpm.nodesource.com&#x2F;setup_13.x | bash -</span><br></pre></td></tr></table></figure>
+<p>添加git用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adduser git </span><br><span class="line">chmod 740 &#x2F;etc&#x2F;sudoers </span><br><span class="line">nano &#x2F;etc&#x2F;sudoers</span><br></pre></td></tr></table></figure>
+<p>找到以下内容 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">## Allow root to run any commands anywhere </span><br><span class="line">root ALL&#x3D;(ALL) ALL</span><br></pre></td></tr></table></figure>
+<p>在下面添加一行<br><code>git ALL=(ALL) ALL</code><br>保存退出并改回权限<br><code>chmod 400 /etc/sudoers</code><br>设置 git 用户密码<br><code>sudo passwd git</code><br>切换至git用户，创建 ~/.ssh 文件夹和 ~/.ssh/authorized_keys 文件，并赋予相应的权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su git </span><br><span class="line">mkdir ~&#x2F;.ssh </span><br><span class="line">nano ~&#x2F;.ssh&#x2F;authorized_keys</span><br></pre></td></tr></table></figure>
+<p>设置SSH Key要回到Mac/PC本机终端内执行：ssh-keygen -t rsa -C “邮箱地址”，根据提示输入密码等完成设置。查看公开密钥：cat ~/.ssh/id_rsa.pub复制显示的内容。将公钥复制粘贴到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 ~&#x2F;.ssh&#x2F;authorized_keys</span><br><span class="line">chmod 700 ~&#x2F;.ssh</span><br></pre></td></tr></table></figure>
+<p>在Mac Git Bash 中测试<br><code>ssh -v git@ip地址 # 服务器外网地址</code></p>
+<p>测试后如果不需要密码则成功！</p>
+<p>如果是树莓派本机从root部署到git，需要注意切换用户来生成和保存密钥。指令和上面一样，在root用户和默认目录下生成ssh并保存至git默认目录即可。</p>
+<h2 id="2-安装Nginx"><a href="#2-安装Nginx" class="headerlink" title="2. 安装Nginx"></a>2. 安装Nginx</h2><h3 id="2-1-安装"><a href="#2-1-安装" class="headerlink" title="2.1 安装"></a>2.1 安装</h3><p>apt install nginx</p>
+<h3 id="2-2-启动"><a href="#2-2-启动" class="headerlink" title="2.2 启动"></a>2.2 启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start nginx # 启动</span><br><span class="line">systemctl enable nginx # 开机启动</span><br></pre></td></tr></table></figure>
+<p>输入服务器外网地址出现nginx信息表示启动成功。</p>
+<h3 id="2-3-配置nginx"><a href="#2-3-配置nginx" class="headerlink" title="2.3 配置nginx"></a>2.3 配置nginx</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano &#x2F;etc&#x2F;nginx&#x2F;nginx.conf</span><br></pre></td></tr></table></figure>
+<p>修改内容 server 下<br>server_name 如有域名可以改为自己的;<br>location / {<br>  root /usr/share/nginx/html/blog; # 此处增加为”/blog”,root指向博客所在目录<br>  …<br>}</p>
+<p>修改内容头部<code>user  nginx;</code>更改为<code>user  root;</code><br>保存退出后执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html&#x2F;blog</span><br><span class="line">sudo chown -R git:git &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html&#x2F;blog</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-部署Git库"><a href="#3-部署Git库" class="headerlink" title="3. 部署Git库"></a>3. 部署Git库</h2><h3 id="3-1-在派初始化一个git裸库"><a href="#3-1-在派初始化一个git裸库" class="headerlink" title="3.1 在派初始化一个git裸库"></a>3.1 在派初始化一个git裸库</h3><p>切换到git用户，然后切换到git用户目录，接着初始化裸库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su git</span><br><span class="line">cd ~</span><br><span class="line">git init --bare blog.git</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-新建post-receive文件"><a href="#3-2-新建post-receive文件" class="headerlink" title="3.2 新建post-receive文件"></a>3.2 新建post-receive文件</h3><p><code>nano ~/blog.git/hooks/post-receive</code><br>然后在该文件中输入以下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#！&#x2F;bin&#x2F;sh</span><br><span class="line">git --work-tree&#x3D;&#x2F;data&#x2F;wwwroot&#x2F;blog --git-dir&#x3D;&#x2F;home&#x2F;git&#x2F;blog.git checkout -f</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-备选方案"><a href="#3-3-备选方案" class="headerlink" title="3.3 备选方案"></a>3.3 备选方案</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">GIT_REPO&#x3D;&#x2F;home&#x2F;git&#x2F;blog.git</span><br><span class="line">TMP_GIT_CLONE&#x3D;&#x2F;tmp&#x2F;blog</span><br><span class="line">PUBLIC_WWW&#x3D;&#x2F;data&#x2F;wwwroot&#x2F;blog</span><br><span class="line">rm -rf $&#123;TMP_GIT_CLONE&#125;</span><br><span class="line">git clone $GIT_REPO $TMP_GIT_CLONE</span><br><span class="line">rm -rf $&#123;PUBLIC_WWW&#125;&#x2F;*</span><br><span class="line">cp -rf $&#123;TMP_GIT_CLONE&#125;&#x2F;* $&#123;PUBLIC_WWW&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-4-赋予权限"><a href="#3-4-赋予权限" class="headerlink" title="3.4 赋予权限"></a>3.4 赋予权限</h3><p>以上两种二选一，保存退出之后再输入以下代码，赋予该文件可执行权限:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x ~&#x2F;blog.git&#x2F;hooks&#x2F;post-receive</span><br><span class="line">chown git:git -R &#x2F;data&#x2F;wwwroot&#x2F;blog</span><br></pre></td></tr></table></figure>
+<h2 id="4-同时部署多平台设置"><a href="#4-同时部署多平台设置" class="headerlink" title="4. 同时部署多平台设置"></a>4. 同时部署多平台设置</h2><p>编辑blog/_config.yml设置repo源，pi是树莓派的git库，它被指向部署到我们刚刚设置的nginx网站目录，使之可以被访问。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">repo: </span><br><span class="line">  pi: git@VPS_IP:&#x2F;home&#x2F;git&#x2F;blog.git</span><br><span class="line">  github: https:&#x2F;&#x2F;github.com&#x2F;yourname&#x2F;yourname.github.io</span><br><span class="line">branch: master</span><br><span class="line">message:</span><br></pre></td></tr></table></figure>
+<h2 id="5-发布或调试Hexo博客"><a href="#5-发布或调试Hexo博客" class="headerlink" title="5. 发布或调试Hexo博客"></a>5. 发布或调试Hexo博客</h2><p><code>hexo clean &amp;&amp; hexo g</code><br>清除并生成新的Hexo网站<br><code>hexo clean &amp;&amp; hexo g -d</code><br>清除、生成新的网站并发布到Git或服务器<br>通过以上指令发布后打开vps的网址就能看到新的hexo博客啦，也可以通过<code>hexo s</code>在浏览器打开<code>localhost:4000</code>进行本地调试Hexo。</p>
+<h2 id="6-安装和卸载Hexo插件"><a href="#6-安装和卸载Hexo插件" class="headerlink" title="6. 安装和卸载Hexo插件"></a>6. 安装和卸载Hexo插件</h2><h3 id="6-1-安装插件"><a href="#6-1-安装插件" class="headerlink" title="6.1 安装插件"></a>6.1 安装插件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save #安装git部署</span><br><span class="line">npm install --save hexo-admin #安装后台发布</span><br><span class="line">npm install hexo-generator-feed --save #安装rss生成</span><br><span class="line">npm install hexo-generator-sitemap --save #安装sitemap</span><br><span class="line">npm i -S hexo-generator-search hexo-generator-json-content #搜索依赖包</span><br><span class="line">npm i -S hexo-renderer-stylus #安装stylus渲染器</span><br><span class="line">npm i -S hexo-helper-qrcode #qr二维码插件</span><br><span class="line">npm i -S hexo-related-popular-posts #安装相关文章插件</span><br><span class="line">npm i hexo-offline --save #加载加速插件</span><br><span class="line">npm install hexo-lazyload-image --save #图片懒加载</span><br><span class="line">npm install hexo-baidu-url-submit --save #百度实时提交</span><br></pre></td></tr></table></figure>
+<h3 id="6-2-卸载插件"><a href="#6-2-卸载插件" class="headerlink" title="6.2 卸载插件"></a>6.2 卸载插件</h3><p><code>npm list</code>查看已安装的插件列表<br><code>npm uninstall &lt;插件名&gt;</code>卸载哞个插件<br>删除 node_modules/ 目录下对应的插件文件rm -rf &lt;插件名&gt;</p>
+<h2 id="7-备份整个Hexo"><a href="#7-备份整个Hexo" class="headerlink" title="7. 备份整个Hexo"></a>7. 备份整个Hexo</h2><h3 id="7-1-在Github新建分支"><a href="#7-1-在Github新建分支" class="headerlink" title="7.1 在Github新建分支"></a>7.1 在Github新建分支</h3><p>在master下新建分支名为hexo，setting-branch下修改default源为hexo，然后<br>git clone到本地，在MacOS下 Command+Shift+. 查看隐藏文件，删除该目录下.git外所有文件，树莓派则在文件夹点击右键显示隐藏文件。</p>
+<p>新建或修改.gitignore用来忽略一些不需要的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules&#x2F;</span><br><span class="line">public&#x2F;</span><br><span class="line">.deploy*&#x2F;</span><br></pre></td></tr></table></figure>
+<h3 id="7-2-PUSH到Github"><a href="#7-2-PUSH到Github" class="headerlink" title="7.2 PUSH到Github"></a>7.2 PUSH到Github</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m “注释”</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+<h3 id="7-3-Git的常用指令"><a href="#7-3-Git的常用指令" class="headerlink" title="7.3 Git的常用指令"></a>7.3 Git的常用指令</h3><p>add、commit、push命令，简单的代码提交流程<br><code>git status</code> 查看工作区代码相对于暂存区的差别<br><code>git add .</code>将当前目录下修改的所有代码从工作区添加到暂存区 . 代表当前目录<br><code>git commit -m ‘注释’</code>将缓存区内容添加到本地仓库<br><code>git push origin master</code>将本地版本库推送到远程服务器，<br>origin是远程主机，master表示是远程服务器上的master分支，分支名是可以修改的</p>
+<h3 id="7-4-一键发布博客并完整备份"><a href="#7-4-一键发布博客并完整备份" class="headerlink" title="7.4 一键发布博客并完整备份"></a>7.4 一键发布博客并完整备份</h3><p>现在Github有两个分支，一个是master用于存放Hexo生成的public文件，上文我们新建的hexo分支用于存放Hexo的完整备份。</p>
+<h4 id="7-4-1-发布博客指令"><a href="#7-4-1-发布博客指令" class="headerlink" title="7.4.1 发布博客指令"></a>7.4.1 发布博客指令</h4><p><code>hexo clean &amp;&amp; hexo g -d</code></p>
+<h4 id="7-4-2-备份完整的Hexo"><a href="#7-4-2-备份完整的Hexo" class="headerlink" title="7.4.2 备份完整的Hexo"></a>7.4.2 备份完整的Hexo</h4><p>同步Hexo完整备份到Github分支hexo<br><code>git add . &amp;&amp; git commit –m &quot;注释&quot; &amp;&amp; git push</code></p>
+<h2 id="8-升级nodejs的方法"><a href="#8-升级nodejs的方法" class="headerlink" title="8. 升级nodejs的方法"></a>8. 升级nodejs的方法</h2><p>更新升级node版本的方法如下：</p>
+<h3 id="8-1-查看当前node版本"><a href="#8-1-查看当前node版本" class="headerlink" title="8.1 查看当前node版本"></a>8.1 查看当前node版本</h3><p><code>node –v</code></p>
+<h3 id="8-2-安装n模块"><a href="#8-2-安装n模块" class="headerlink" title="8.2 安装n模块"></a>8.2 安装n模块</h3><p><code>npm install -g n</code></p>
+<h3 id="8-3-升级到指定版本-最新版本"><a href="#8-3-升级到指定版本-最新版本" class="headerlink" title="8.3 升级到指定版本/最新版本"></a>8.3 升级到指定版本/最新版本</h3><p>该步骤可能需要花费一些时间。升级之前，可以执行<code>n ls</code>查看可升级的版本，如：<code>n 6.9.1</code><br>或者你也可以告诉管理器，安装最新的稳定版本<br><code>n stable</code></p>
+<h3 id="8-4-检查升级是否成功"><a href="#8-4-检查升级是否成功" class="headerlink" title="8.4 检查升级是否成功"></a>8.4 检查升级是否成功</h3><p><code>node -v</code><br>如果得到的版本信息不正确，可能需要重启机器。</p>
+<h3 id="8-5-常见问题"><a href="#8-5-常见问题" class="headerlink" title="8.5 常见问题"></a>8.5 常见问题</h3><p>如果遇到npm指令出现错误比如<code>Error: Cannot find module &#39;semver&#39;</code><br>重新安装最新版本即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -sL https:&#x2F;&#x2F;deb.nodesource.com&#x2F;setup_13.x | sudo -E bash -</span><br><span class="line">apt-get update</span><br><span class="line">apt-get install nodejs</span><br></pre></td></tr></table></figure>
+<p>之后检查它们是否被正确部署</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">nodes -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<p>全部正确输出则代表安装正确。<br>然后重新安装Hexo<br><code>npm install -g hexo-cli</code></p>
+
+          
+            <br>
+            
+              
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 [署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议]</p>
+
+          
+        
+          
+            <p>本文永久链接：<a href=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/>https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+  </div>
+</section>
+
+  
+
+
+            
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-12T13:50:47+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年4月12日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Hexo/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Hexo</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Purel-in/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Purel.in</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>树梅派</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Github/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Github</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&title=Hexo同步部署到树莓派与Github - Purel.in&summary=这篇文章记录了我是如何实现通过一个指令将树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&title=Hexo同步部署到树莓派与Github - Purel.in&summary=这篇文章记录了我是如何实现通过一个指令将树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&title=Hexo同步部署到树莓派与Github - Purel.in&summary=这篇文章记录了我是如何实现通过一个指令将树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <div class='hoverbox'>
+          <a><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/wechat.png"></a>
+          <div class='target'>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATgAAAE4CAAAAADqFLC2AAADrElEQVR42u3aUY7rQAgEwNz/0u8dYBUZGqJlo5q/RPaYqeSjBX79s6L1QgAOHDhwFjhwR+Be4fqx4cN13f3aB3qoa+u84MCBAwcOHDhw1+CmBXYLTe/vAnTrf6wHHDhw4MCBAwfuKFw1yKbBc+0AxfurdZTPCw4cOHDgwIED92Vw1aCaBuOthig4cODAgQMHDhy4rPE4HWBPB9XgwIEDBw4cOHDfCvephmIXOh0kdyF+bZIPDhw4cODAgQO3BNdd6eD5yuf4vODAgQMHDhw4cEfgputdoOw2KNPB9jQwt88LDhw4cODAgQN3BC49WLehuNWgrNbZbXSW7wcHDhw4cODAgTsGl77A120kdr+fBuPuYPpxP3DgwIEDBw4cuCNwKcR0YL3VyPxUQ7Q9kAYHDhw4cODAgTsClzYEuwdNG45p/dUg/PZ6cODAgQMHDhy4I3BpcE0h06CdPicN3o8BGBw4cODAgQMH7gjcp17YS18kTAfU04H0Yz3gwIEDBw4cOHBH4bZg0h+k+3nr+eXGJzhw4MCBAwcO3FG4aWCcNkS7gXnaIG3/AcCBAwcOHDhw4I7BbQXhaSPztbTShuZjfeDAgQMHDhw4cMfgpgF4+gO0B8PVxmN43dv7wIEDBw4cOHDgjsKlg95qYWljchrQ1wIzOHDgwIEDBw7cMbhu47ELkA6Uu/t1Idv1gQMHDhw4cODAHYHbPkA6oN4K4ulAuhzQwYEDBw4cOHDgjsGlA+pxIcWAOn4hcCuwgwMHDhw4cODAHYHbfhGwesBu4O42MtMf7LFOcODAgQMHDhy443BbwXVrv2mwngZ0cODAgQMHDhy4q3DdQJgWlkJvN0zjAA8OHDhw4MCBA3cULh0AVyG2wdLGZhzUwYEDBw4cOHDgjsF9atDbDbCfhh0HfHDgwIEDBw4cuKNw6QB42jCcgnb/CHGQBgcOHDhw4MCB+yNw0wFwtfBqozGF7q7yQBocOHDgwIEDB+6X4KZrO7BOG5rp88t/IHDgwIEDBw4cuCNw04DYPVC1kbkFnX4GBw4cOHDgwIH7K3DdwJsOoKfPSwP6xwIwOHDgwIEDBw7cEbitQJkOnKf7bQ2g39YHDhw4cODAgQP3ZXBT4O1g2w265cAPDhw4cODAgQP3pXBdwO6Bp/uNB+ngwIEDBw4cOHBH4dLgufUi4laAXWtcggMHDhw4cODAHYebDnCnAXlrQF2FTPcDBw4cOHDgwIG7Amc1G54IwIEDB84CB+5313/sof41gZhmLwAAAABJRU5ErkJggg==">
+          </div>
+        </div>
+      
+    
+      
+        <a class="-mob-share-telegram" title="" rel="external nofollow noopener noreferrer"
+          
+            href="https://t.me/share/url?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&text=Hexo同步部署到树莓派与Github - Purel.in"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/telegram.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+            
+              <a class='next' href='/Hexo-Frp-iAWriter-Overclocked-Blogger/'>
+                <p class='title'>Hexo + Frp + iAWriter = Overclocked Blogger<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>这篇文章通过我的iPhone和iPad基于Markdown标准写作而成，并由Hexo生成纯静态网页发布在Github和我的树莓派上，通过甲骨文在首尔数据中心的服务器对树莓派进行Frp反向代理，最...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'Hexo同步部署到树莓派与Github',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+  
+
+  <section class="widget category shadow desktop">
+    
+  <header>
+    
+      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/categories/%E5%AD%A6%E4%B9%A0/" href="/categories/%E5%AD%A6%E4%B9%A0/"
+            id="categoriesE5ADA6E4B9A0"
+            ><div class='name'>学习</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E6%A0%91%E6%A2%85%E6%B4%BE/" href="/categories/%E6%A0%91%E6%A2%85%E6%B4%BE/"
+            id="categoriesE6A091E6A285E6B4BE"
+            ><div class='name'>树梅派</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E7%BD%91%E7%AB%99/" href="/categories/%E7%BD%91%E7%AB%99/"
+            id="categoriesE7BD91E7AB99"
+            ><div class='name'>网站</div><div class='badge'>(4)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget tagcloud shadow desktop mobile">
+    
+  <header>
+    
+      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <a href="/tags/3-5inch/" style="font-size: 14px; color: #999">3.5inch</a> <a href="/tags/Blog/" style="font-size: 14px; color: #999">Blog</a> <a href="/tags/Frp/" style="font-size: 14px; color: #999">Frp</a> <a href="/tags/Github/" style="font-size: 14px; color: #999">Github</a> <a href="/tags/Hexo/" style="font-size: 16.5px; color: #888">Hexo</a> <a href="/tags/LCD/" style="font-size: 16.5px; color: #888">LCD</a> <a href="/tags/Leadership/" style="font-size: 14px; color: #999">Leadership</a> <a href="/tags/Lofree/" style="font-size: 14px; color: #999">Lofree</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/Pi/" style="font-size: 19px; color: #777">Pi</a> <a href="/tags/Purel-in/" style="font-size: 21.5px; color: #666">Purel.in</a> <a href="/tags/Python/" style="font-size: 14px; color: #999">Python</a> <a href="/tags/SPI/" style="font-size: 14px; color: #999">SPI</a> <a href="/tags/SSH/" style="font-size: 14px; color: #999">SSH</a> <a href="/tags/SSR/" style="font-size: 14px; color: #999">SSR</a> <a href="/tags/Samba/" style="font-size: 14px; color: #999">Samba</a> <a href="/tags/WIFI/" style="font-size: 14px; color: #999">WIFI</a> <a href="/tags/Wordpress/" style="font-size: 16.5px; color: #888">Wordpress</a> <a href="/tags/iA-Writer/" style="font-size: 14px; color: #999">iA Writer</a> <a href="/tags/root/" style="font-size: 14px; color: #999">root</a> <a href="/tags/rtl8812bu/" style="font-size: 14px; color: #999">rtl8812bu</a> <a href="/tags/ssd1306/" style="font-size: 14px; color: #999">ssd1306</a> <a href="/tags/%E4%BF%AE%E7%82%BC/" style="font-size: 14px; color: #999">修炼</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" style="font-size: 14px; color: #999">内网穿透</a> <a href="/tags/%E5%90%88%E4%B8%80/" style="font-size: 14px; color: #999">合一</a> <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">学习</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83/" style="font-size: 14px; color: #999">数据中心</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E7%BD%91%E5%8D%A1/" style="font-size: 14px; color: #999">无线网卡</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 16.5px; color: #888">服务器</a> <a href="/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/" style="font-size: 24px; color: #555">树梅派</a> <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 14px; color: #999">树莓派</a> <a href="/tags/%E7%96%AB%E6%83%85/" style="font-size: 14px; color: #999">疫情</a> <a href="/tags/%E9%A2%86%E5%AF%BC%E5%8A%9B/" style="font-size: 14px; color: #999">领导力</a> <a href="/tags/%E9%A9%B1%E5%8A%A8/" style="font-size: 16.5px; color: #888">驱动</a>
+    </div>
+  </section>
+
+
+  
+
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-安装Git"><span class="toc-text">1. 安装Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-将Git部署到树莓派"><span class="toc-text">1.1 将Git部署到树莓派</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-全局修改Github用户名"><span class="toc-text">1.2 全局修改Github用户名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装Nginx"><span class="toc-text">2. 安装Nginx</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-安装"><span class="toc-text">2.1 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-启动"><span class="toc-text">2.2 启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-配置nginx"><span class="toc-text">2.3 配置nginx</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-部署Git库"><span class="toc-text">3. 部署Git库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-在派初始化一个git裸库"><span class="toc-text">3.1 在派初始化一个git裸库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-新建post-receive文件"><span class="toc-text">3.2 新建post-receive文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-备选方案"><span class="toc-text">3.3 备选方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-赋予权限"><span class="toc-text">3.4 赋予权限</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-同时部署多平台设置"><span class="toc-text">4. 同时部署多平台设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-发布或调试Hexo博客"><span class="toc-text">5. 发布或调试Hexo博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-安装和卸载Hexo插件"><span class="toc-text">6. 安装和卸载Hexo插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-安装插件"><span class="toc-text">6.1 安装插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-卸载插件"><span class="toc-text">6.2 卸载插件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-备份整个Hexo"><span class="toc-text">7. 备份整个Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-在Github新建分支"><span class="toc-text">7.1 在Github新建分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-PUSH到Github"><span class="toc-text">7.2 PUSH到Github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-Git的常用指令"><span class="toc-text">7.3 Git的常用指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4-一键发布博客并完整备份"><span class="toc-text">7.4 一键发布博客并完整备份</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-4-1-发布博客指令"><span class="toc-text">7.4.1 发布博客指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-4-2-备份完整的Hexo"><span class="toc-text">7.4.2 备份完整的Hexo</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-升级nodejs的方法"><span class="toc-text">8. 升级nodejs的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-查看当前node版本"><span class="toc-text">8.1 查看当前node版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-安装n模块"><span class="toc-text">8.2 安装n模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3-升级到指定版本-最新版本"><span class="toc-text">8.3 升级到指定版本&#x2F;最新版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-4-检查升级是否成功"><span class="toc-text">8.4 检查升级是否成功</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-5-常见问题"><span class="toc-text">8.5 常见问题</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='true'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='4961848707'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss-square flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://t.me/Jacobx"
+                class="social fab fa-telegram-plane flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/momowind"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=98046"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://www.weibo.com/382041"
+                class="social fab fa-weibo flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">(CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        
+        总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://purel.in">Copyright © 2017-2020 Purel.in</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["/images/background/index.jpeg", "/images/background/index.jpg", "/images/background/index2.jpg-slim"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://unpkg.com/valine@latest/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'true' == 'true';
+  var verify = 'true' == 'true';
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "jhjh5GBKlIoWCt3E3kruPmtw-gzGzoHsz",
+    appKey: "W3kxdwrE90OEgHm9sQ9I2tHn",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'monsterid',
+    lang:'zh-cn',
+    visitor: 'false',
+    highlight:'true'
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="/js/search.js"></script>
+
+
+
+  
+<script src="/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-clipboard-check');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-exclamation-triangle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("div.fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
