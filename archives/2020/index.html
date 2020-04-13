@@ -559,9 +559,122 @@
         
           
         
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/frp-fully-automated-daemon/">
+      frp全自动化守护进程
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://purel.in" rel="nofollow">
+    <img src="/images/waterboy.JPG">
+    <p>徐哞哞</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E7%BD%91%E7%AB%99/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>网站</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年4月13日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>frp分为frpc客户端和frps服务器端，这里以frpc为例，frps是一样的，只需要把以下目录或代码frpc或frpcd改成frps或frpsd</p>
+<h2 id="1-创建frpc开机启动"><a href="#1-创建frpc开机启动" class="headerlink" title="1. 创建frpc开机启动"></a>1. 创建frpc开机启动</h2><p>创建一个systemctl文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano &#x2F;lib&#x2F;systemd&#x2F;system&#x2F;frpc.service</span><br></pre></td></tr></table></figure>
+<p>保存以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description&#x3D;frpc service</span><br><span class="line">#设置网络启动后依赖</span><br><span class="line">After&#x3D;network.target syslog.target network-online.target</span><br><span class="line">Wants&#x3D;network.target</span><br><span class="line">Requires&#x3D;network-online.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type&#x3D;simple</span><br><span class="line">#启动服务的命令（此处写你的frps(frpc)的实际安装目录）</span><br><span class="line">ExecStart&#x3D;&#x2F;usr&#x2F;local&#x2F;frp&#x2F;frpc -c &#x2F;usr&#x2F;local&#x2F;frp&#x2F;frpc.ini</span><br><span class="line">#设置失败5秒后重启</span><br><span class="line">Restart&#x3D;on-failure</span><br><span class="line">RestartSec&#x3D;5s</span><br><span class="line">KillSignal&#x3D;SIGQUIT</span><br><span class="line">TimeoutStopSec&#x3D;5</span><br><span class="line">KillMode&#x3D;process</span><br><span class="line">PrivateTmp&#x3D;true</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy&#x3D;multi-user.target</span><br></pre></td></tr></table></figure>
+<p>开启frpc开机启动<br><code>systemctl enable frpc.service</code></p>
+<h2 id="2-创建frpcd守护进程"><a href="#2-创建frpcd守护进程" class="headerlink" title="2. 创建frpcd守护进程"></a>2. 创建frpcd守护进程</h2><p>接下来需要实现实时检查frpc状态，如果frpc运行失败则重启服务，以免你睡觉的时候frp各种原因失败。<br>首先创建一个frpcd.sh文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano &#x2F;usr&#x2F;local&#x2F;frp&#x2F;frpcd.sh</span><br></pre></td></tr></table></figure>
+<p>保存以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">str1&#x3D;&quot;service frpc status&quot;</span><br><span class="line">str2&#x3D;&quot;start proxy success&quot;</span><br><span class="line">result&#x3D;$($str1 | grep &quot;$&#123;str2&#125;&quot;)</span><br><span class="line">if [[ &quot;$result&quot; !&#x3D; &quot;&quot; ]]</span><br><span class="line">then</span><br><span class="line">#    echo &quot;frpc 正在工作...&quot;</span><br><span class="line">    :</span><br><span class="line">else</span><br><span class="line">#    echo &quot;frpc 运行失败，正在重启...&quot;</span><br><span class="line">service frpc restart</span><br><span class="line"></span><br><span class="line">fi</span><br><span class="line">sleep 5</span><br></pre></td></tr></table></figure>
+
+<p>给它设置执行权限<br>chmon -x /usr/local/frp/frpcd.sh</p>
+<p>启动试试<code>./frpcd.sh</code><br>你可以先停止frpc服务然后看看守护程序能否实现自动检测并重启frcp，通过以下三个命令。<br>service frpc stop #停止frpc服务<br>/usr/local/frp/frpcd.sh #启动frpcd守护<br>service frpc status #检查frpc服务状态<br>如果看到<code>proxy start success</code>就是成功了</p>
+<h2 id="3-开机启动frpcd守护进程"><a href="#3-开机启动frpcd守护进程" class="headerlink" title="3. 开机启动frpcd守护进程"></a>3. 开机启动frpcd守护进程</h2><p>创建一个systemctl文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano &#x2F;lib&#x2F;systemd&#x2F;system&#x2F;frpcd.service</span><br></pre></td></tr></table></figure>
+<p>保存以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description&#x3D;frpc daemon service</span><br><span class="line">After&#x3D;network.target syslog.target</span><br><span class="line">Wants&#x3D;network.target</span><br><span class="line">Requires&#x3D;network-online.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type&#x3D;simple</span><br><span class="line">#启动服务的命令（此处写你的frps的实际安装目录）</span><br><span class="line">ExecStart&#x3D;&#x2F;usr&#x2F;local&#x2F;frp&#x2F;frpcd.sh</span><br><span class="line">Restart&#x3D;on-failure</span><br><span class="line">RestartSec&#x3D;5s</span><br><span class="line">KillSignal&#x3D;SIGQUIT</span><br><span class="line">TimeoutStopSec&#x3D;5</span><br><span class="line">KillMode&#x3D;process</span><br><span class="line">PrivateTmp&#x3D;true</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy&#x3D;multi-user.target</span><br></pre></td></tr></table></figure>
+<p>最后我们把守护进程设为开机启动<br><code>systemctl enable frpcd.service</code><br>Ok，至此Frp已经完成了自我进化，再也不用担心它什么时候断掉了服务。</p>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -1580,7 +1693,7 @@
           <li><a class="flat-box"
             title="/categories/%E7%BD%91%E7%AB%99/" href="/categories/%E7%BD%91%E7%AB%99/"
             id="categoriesE7BD91E7AB99"
-            ><div class='name'>网站</div><div class='badge'>(4)</div></a></li>
+            ><div class='name'>网站</div><div class='badge'>(5)</div></a></li>
         
       </ul>
     </div>
@@ -1604,7 +1717,7 @@
 
 
     <div class='content'>
-      <a href="/tags/3-5inch/" style="font-size: 14px; color: #999">3.5inch</a> <a href="/tags/Blog/" style="font-size: 14px; color: #999">Blog</a> <a href="/tags/Frp/" style="font-size: 14px; color: #999">Frp</a> <a href="/tags/Github/" style="font-size: 14px; color: #999">Github</a> <a href="/tags/Hexo/" style="font-size: 16.5px; color: #888">Hexo</a> <a href="/tags/LCD/" style="font-size: 16.5px; color: #888">LCD</a> <a href="/tags/Leadership/" style="font-size: 14px; color: #999">Leadership</a> <a href="/tags/Lofree/" style="font-size: 14px; color: #999">Lofree</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/Pi/" style="font-size: 19px; color: #777">Pi</a> <a href="/tags/Purel-in/" style="font-size: 21.5px; color: #666">Purel.in</a> <a href="/tags/Python/" style="font-size: 14px; color: #999">Python</a> <a href="/tags/SPI/" style="font-size: 14px; color: #999">SPI</a> <a href="/tags/SSH/" style="font-size: 14px; color: #999">SSH</a> <a href="/tags/SSR/" style="font-size: 14px; color: #999">SSR</a> <a href="/tags/Samba/" style="font-size: 14px; color: #999">Samba</a> <a href="/tags/WIFI/" style="font-size: 14px; color: #999">WIFI</a> <a href="/tags/Wordpress/" style="font-size: 16.5px; color: #888">Wordpress</a> <a href="/tags/iA-Writer/" style="font-size: 14px; color: #999">iA Writer</a> <a href="/tags/root/" style="font-size: 14px; color: #999">root</a> <a href="/tags/rtl8812bu/" style="font-size: 14px; color: #999">rtl8812bu</a> <a href="/tags/ssd1306/" style="font-size: 14px; color: #999">ssd1306</a> <a href="/tags/%E4%BF%AE%E7%82%BC/" style="font-size: 14px; color: #999">修炼</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" style="font-size: 14px; color: #999">内网穿透</a> <a href="/tags/%E5%90%88%E4%B8%80/" style="font-size: 14px; color: #999">合一</a> <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">学习</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83/" style="font-size: 14px; color: #999">数据中心</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E7%BD%91%E5%8D%A1/" style="font-size: 14px; color: #999">无线网卡</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 16.5px; color: #888">服务器</a> <a href="/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/" style="font-size: 24px; color: #555">树梅派</a> <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 14px; color: #999">树莓派</a> <a href="/tags/%E7%96%AB%E6%83%85/" style="font-size: 14px; color: #999">疫情</a> <a href="/tags/%E9%A2%86%E5%AF%BC%E5%8A%9B/" style="font-size: 14px; color: #999">领导力</a> <a href="/tags/%E9%A9%B1%E5%8A%A8/" style="font-size: 16.5px; color: #888">驱动</a>
+      <a href="/tags/3-5inch/" style="font-size: 14px; color: #999">3.5inch</a> <a href="/tags/Blog/" style="font-size: 14px; color: #999">Blog</a> <a href="/tags/Frp/" style="font-size: 16.5px; color: #888">Frp</a> <a href="/tags/Github/" style="font-size: 14px; color: #999">Github</a> <a href="/tags/Hexo/" style="font-size: 16.5px; color: #888">Hexo</a> <a href="/tags/LCD/" style="font-size: 16.5px; color: #888">LCD</a> <a href="/tags/Leadership/" style="font-size: 14px; color: #999">Leadership</a> <a href="/tags/Lofree/" style="font-size: 14px; color: #999">Lofree</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/Pi/" style="font-size: 19px; color: #777">Pi</a> <a href="/tags/Purel-in/" style="font-size: 21.5px; color: #666">Purel.in</a> <a href="/tags/Python/" style="font-size: 14px; color: #999">Python</a> <a href="/tags/SPI/" style="font-size: 14px; color: #999">SPI</a> <a href="/tags/SSH/" style="font-size: 14px; color: #999">SSH</a> <a href="/tags/SSR/" style="font-size: 14px; color: #999">SSR</a> <a href="/tags/Samba/" style="font-size: 14px; color: #999">Samba</a> <a href="/tags/WIFI/" style="font-size: 14px; color: #999">WIFI</a> <a href="/tags/Wordpress/" style="font-size: 16.5px; color: #888">Wordpress</a> <a href="/tags/iA-Writer/" style="font-size: 14px; color: #999">iA Writer</a> <a href="/tags/root/" style="font-size: 14px; color: #999">root</a> <a href="/tags/rtl8812bu/" style="font-size: 14px; color: #999">rtl8812bu</a> <a href="/tags/ssd1306/" style="font-size: 14px; color: #999">ssd1306</a> <a href="/tags/%E4%BF%AE%E7%82%BC/" style="font-size: 14px; color: #999">修炼</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" style="font-size: 14px; color: #999">内网穿透</a> <a href="/tags/%E5%90%88%E4%B8%80/" style="font-size: 14px; color: #999">合一</a> <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">学习</a> <a href="/tags/%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B/" style="font-size: 14px; color: #999">守护进程</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83/" style="font-size: 14px; color: #999">数据中心</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E7%BD%91%E5%8D%A1/" style="font-size: 14px; color: #999">无线网卡</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 16.5px; color: #888">服务器</a> <a href="/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/" style="font-size: 24px; color: #555">树梅派</a> <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 16.5px; color: #888">树莓派</a> <a href="/tags/%E7%96%AB%E6%83%85/" style="font-size: 14px; color: #999">疫情</a> <a href="/tags/%E9%A2%86%E5%AF%BC%E5%8A%9B/" style="font-size: 14px; color: #999">领导力</a> <a href="/tags/%E9%A9%B1%E5%8A%A8/" style="font-size: 16.5px; color: #888">驱动</a>
     </div>
   </section>
 
@@ -1712,6 +1825,17 @@
         </div>
       
     
+    
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?57cf54f00f7109cc953ac39f01ef5781";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
   </footer>
 
 <script>setLoadingBarProgress(80);</script>
