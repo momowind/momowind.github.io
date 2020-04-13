@@ -22,6 +22,8 @@
     <meta name="keywords" content="Frp,树莓派,守护进程">
   
   
+    <meta name="description" content="一觉睡醒后发现树莓派上的博客无法访问了，通过检查日志找到了原因，原来是一向乖巧的frp服务被莫名中断，看起来它也有脆弱的一面呀。是时候实现frp的自我管理了，让它可以在各种原因中断后自行检查并自行恢复。这篇文章记录了我是如何高效且快速创建一个frp全自动化守护进程的。">
+  
 
   <!-- feed -->
   
@@ -529,7 +531,9 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <p>frp分为frpc客户端和frps服务器端，这里以frpc为例，frps是一样的，只需要把以下目录或代码frpc或frpcd改成frps或frpsd</p>
+          <p><img src="/images/2020/04/frp.jpg" alt=""><br>一觉睡醒后发现树莓派上的博客无法访问了，通过检查日志找到了原因，原来是一向乖巧的frp服务被莫名中断，看起来它也有脆弱的一面呀。是时候实现frp的自我管理了，让它可以在各种原因中断后自行检查并自行恢复。这篇文章记录了我是如何高效且快速创建一个frp全自动化守护进程的。</p>
+<a id="more"></a>
+<p>frp分为frpc客户端和frps服务器端，这里以frpc为例，frps是一样的，只需要把以下目录或代码frpc或frpcd改成frps或frpsd</p>
 <h2 id="1-创建frpc开机启动"><a href="#1-创建frpc开机启动" class="headerlink" title="1. 创建frpc开机启动"></a>1. 创建frpc开机启动</h2><p>创建一个systemctl文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano &#x2F;lib&#x2F;systemd&#x2F;system&#x2F;frpc.service</span><br></pre></td></tr></table></figure>
 <p>保存以下内容</p>
@@ -611,7 +615,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-13T18:34:04+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-13T19:01:48+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2020年4月13日</p>
@@ -641,7 +645,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://purel.in/frp-fully-automated-daemon/&title=frp全自动化守护进程 - Purel.in&summary="
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://purel.in/frp-fully-automated-daemon/&title=frp全自动化守护进程 - Purel.in&summary=一觉睡醒后发现树莓派上的博客无法访问了，通过检查日志找到了原因，原来是一向乖巧的frp服务被莫名中断，看起来它也有脆弱的一面呀。是时候实现frp的自我管理了，让它可以在各种原因中断后自行检查并自行恢复。这篇文章记录了我是如何高效且快速创建一个frp全自动化守护进程的。"
           
           >
           
@@ -653,7 +657,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://purel.in/frp-fully-automated-daemon/&title=frp全自动化守护进程 - Purel.in&summary="
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://purel.in/frp-fully-automated-daemon/&title=frp全自动化守护进程 - Purel.in&summary=一觉睡醒后发现树莓派上的博客无法访问了，通过检查日志找到了原因，原来是一向乖巧的frp服务被莫名中断，看起来它也有脆弱的一面呀。是时候实现frp的自我管理了，让它可以在各种原因中断后自行检查并自行恢复。这篇文章记录了我是如何高效且快速创建一个frp全自动化守护进程的。"
           
           >
           
@@ -665,7 +669,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://purel.in/frp-fully-automated-daemon/&title=frp全自动化守护进程 - Purel.in&summary="
+          href="http://service.weibo.com/share/share.php?url=https://purel.in/frp-fully-automated-daemon/&title=frp全自动化守护进程 - Purel.in&summary=一觉睡醒后发现树莓派上的博客无法访问了，通过检查日志找到了原因，原来是一向乖巧的frp服务被莫名中断，看起来它也有脆弱的一面呀。是时候实现frp的自我管理了，让它可以在各种原因中断后自行检查并自行恢复。这篇文章记录了我是如何高效且快速创建一个frp全自动化守护进程的。"
           
           >
           
