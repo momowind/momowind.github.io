@@ -571,7 +571,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">repo: </span><br><span class="line">  pi: git@VPS_IP:&#x2F;home&#x2F;git&#x2F;blog.git</span><br><span class="line">  github: https:&#x2F;&#x2F;github.com&#x2F;yourname&#x2F;yourname.github.io</span><br><span class="line">branch: master</span><br><span class="line">message:</span><br></pre></td></tr></table></figure>
 <h2 id="5-发布或调试Hexo博客"><a href="#5-发布或调试Hexo博客" class="headerlink" title="5. 发布或调试Hexo博客"></a>5. 发布或调试Hexo博客</h2><p><code>hexo clean &amp;&amp; hexo g</code><br>清除并生成新的Hexo网站<br><code>hexo clean &amp;&amp; hexo g -d</code><br>清除、生成新的网站并发布到Git或服务器<br>通过以上指令发布后打开vps的网址就能看到新的hexo博客啦，也可以通过<code>hexo s</code>在浏览器打开<code>localhost:4000</code>进行本地调试Hexo。</p>
 <h2 id="6-安装和卸载Hexo插件"><a href="#6-安装和卸载Hexo插件" class="headerlink" title="6. 安装和卸载Hexo插件"></a>6. 安装和卸载Hexo插件</h2><h3 id="6-1-安装插件"><a href="#6-1-安装插件" class="headerlink" title="6.1 安装插件"></a>6.1 安装插件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save #安装git部署</span><br><span class="line">npm install --save hexo-admin #安装后台发布</span><br><span class="line">npm install hexo-generator-feed --save #安装rss生成</span><br><span class="line">npm install hexo-generator-sitemap --save #安装sitemap</span><br><span class="line">npm i -S hexo-generator-search hexo-generator-json-content #搜索依赖包</span><br><span class="line">npm i -S hexo-renderer-stylus #安装stylus渲染器</span><br><span class="line">npm i -S hexo-helper-qrcode #qr二维码插件</span><br><span class="line">npm i -S hexo-related-popular-posts #安装相关文章插件</span><br><span class="line">npm i hexo-offline --save #加载加速插件</span><br><span class="line">npm install hexo-lazyload-image --save #图片懒加载</span><br><span class="line">npm install hexo-baidu-url-submit --save #百度实时提交</span><br></pre></td></tr></table></figure>
-<h3 id="6-2-卸载插件"><a href="#6-2-卸载插件" class="headerlink" title="6.2 卸载插件"></a>6.2 卸载插件</h3><p><code>npm list</code>查看已安装的插件列表<br><code>npm uninstall &lt;插件名&gt;</code>卸载哞个插件<br>删除 node_modules/ 目录下对应的插件文件rm -rf &lt;插件名&gt;</p>
+<h3 id="6-2-卸载插件"><a href="#6-2-卸载插件" class="headerlink" title="6.2 卸载插件"></a>6.2 卸载插件</h3><p><code>npm list</code>查看已安装的插件列表<br><code>npm uninstall &lt;插件名&gt;</code> #卸载哞个插件<br>进入node_modules/目录删除对应的插件文件<br><code>rm -rf &lt;插件名&gt;</code> #删除插件目录<br>清除cache缓存<br><code>npm cache clean -f</code><br>至此插件干干净净的卸载完毕</p>
 <h2 id="7-备份整个Hexo"><a href="#7-备份整个Hexo" class="headerlink" title="7. 备份整个Hexo"></a>7. 备份整个Hexo</h2><h3 id="7-1-在Github新建分支"><a href="#7-1-在Github新建分支" class="headerlink" title="7.1 在Github新建分支"></a>7.1 在Github新建分支</h3><p>在master下新建分支名为hexo，setting-branch下修改default源为hexo，然后<br>git clone到本地，在MacOS下 Command+Shift+. 查看隐藏文件，删除该目录下.git外所有文件，树莓派则在文件夹点击右键显示隐藏文件。</p>
 <p>新建或修改.gitignore用来忽略一些不需要的文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules&#x2F;</span><br><span class="line">public&#x2F;</span><br><span class="line">.deploy*&#x2F;</span><br></pre></td></tr></table></figure>
@@ -654,7 +654,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-13T01:22:08+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-13T20:13:55+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2020年4月13日</p>
@@ -999,7 +999,7 @@
         </div>
       
     
-##     
+   
     <script>
 var _hmt = _hmt || [];
 (function() {
