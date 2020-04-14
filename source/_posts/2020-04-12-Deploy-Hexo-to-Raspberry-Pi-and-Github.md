@@ -64,27 +64,27 @@ chmod 700 ~/.ssh
 
 如果是树莓派本机从root部署到git，需要注意切换用户来生成和保存密钥。指令和上面一样，在root用户和默认目录下生成ssh并保存至git默认目录即可。
 
-## 2. 安装Nginx
+## 2. 部署Nginx环境
+如果还想部署多个网站或者安装lnmp环境，建议使用OneInStack来一键部署。若是单纯为了Hexo，只安装Nginx就足够了，轻量化的部署可以有效减少树莓派的负载。
 ### 2.1 安装
-apt install nginx
-
+`apt install nginx`
 ### 2.2 启动
 ```
 systemctl start nginx # 启动
 systemctl enable nginx # 开机启动
 ```
 输入服务器外网地址出现nginx信息表示启动成功。
-### 2.3 配置nginx
+### 2.3 配置
 ```
 nano /etc/nginx/nginx.conf
 ```
+
 修改内容 server 下
 server_name 如有域名可以改为自己的;
 location / {
   root /usr/share/nginx/html/blog; # 此处增加为"/blog",root指向博客所在目录
   ...
 }
-
 修改内容头部`user  nginx;`更改为`user  root;`
 保存退出后执行：
 ```
@@ -156,8 +156,12 @@ npm install hexo-baidu-url-submit --save #百度实时提交
 ```
 ### 6.2 卸载插件
 `npm list`查看已安装的插件列表
-`npm uninstall <插件名>`卸载哞个插件
-删除 node_modules/ 目录下对应的插件文件rm -rf <插件名>
+`npm uninstall <插件名>` #卸载哞个插件
+进入node_modules/目录删除对应的插件文件
+`rm -rf <插件名>` #删除插件目录
+清除cache缓存
+`npm cache clean -f`
+至此插件干干净净的卸载完毕
 
 ## 7. 备份整个Hexo
 ### 7.1 在Github新建分支

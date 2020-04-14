@@ -137,11 +137,14 @@ deploy:
 
 # use_cdn: true
 
-  baidu_analytics_key: 57cf54f00f7109cc953ac39f01ef5781
+# baidu_analytics_key: 57cf54f00f7109cc953ac39f01ef5781
     
     
-  baidu_url_submit:
-    count: 5
-    host: purel.in
-    token: kKhh2Gx20fipesxt
-    path: baidu_urls.txt
+#  baidu_url_submit:
+#    count: 1000
+#    host: purel.in
+#    token: kKhh2Gx20fipesxt
+#    path: baidu_urls.txt
+    
+# google_analytics_key: G-H0KBVMFW5N
+  google_analytics_key: GTM-NNMSFSG

@@ -2,9 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://purel.in/about/index.html</loc>
+    
+    <lastmod>2020-04-14T15:35:23.212Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purel.in/bbs/index.html</loc>
+    
+    <lastmod>2020-04-14T15:33:56.948Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purel.in/categories/index.html</loc>
+    
+    <lastmod>2020-04-14T15:10:17.969Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purel.in/mylist/index.html</loc>
+    
+    <lastmod>2020-04-14T15:09:21.724Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purel.in/tags/index.html</loc>
+    
+    <lastmod>2020-04-14T15:03:43.922Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purel.in/meet-again-why-is-purel-in/</loc>
+    
+    <lastmod>2020-04-13T23:12:45.147Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purel.in/raspberry-pi-quantum-cloud-lab-in-your-pocket-hardware/</loc>
+    
+    <lastmod>2020-04-13T16:54:26.316Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purel.in/frp-fully-automated-daemon/</loc>
+    
+    <lastmod>2020-04-13T16:45:08.797Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/</loc>
     
-    <lastmod>2020-04-12T05:50:47.451Z</lastmod>
+    <lastmod>2020-04-13T12:13:55.913Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purel.in/friends/index.html</loc>
+    
+    <lastmod>2020-04-13T12:06:43.097Z</lastmod>
     
   </url>
   
@@ -30,13 +93,6 @@
   </url>
   
   <url>
-    <loc>https://purel.in/about/index.html</loc>
-    
-    <lastmod>2020-04-11T11:56:57.149Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://purel.in/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/</loc>
     
     <lastmod>2020-04-11T09:12:30.801Z</lastmod>
@@ -44,23 +100,9 @@
   </url>
   
   <url>
-    <loc>https://purel.in/meet-again-why-is-purel-in/</loc>
-    
-    <lastmod>2020-04-11T06:39:35.311Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://purel.in/from-san-francisco-to-singapore-we-finally-arrived-in-seoul/</loc>
     
     <lastmod>2020-04-11T06:39:29.901Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://purel.in/raspberry-pi-quantum-cloud-lab-in-your-pocket-hardware/</loc>
-    
-    <lastmod>2020-04-11T05:50:03.543Z</lastmod>
     
   </url>
   
@@ -79,30 +121,16 @@
   </url>
   
   <url>
-    <loc>https://purel.in/friends/index.html</loc>
+    <loc>https://purel.in/google0d6db0a70a8bfc6c.html</loc>
     
-    <lastmod>2020-04-10T12:20:49.923Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://purel.in/mylist/index.html</loc>
-    
-    <lastmod>2020-04-10T12:15:34.403Z</lastmod>
+    <lastmod>2020-03-20T07:14:58.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://purel.in/tags/index.html</loc>
+    <loc>https://purel.in/baidu_verify_wK0aFjA23e.html</loc>
     
-    <lastmod>2020-04-10T12:14:58.383Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://purel.in/categories/index.html</loc>
-    
-    <lastmod>2020-04-10T12:13:52.253Z</lastmod>
+    <lastmod>2020-03-20T07:11:08.000Z</lastmod>
     
   </url>
   

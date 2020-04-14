@@ -13,15 +13,21 @@
         - name: 归档
           icon: fas fa-archive
           url: archives/
-    - name: 友链
+    - name: 邻星
       icon: fas fa-link
       url: friends/
     - name: 关于
       icon: fas fa-info-circle
       url: about/
-    - name: Pi
-      icon: fab fa-raspberry-pi
-      url: https://pi.purel.in
+    - name: 留言板
+      icon: fas fa-comment-dots
+      url: bbs/
     - name: 实验室
       icon: fas fa-flask
-      url: https://d.purel.in
+      rows:
+        - name: Pi
+          icon: fab fa-raspberry-pi
+          url: https://pi.purel.in
+        - name: Cloud
+          icon: fab fa-cloudversify
+          url: https://cloud.purel.in/
