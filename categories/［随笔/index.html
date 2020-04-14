@@ -6,6 +6,8 @@
   <link rel="icon" type="image/png" href="/images/favicon.ico">
   
     
+      <meta name="robots" content="noindex,follow">
+    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -17,12 +19,8 @@
 
   <!-- 页面元数据 -->
   
-    <title>从旧金山到新加坡，最终我们抵达首尔 - Purel.in</title>
+    <title>分类：［随笔] - Purel.in</title>
   
-    <meta name="keywords" content="Purel.in,Wordpress,服务器,数据中心">
-  
-  
-    <meta name="description" content="这几日的Purel.in就像是一个旅行家，穿梭于各大洲的数据中心。">
   
 
   <!-- feed -->
@@ -535,12 +533,25 @@
     <div class='body-wrapper'>
       
 
+
 <div class='l_main'>
   
-
-  
-    <article id="post" class="post white-box shadow article-type-post" itemscope itemprop="blogPost">
+    
       
+  <section class="post-list ">
+    
+      
+        
+          
+        
+      
+    
+    
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
 
 
   <section class='meta'>
@@ -550,13 +561,11 @@
       <div class="meta" id="header-meta">
         
           
-  
-    <h1 class="title">
-      <a href="/from-san-francisco-to-singapore-we-finally-arrived-in-seoul/">
-        从旧金山到新加坡，最终我们抵达首尔
-      </a>
-    </h1>
-  
+  <h2 class="title">
+    <a href="/Winter-in-Qililong-2012/">
+      七里泷地冬，2012
+    </a>
+  </h2>
 
 
         
@@ -579,9 +588,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E7%BD%91%E7%AB%99/' rel="nofollow">
+    <a href='/categories/%EF%BC%BB%E9%9A%8F%E7%AC%94/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>网站</p>
+      <p>［随笔]</p>
     </a>
   </div>
 
@@ -592,9 +601,14 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年2月15日</p>
+    <p>发布于：2020年4月15日</p>
   </a>
 </div>
+
+            
+          
+            
+              
 
             
           
@@ -612,250 +626,122 @@
   </section>
 
 
-      <section class="article typo">
-        <div class="article-entry" itemprop="articleBody">
-          
-          <p><img src="/images/2020/02/seoul.jpg" alt=""><br>这几日的Purel.in就像是一个旅行家，穿梭于各大洲的数据中心。</p>
-<a id="more"></a>
-<h3 id="速度是关键"><a href="#速度是关键" class="headerlink" title="速度是关键"></a>速度是关键</h3><p>最初它是准备安放在旧金山DigitalOcean数据中心进行托管的，结果Do的速度实在不能令人满意，从大陆访问过去丢包率竟然高达40%，无奈之下只好搬家。</p>
-<p>在经过多方对比后，选择了业内知名的服务商亚马逊，以及它开在AWS的新加坡数据中心。作为一个亚洲机房，从大陆访问过去的速度明显加快了不少，并且连接非常的稳定不丢包。不成想，在一顿常规的操作后，我还是发现了一个致命的问题，导致最终AWS新加坡只是Purel.in旅途中的一个驿站。</p>
-<p>在对AWS的服务器进行一系列操作后，它的IOPS读写限制会降低到非常离谱的地步，这就像是开车从北京的三环堵到五环。毫不夸张的讲，有时只是单单打开一个动态页面，也能造成CPU负载100%进而网站失去响应，在那之前我只是在服务器后台做了一些常规操作而已。各种调试无果之后就把它放在那里干脆不管了，结果十几分钟后它竟然自己恢复正常，经过研究我发现了AWS用的是IOPS积分制，意味着一段时间内你的读写操作不能太频繁，否则就因扣分而被限制，这对于目前运营的动态网站来说是简直是致命的。怎么办，只有继续寻找合适的服务商，可是还有比亚马逊更棒的吗？</p>
-<h3 id="吸引力法则"><a href="#吸引力法则" class="headerlink" title="吸引力法则"></a>吸引力法则</h3><p>大概是吸引力法则起了作用，就在我一筹莫展的时候，通过Telegram的讨论组了解到甲骨文的Oracle Cloud，于是几经辗转，终于来到韩国首尔的甲骨文数据中心。它的连接速度简直可以用美妙来形容，比起亚马逊在新加坡的机房还要棒的多。你大可读完这篇文章后在Purel.in里随便逛一逛，相信你一定能体验到它惊人的速度，这甚至超越了国内大部分的服务商。在服务器的负载方面至今未发现CPU超负荷现象，这让我终于松了一口气，因为这意味着环境部署亦告一段落，接下来就是网站平台的功能设计与优化了。</p>
-<h3 id="Next？"><a href="#Next？" class="headerlink" title="Next？"></a>Next？</h3><p>这应该是下一篇文章的内容了，尽管今天已经实现了完成在线课程后，会生成一张你专属的PDF证书来提供下载和打印，并且解决了它在服务器导出PDF时的中文乱码问题。</p>
-<p>说到这里，我还真的很期待Purel.in未来的样子，想到更多的人会因此而受益，就会满心欢喜。或许这也算是一种妄念吧…（笑～）</p>
-
-          
-            <br>
-            
-              
-  
-    
-    
-
-
-
-  
-
-  
-    
-    
-
-<section class="widget copyright  desktop mobile">
-  <div class='content'>
-    
-      <blockquote>
-        
-          
-            <p>博客内容遵循 [署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议]</p>
-
-          
-        
-          
-            <p>本文永久链接：<a href=https://purel.in/from-san-francisco-to-singapore-we-finally-arrived-in-seoul/>https://purel.in/from-san-francisco-to-singapore-we-finally-arrived-in-seoul/</a></p>
-          
-        
-      </blockquote>
-    
-  </div>
-</section>
-
-  
-
-  
-    
-    
-
-<section class="widget qrcode  desktop mobile">
-  
-
-  <div class='content article-entry'>
-    
-  </div>
-</section>
-
-  
-
-
-            
-          
-        </div>
-        
-          
-
-
-  <section class='meta' id="footer-meta">
-    <div class='new-meta-box'>
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
       
-        
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-11T14:39:29+08:00">
-  <a class='notlink'>
-    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年4月11日</p>
-  </a>
-</div>
-
-        
-      
-        
-          
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Purel-in/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Purel.in</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Wordpress/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Wordpress</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>服务器</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>数据中心</p></a></div>
-
-
-        
-      
-        
-          
-
-        
-      
-        
-          
-  <div class="new-meta-item share -mob-share-list">
-  <div class="-mob-share-list share-body">
-    
-      
-        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
-          
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://purel.in/from-san-francisco-to-singapore-we-finally-arrived-in-seoul/&title=从旧金山到新加坡，最终我们抵达首尔 - Purel.in&summary=这几日的Purel.in就像是一个旅行家，穿梭于各大洲的数据中心。"
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
-          
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://purel.in/from-san-francisco-to-singapore-we-finally-arrived-in-seoul/&title=从旧金山到新加坡，最终我们抵达首尔 - Purel.in&summary=这几日的Purel.in就像是一个旅行家，穿梭于各大洲的数据中心。"
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
-          
-          href="http://service.weibo.com/share/share.php?url=https://purel.in/from-san-francisco-to-singapore-we-finally-arrived-in-seoul/&title=从旧金山到新加坡，最终我们抵达首尔 - Purel.in&summary=这几日的Purel.in就像是一个旅行家，穿梭于各大洲的数据中心。"
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
-          
-        </a>
-      
-    
-      
-        
-        <div class='hoverbox'>
-          <a><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/wechat.png"></a>
-          <div class='target'>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVgAAAFYCAAAAAAzB7ucAAAEbUlEQVR42u3aO3IjMQwFQN3/0ru5XarhA0BScjWzsSR+mhMAMF7/jC3jhQAsWAMsWLAG2COwr+L4NeGPvz89v93Yw/xP87xbN12/6gEWLFiwYMGCBQv2LOxyAPyw8RQgvbDV+dKLG/MACxYsWLBgwYIFewX2MQAufn818O+OdN3qiwMWLFiwYMGCBQv2b8CmCUU14J9ef+rFAQsWLFiwYMGCBftdsFOBfnWeNOD/mgQBLFiwYMGCBQsW7NaGjW5hOT1Y2vjRfb7WCQMWLFiwYMGCBQt2CXYqMP8rz2UPsGDBggULFixYsEdgu+NpoV0JR7eQXd3v43nAggULFixYsGDBHoFtF3abG0sPOF3wXoVe/h5YsGDBggULFizYI7DVjXUPvNp4nO5vukAfJyBgwYIFCxYsWLBgr8JOF56rheYUJE1cuucBCxYsWLBgwYIFewf2dEKQzlN9AXbPs/wfBLBgwYIFCxYsWLBHYNMCczcB6CYiUw0j1Xl//R4sWLBgwYIFCxbsFdgp0GrBuZuYTMPGhXiwYMGCBQsWLFiwR2HThaYKytWDdhuQdzWCgAULFixYsGDBgr0Dmy6Uwk7PO1XIrjagLCcIYMGCBQsWLFiwYLfATjVKlAPrZkG8mgBMQYMFCxYsWLBgwYK9A1st+HYL2dXGj3Se3QMsWLBgwYIFCxbsWdhu4N0tkKeNIdWAP91neR9gwYIFCxYsWLBgj8Kmo3uQ6jrdBo1qgR4sWLBgwYIFCxbsZ8EuF3DD760etFugnrqQFPrt78CCBQsWLFiwYMEega0WmrtwqwX21UC/2mhSPQdYsGDBggULFizYz4BdDoAXN5ZuML2IqQJ5emFgwYIFCxYsWLBgPwt2qjBcLWCnhfLqc/fCHl8wsGDBggULFixYsEdgqwF0GqinhfLpBCA9V/mCwIIFCxYsWLBgwR6B7Qbeuxopqo0facIyvg+wYMGCBQsWLFiwR2CrBd4qcJoQVBOGagIx1rABFixYsGDBggUL9ihsFWC6QF4tcKeF+6f9pi5gwYIFCxYsWLBgz8JOFY7TwnS1QaI7X/dFWU4QwIIFCxYsWLBgwV6BTQPu1dENzKufV8+zXCgHCxYsWLBgwYIFewW2WyjuNnasFq7TQnT1wuMGD7BgwYIFCxYsWLBHYdPEYFfDRrdg3Q7wu9BgwYIFCxYsWLBgr8KmG+kWnrsB+uq6uxIHsGDBggULFixYsGdhuyM92O7GijTB6b5IYMGCBQsWLFiwYO/AvoqjG7jvvpDqBXYL/2DBggULFixYsGDPwqYJQbUBovp52lDRvbByAwdYsGDBggULFizYK7DdRorq99OGitV1p0c5QQALFixYsGDBggX7FbBToN1E4lSiAxYsWLBgwYIFC/Y7YdMDToHuTgji84MFCxYsWLBgwYK9Altt2EgD/moDRXUfuxtOwIIFCxYsWLBgwd6B7QbMKUh6od35phtJlhMEsGDBggULFixYsFtgjdkBFixYAyxYsAbYreM/gbEStr8QZgwAAAAASUVORK5CYII=">
-          </div>
-        </div>
-      
-    
-      
-        <a class="-mob-share-telegram" title="" rel="external nofollow noopener noreferrer"
-          
-            href="https://t.me/share/url?url=https://purel.in/from-san-francisco-to-singapore-we-finally-arrived-in-seoul/&text=从旧金山到新加坡，最终我们抵达首尔 - Purel.in"
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/telegram.png">
-          
-        </a>
-      
-    
-  </div>
-</div>
-
-
-
-        
+        <p><img src="images/2020/04/qililong.jpg" alt=""><br>在整理自己过往的文章时，偶然间发现了这篇作于七年前的随笔，至今读来依然温润如初。</p>
       
     </div>
+    
+      
+        <div class="button readmore">
+          <a href="/Winter-in-Qililong-2012/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      
+    
   </section>
+</article>
 
-
-        
-        
-          <div class="prev-next">
-            
-              <a class='prev' href='/seven-practices-of-great-leaders/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>卓越领导者的七项修炼</p>
-                <p class='content'>
-
-越是在特殊时期，那些人性中的优点和缺点就越是容易被放大。有些人焦虑和混乱，另一些人则更清晰自己。——Jacob Xu
-
-
-
-这就像是一把双刃剑，有些人会陷入混乱、焦虑和担忧，无论是对工作还是...</p>
-              </a>
-            
-            
-              <a class='next' href='/meet-again-why-is-purel-in/'>
-                <p class='title'>又见面了，为什么是Purel.in？<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>这一切都源于一个纯粹的念头逐渐清晰，这次我抓住了它，并没有让它和往常的同伴一样在我脑海一闪而过。
-
-Hello World没想到会以这样的方式开始我的2020年，不是指武汉肺炎nCoV，而是又一...</p>
-              </a>
-            
           </div>
         
-      </section>
-    </article>
+      
+    
+  </section>
   
-
-  
-    <!-- 显示推荐文章和评论 -->
-
-
-
-  <article class="post white-box comments shadow">
-    <section class="article typo">
-      <p ct><i class='fas fa-comments'></i> 评论</p>
-      
-      
-      
-      
-      
-        <section id="comments">
-          <div id="valine_container" class="valine_thread">
-            <i class="fas fa-spinner fa-spin fa-fw"></i>
-          </div>
-        </section>
-      
-      
-    </section>
-  </article>
-
+    
+    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
+    
+    
 
   
 
 
-
-
-<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
-
-
-
-  <script>
-    window.subData = {
-      title: '从旧金山到新加坡，最终我们抵达首尔',
-      tools: true
-    }
-  </script>
-
+    
+  
 
 </div>
 <aside class='l_side'>
   
+  
+    
+    
+
+<section class="widget blogger shadow desktop">
+  <div class='content'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='/images/waterboy.JPG'/>
+      </div>
+    
+    
+      <div class='text'>
+        
+          <h2>徐哞哞</h2>
+        
+        
+          <p>I’m Diamond.</p>
+
+        
+        
+           
+           
+           <p id="hitokoto">:D 获取中...</p><script src="https://v1.hitokoto.cn/?c=j&c=k&encode=js&select=%23hitokoto" defer></script>
+        
+ 
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss-square flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://t.me/Jacobx"
+              class="social fab fa-telegram-plane flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/momowind"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=98046"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://www.weibo.com/382041"
+              class="social fab fa-weibo flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+  
+
   
     
     
@@ -921,28 +807,6 @@ Hello World没想到会以这样的方式开始我的2020年，不是指武汉�
 
 
   
-
-  
-
-  
-    
-    
-
-
-  <section class="widget toc-wrapper shadow desktop mobile">
-    
-  <header>
-    
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#速度是关键"><span class="toc-text">速度是关键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#吸引力法则"><span class="toc-text">吸引力法则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Next？"><span class="toc-text">Next？</span></a></li></ol>
-    </div>
-  </section>
-
 
   
 
@@ -1159,36 +1023,6 @@ var _hmt = _hmt || [];
 
 
 
-
-  
-    
-<script src="https://unpkg.com/valine@latest/dist/Valine.min.js"></script>
-
-  
-  <script>
-  var GUEST_INFO = ['nick','mail','link'];
-  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
-    return GUEST_INFO.indexOf(item) > -1
-  });
-  var notify = 'true' == 'true';
-  var verify = 'true' == 'true';
-  var valine = new Valine();
-  valine.init({
-    el: '#valine_container',
-    notify: notify,
-    verify: verify,
-    guest_info: guest_info,
-    
-    appId: "jhjh5GBKlIoWCt3E3kruPmtw-gzGzoHsz",
-    appKey: "W3kxdwrE90OEgHm9sQ9I2tHn",
-    placeholder: "快来评论吧~",
-    pageSize:'10',
-    avatar:'monsterid',
-    lang:'zh-cn',
-    visitor: 'false',
-    highlight:'true'
-  })
-  </script>
 
 
 
