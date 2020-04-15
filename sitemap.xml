@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://purel.in/Winter-in-Qililong-2012/</loc>
+    
+    <lastmod>2020-04-15T03:07:02.370Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://purel.in/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/</loc>
     
     <lastmod>2020-04-15T03:04:59.088Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/</loc>
     
     <lastmod>2020-04-15T03:03:37.523Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://purel.in/Winter-in-Qililong-2012/</loc>
-    
-    <lastmod>2020-04-14T17:24:20.206Z</lastmod>
     
   </url>
   
