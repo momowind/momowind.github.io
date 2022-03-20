@@ -12,6 +12,7 @@
     "version": "4.2.0"
   },
   "dependencies": {
+    "bluebird": "^3.7.2",
     "hexo": "^4.0.0",
     "hexo-admin": "^2.3.0",
     "hexo-deployer-git": "^2.1.0",
@@ -32,6 +33,7 @@
     "hexo-renderer-marked": "^2.0.0",
     "hexo-renderer-stylus": "^1.1.0",
     "hexo-server": "^1.0.0",
+    "lineno": "^0.1.0",
     "mozjpeg": "^6.0.1",
     "typed.js": "^2.0.11"
   }
