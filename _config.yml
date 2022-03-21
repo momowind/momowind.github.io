@@ -108,7 +108,7 @@ deploy:
   type: 'git' 
 #  repo: git@192.168.1.121:/home/git/blog.git
   repo: 
-#    pi: ssh://git@132.145.88.28:6000/home/git/blog.git
+#    pi: ssh://git@op.purel.in:29022/root/git/blog.git
 #git@132.145.90.18 -p 6000 /home/git/blog.git
 #    github: https://github.com/momowind/momowind.github.io.git
     github: git@github.com:momowind/momowind.github.io.git
