@@ -21,6 +21,7 @@ git config --global user.email "你的GitHub邮箱"
 然后查看是否已经全局修改用户名：
 `git config --list`
 返回显示下面信息就是正确了
+
 ```
 user.name=你的用户名
 user.email=你的邮箱
@@ -29,7 +30,15 @@ user.email=你的邮箱
 ```
 curl --silent --location https://rpm.nodesource.com/setup_13.x | bash -
 ```
+或者
+```
+apt install npm
+npm install n -g
+n stable
+```
+
 添加git用户
+
 ```
 adduser git 
 chmod 740 /etc/sudoers 
@@ -47,6 +56,7 @@ root ALL=(ALL) ALL
 设置 git 用户密码
 `sudo passwd git`
 切换至git用户，创建 ~/.ssh 文件夹和 ~/.ssh/authorized_keys 文件，并赋予相应的权限
+
 ```
 su git 
 mkdir ~/.ssh 
