@@ -89,11 +89,11 @@
     
     <category term="Hexo" scheme="https://purel.in/tags/Hexo/"/>
     
-    <category term="树莓派" scheme="https://purel.in/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
-    
     <category term="Markdown" scheme="https://purel.in/tags/Markdown/"/>
     
     <category term="Blog" scheme="https://purel.in/tags/Blog/"/>
+    
+    <category term="树莓派" scheme="https://purel.in/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
     
     <category term="iA Writer" scheme="https://purel.in/tags/iA-Writer/"/>
     
@@ -122,11 +122,11 @@
     
     <category term="Pi" scheme="https://purel.in/tags/Pi/"/>
     
+    <category term="驱动" scheme="https://purel.in/tags/%E9%A9%B1%E5%8A%A8/"/>
+    
     <category term="无线网卡" scheme="https://purel.in/tags/%E6%97%A0%E7%BA%BF%E7%BD%91%E5%8D%A1/"/>
     
     <category term="rtl8812bu" scheme="https://purel.in/tags/rtl8812bu/"/>
-    
-    <category term="驱动" scheme="https://purel.in/tags/%E9%A9%B1%E5%8A%A8/"/>
     
   </entry>
   
@@ -153,13 +153,13 @@
     
     <category term="Pi" scheme="https://purel.in/tags/Pi/"/>
     
-    <category term="驱动" scheme="https://purel.in/tags/%E9%A9%B1%E5%8A%A8/"/>
-    
     <category term="ssd1306" scheme="https://purel.in/tags/ssd1306/"/>
     
     <category term="SPI" scheme="https://purel.in/tags/SPI/"/>
     
     <category term="Python" scheme="https://purel.in/tags/Python/"/>
+    
+    <category term="驱动" scheme="https://purel.in/tags/%E9%A9%B1%E5%8A%A8/"/>
     
   </entry>
   
@@ -213,8 +213,6 @@
     <category term="树梅派" scheme="https://purel.in/categories/%E6%A0%91%E6%A2%85%E6%B4%BE/"/>
     
     
-    <category term="服务器" scheme="https://purel.in/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
     <category term="树梅派" scheme="https://purel.in/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/"/>
     
     <category term="3.5inch" scheme="https://purel.in/tags/3-5inch/"/>
@@ -224,6 +222,8 @@
     <category term="Lofree" scheme="https://purel.in/tags/Lofree/"/>
     
     <category term="Pi" scheme="https://purel.in/tags/Pi/"/>
+    
+    <category term="服务器" scheme="https://purel.in/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   

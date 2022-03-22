@@ -20,13 +20,13 @@
   <meta content="Purel.in" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/css/style.css?time=1647935634575" as="style">
+  <link rel="preload" href="/css/style.css?time=1647936324367" as="style">
   <link rel="preload" href="/media/fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 <link rel="preload" href="/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
   <!-- 页面元数据 -->
   <title>树莓派：安装0.96寸SPI接口SSD1306屏幕 - Purel.in</title>
-  <meta name="keywords" content="树梅派,LCD,Pi,驱动,ssd1306,SPI,Python,徐哞哞的实验室/生活/学习/领导力/爱">
+  <meta name="keywords" content="树梅派,LCD,Pi,ssd1306,SPI,Python,驱动,徐哞哞的实验室/生活/学习/领导力/爱">
   <meta name="description" content="当这块小屏幕在夜里散发着光芒，你看到它便能回忆起整个部署的过程……">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树莓派：安装0.96寸SPI接口SSD1306屏幕">
@@ -41,10 +41,10 @@
 <meta property="article:tag" content="树梅派">
 <meta property="article:tag" content="LCD">
 <meta property="article:tag" content="Pi">
-<meta property="article:tag" content="驱动">
 <meta property="article:tag" content="ssd1306">
 <meta property="article:tag" content="SPI">
 <meta property="article:tag" content="Python">
+<meta property="article:tag" content="驱动">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://purel.in/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <!-- feed -->
@@ -265,103 +265,6 @@ button {
   position: relative;
   overflow: hidden;
   margin-bottom: -100px;
-}
-.cover-wrapper .cover-bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-position: center;
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-}
-.cover-wrapper .cover-bg.lazyload:not(.loaded) {
-  opacity: 0;
-  -webkit-opacity: 0;
-  -moz-opacity: 0;
-}
-.cover-wrapper .cover-bg.lazyload.loaded {
-  animation-delay: 0s;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-out;
-  animation-name: fadeIn;
-}
-@-moz-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    filter: blur(12px);
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -khtml-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -o-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    filter: blur(12px);
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -khtml-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -o-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-@-o-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    filter: blur(12px);
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -khtml-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -o-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    filter: blur(12px);
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -khtml-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -o-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
 }
 .cover-wrapper .cover-body {
   z-index: 1;
@@ -826,6 +729,71 @@ button {
   .cover-wrapper.dock .menu {
     background: rgba(255,255,255,0.5);
     backdrop-filter: saturate(200%) blur(20px);
+  }
+}
+.cover-wrapper #parallax-window {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+.parallax-mirror {
+  animation-delay: 0s;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  animation-name: fadeIn;
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
   }
 }
 @font-face {
@@ -1666,8 +1634,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css?time=1647935634575" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.css?time=1647935634575"></noscript>
+  <link rel="stylesheet" href="/css/style.css?time=1647936324367" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css?time=1647936324367"></noscript>
   
 <script>
 if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -1738,9 +1706,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   volantis.dom = {}; // 页面Dom see: /source/js/app.js etc.
 
   volantis.GLOBAL_CONFIG ={
-    cdn: {"js":{"app":"/js/app.js?time=1647935634575","sites":"/js/plugins/sites.js?time=1647935634575","friends":"/js/plugins/friends.js?time=1647935634575","parallax":"/js/plugins/parallax.js?time=1647935634575","rightMenu":"/js/plugins/rightMenu.js?time=1647935634575","contributors":"/js/plugins/contributors.js?time=1647935634575","message":"/js/thirdparty/message.js?time=1647935634575","valine":"https://npm.elemecdn.com/valine@1.4/dist/Valine.min.js?time=1647935634575","search":"/js/search/hexo.js?time=1647935634575"},"css":{"style":"/css/style.css?time=1647935634575","message":"/css/message.css?time=1647935634575"}},
+    cdn: {"js":{"app":"/js/app.js?time=1647936324367","sites":"/js/plugins/sites.js?time=1647936324367","friends":"/js/plugins/friends.js?time=1647936324367","parallax":"/js/plugins/parallax.js?time=1647936324367","rightMenu":"/js/plugins/rightMenu.js?time=1647936324367","contributors":"/js/plugins/contributors.js?time=1647936324367","message":"/js/thirdparty/message.js?time=1647936324367","valine":"https://npm.elemecdn.com/valine@1.4/dist/Valine.min.js?time=1647936324367","search":"/js/search/hexo.js?time=1647936324367"},"css":{"style":"/css/style.css?time=1647936324367","message":"/css/message.css?time=1647936324367"}},
     default: {"avatar":"/media/placeholder/avatar/round/3442075.svg","link":"/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/media/placeholder/cover/76b86c0226ffd.svg","image":"/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date('Tue Mar 22 2022 15:53:54 GMT+0800 (中国标准时间)'),
+    lastupdate: new Date('Tue Mar 22 2022 16:05:24 GMT+0800 (中国标准时间)'),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2463,7 +2431,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
       <div id="none" class='cover-wrapper post dock' style="display: none;">
         
-  <div class='cover-bg lazyload placeholder' data-bg="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture"></div>
+  <div id="parallax-window"></div>
 
 <div class='cover-body'>
   <div class='top'>
@@ -2677,8 +2645,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>树梅派</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/LCD/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>LCD</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Pi/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Pi</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%A9%B1%E5%8A%A8/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>驱动</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/ssd1306/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>ssd1306</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/SPI/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>SPI</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Python</p></a></div>
-  <span hidden itemprop="keywords">树梅派 LCD Pi 驱动 ssd1306 SPI Python</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>树梅派</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/LCD/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>LCD</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Pi/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Pi</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/ssd1306/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>ssd1306</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/SPI/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>SPI</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Python</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%A9%B1%E5%8A%A8/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>驱动</p></a></div>
+  <span hidden itemprop="keywords">树梅派 LCD Pi ssd1306 SPI Python 驱动</span>
 
 
         
@@ -2971,7 +2939,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <!-- internal -->
 
-<script src="/js/app.js?time=1647935634575.js"></script>
+<script src="/js/app.js?time=1647936324367.js"></script>
 
 
 
@@ -3163,7 +3131,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
     </ul>
   </div>
-  <script>volantis.js('/js/plugins/rightMenu.js?time=1647935634575')</script>
+  <script>volantis.js('/js/plugins/rightMenu.js?time=1647936324367')</script>
 
 
 
@@ -3176,19 +3144,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/js/plugins/sites.js?time=1647935634575")
+        volantis.js("/js/plugins/sites.js?time=1647936324367")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/js/plugins/friends.js?time=1647935634575")
+        volantis.js("/js/plugins/friends.js?time=1647936324367")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/js/plugins/contributors.js?time=1647935634575")
+        volantis.js("/js/plugins/contributors.js?time=1647936324367")
       }
     
   };
@@ -3313,7 +3281,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/js/search/hexo.js?time=1647935634575");
+    return volantis.js("/js/search/hexo.js?time=1647936324367");
   }
 
   function loadSearchService() {
@@ -3379,6 +3347,61 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
+
+
+  <script>
+  let imgs = ["/images/background/003.webp","/images/background/004.webp","/images/background/012.webp","/images/background/006.webp","/images/background/010.webp","/images/background/014.webp","/images/background/005.webp","/images/background/index.jpg","/images/background/002.webp","/images/background/007.webp","/images/background/001.webp"];
+  let index = 0;
+  let IntervalParallax = null;
+
+  function parallax(){
+    let ParallaxWindow = document.querySelector("#parallax-window");
+    
+    Parallax.window = ParallaxWindow;
+    Parallax.options.fade = 1500;
+    Parallax.cache = 1;
+    next_parallax();
+    Parallax.init();
+    if (imgs.length>1) {
+      IntervalParallax = setInterval(function () {
+        next_parallax();
+      }, '10000');
+    }
+  }
+
+  function next_parallax() {
+    if (typeof Parallax == "undefined") {
+      return
+    }
+    
+      if (!document.querySelector("#full")&&!document.querySelector("#half")) {
+        return
+      }
+    
+    if (imgs.length>=1) {
+      Parallax.options.src = imgs[index % imgs.length];
+      Parallax.start();
+      index++;
+      if (Parallax.cache) {
+        fetch(imgs[index % imgs.length] +"?t=" + new Date().getTime());
+        if (index == imgs.length) {
+          Parallax.cache = 0;
+        }
+      }
+    }
+  }
+  var runningOnBrowser = typeof window !== "undefined";
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  if (!isBot) {
+    volantis.js('/js/plugins/parallax.js?time=1647936324367').then(()=>{
+      parallax()
+    })
+    volantis.pjax.send(()=>{
+      clearInterval(IntervalParallax)
+    },"clearIntervalParallax");
+    volantis.pjax.push(parallax);
+  }
+</script>
 
 
 
@@ -3604,7 +3627,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Purel.in","url":"https://purel.in/","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"徐哞哞","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://purel.in/","sameAs":["https://github.com/volantis-x"],"description":"应无所住，而生其心"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://purel.in/","name":"Purel.in"}},{"@type":"ListItem","position":2,"item":{"@id":"https://purel.in/categories/树梅派/","name":"树梅派"}},{"@type":"ListItem","position":3,"item":{"@id":"https://purel.in/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/","name":"树莓派：安装0.96寸SPI接口SSD1306屏幕"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"树莓派：安装0.96寸SPI接口SSD1306屏幕","description":"当这块小屏幕在夜里散发着光芒，你看到它便能回忆起整个部署的过程……","datePublished":"2020-04-03T21:48:32.000Z","dateModified":"2020-04-03T21:48:32.000Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://purel.in/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/"},"author":{"@type":"Person","name":"徐哞哞","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://purel.in/"},"publisher":{"@type":"Organization","name":"Purel.in","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://purel.in/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/","wordCount":33,"articleSection":"树梅派","keywords":"树梅派,LCD,Pi,驱动,ssd1306,SPI,Python","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Purel.in","url":"https://purel.in/","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"徐哞哞","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://purel.in/","sameAs":["https://github.com/volantis-x"],"description":"应无所住，而生其心"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://purel.in/","name":"Purel.in"}},{"@type":"ListItem","position":2,"item":{"@id":"https://purel.in/categories/树梅派/","name":"树梅派"}},{"@type":"ListItem","position":3,"item":{"@id":"https://purel.in/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/","name":"树莓派：安装0.96寸SPI接口SSD1306屏幕"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"树莓派：安装0.96寸SPI接口SSD1306屏幕","description":"当这块小屏幕在夜里散发着光芒，你看到它便能回忆起整个部署的过程……","datePublished":"2020-04-03T21:48:32.000Z","dateModified":"2020-04-03T21:48:32.000Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://purel.in/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/"},"author":{"@type":"Person","name":"徐哞哞","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://purel.in/"},"publisher":{"@type":"Organization","name":"Purel.in","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://purel.in/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/","wordCount":33,"articleSection":"树梅派","keywords":"树梅派,LCD,Pi,ssd1306,SPI,Python,驱动","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 <!-- more -->

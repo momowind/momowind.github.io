@@ -84,11 +84,11 @@
             
             <tag> Hexo </tag>
             
-            <tag> 树莓派 </tag>
-            
             <tag> Markdown </tag>
             
             <tag> Blog </tag>
+            
+            <tag> 树莓派 </tag>
             
             <tag> iA Writer </tag>
             
@@ -121,11 +121,11 @@
             
             <tag> Pi </tag>
             
+            <tag> 驱动 </tag>
+            
             <tag> 无线网卡 </tag>
             
             <tag> rtl8812bu </tag>
-            
-            <tag> 驱动 </tag>
             
         </tags>
       
@@ -156,13 +156,13 @@
             
             <tag> Pi </tag>
             
-            <tag> 驱动 </tag>
-            
             <tag> ssd1306 </tag>
             
             <tag> SPI </tag>
             
             <tag> Python </tag>
+            
+            <tag> 驱动 </tag>
             
         </tags>
       
@@ -224,8 +224,6 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> 树梅派 </tag>
             
             <tag> 3.5inch </tag>
@@ -235,6 +233,8 @@
             <tag> Lofree </tag>
             
             <tag> Pi </tag>
+            
+            <tag> 服务器 </tag>
             
         </tags>
       
