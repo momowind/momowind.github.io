@@ -1,149 +1,191 @@
 <!DOCTYPE html>
-<html lang=zh>
-<head>
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="一觉睡醒后发现树莓派上的博客无法访问了，通过检查日志找到了原因，原来是一向乖巧的frp服务被莫名中断，看起来它也有脆弱的一面呀。世间万物都在进化，是时候实现frp的自我管理了，让它可以在各种原因中断后自行检查并自行恢复。这篇文章记录了我是如何高效且快速创建一个frp全自动化守护进程的。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="frp全自动化守护进程">
-<meta property="og:url" content="https://purel.in/frp-fully-automated-daemon/index.html">
-<meta property="og:site_name" content="Purel.in">
-<meta property="og:description" content="一觉睡醒后发现树莓派上的博客无法访问了，通过检查日志找到了原因，原来是一向乖巧的frp服务被莫名中断，看起来它也有脆弱的一面呀。世间万物都在进化，是时候实现frp的自我管理了，让它可以在各种原因中断后自行检查并自行恢复。这篇文章记录了我是如何高效且快速创建一个frp全自动化守护进程的。">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://purel.in/images/2020/04/frp.png">
-<meta property="article:published_time" content="2020-04-13T07:19:06.000Z">
-<meta property="article:modified_time" content="2020-04-13T07:19:06.000Z">
-<meta property="article:author" content="徐哞哞">
-<meta property="article:tag" content="Frp">
-<meta property="article:tag" content="树莓派">
-<meta property="article:tag" content="守护进程">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://purel.in/images/2020/04/frp.png">
-    
-    
-        
-          
-              <link rel="shortcut icon" href="/images/favicon.ico">
-          
-        
-        
-          
-            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-          
-        
-        
-          
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-          
-        
-    
-    <!-- title -->
-    <title>frp全自动化守护进程</title>
-    <!-- styles -->
-    
-<link rel="stylesheet" href="/css/style.css">
+<html>
 
-    <!-- rss -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
     
+    <title>frp全自动化守护进程 | Purel.in</title>
+
+    <meta name="description" content="&lt;p&gt;&lt;img src=&#34;/images/2020/04/frp.png&#34;&gt;&lt;br&gt;一觉睡醒后发现树莓派上的博客无法访问了，通过检查日志找到了原因，原来是一向乖巧的frp服务被莫名中断，看起来它也有脆弱的一面呀。世间万物都在进化，是时候实现frp的自我管理了，让它可以在各种原因中断后自行检查并自行恢复。这篇文章记录了我是如何高效且快速创建一个frp全自动化守护进程的。&lt;/p&gt;">
+    <meta name="keywords" content="徐哞哞的实验室/生活/学习/领导力/爱">
+
     
+
+    <meta property="og:locale" content="zh-CN" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "frp全自动化守护进程 | Purel.in"  />
+    <meta property="og:description" content= "&lt;p&gt;&lt;img src=&#34;/images/2020/04/frp.png&#34;&gt;&lt;br&gt;一觉睡醒后发现树莓派上的博客无法访问了，通过检查日志找到了原因，原来是一向乖巧的frp服务被莫名中断，看起来它也有脆弱的一面呀。世间万物都在进化，是时候实现frp的自我管理了，让它可以在各种原因中断后自行检查并自行恢复。这篇文章记录了我是如何高效且快速创建一个frp全自动化守护进程的。&lt;/p&gt;" />
+    <meta property="og:url" content="https://purel.in/frp-fully-automated-daemon/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="徐哞哞" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;&lt;img src=&#34;/images/2020/04/frp.png&#34;&gt;&lt;br&gt;一觉睡醒后发现树莓派上的博客无法访问了，通过检查日志找到了原因，原来是一向乖巧的frp服务被莫名中断，看起来它也有脆弱的一面呀。世间万物都在进化，是时候实现frp的自我管理了，让它可以在各种原因中断后自行检查并自行恢复。这篇文章记录了我是如何高效且快速创建一个frp全自动化守护进程的。&lt;/p&gt;" />
+    <meta name="twitter:title" content="frp全自动化守护进程 | Purel.in"/>
+    <meta name="twitter:description" content="&lt;p&gt;&lt;img src=&#34;/images/2020/04/frp.png&#34;&gt;&lt;br&gt;一觉睡醒后发现树莓派上的博客无法访问了，通过检查日志找到了原因，原来是一向乖巧的frp服务被莫名中断，看起来它也有脆弱的一面呀。世间万物都在进化，是时候实现frp的自我管理了，让它可以在各种原因中断后自行检查并自行恢复。这篇文章记录了我是如何高效且快速创建一个frp全自动化守护进程的。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;&lt;img src=&#34;/images/2020/04/frp.png&#34;&gt;&lt;br&gt;一觉睡醒后发现树莓派上的博客无法访问了，通过检查日志找到了原因，原来是一向乖巧的frp服务被莫名中断，看起来它也有脆弱的一面呀。世间万物都在进化，是时候实现frp的自我管理了，让它可以在各种原因中断后自行检查并自行恢复。这篇文章记录了我是如何高效且快速创建一个frp全自动化守护进程的。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "徐哞哞" },
+            "@type": "BlogPosting",
+            "url": "https://purel.in/frp-fully-automated-daemon/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://purel.inundefined"
+            },
+            "name": "徐哞哞"
+            },
+            "headline": "frp全自动化守护进程 | Purel.in",
+            "datePublished": "2020-04-13T07:19:06.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://purel.in/frp-fully-automated-daemon/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = false
+        window.aomori_search_algolia = false
+
+    </script>
+
 <meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="Purel.in" type="application/atom+xml">
 </head>
 
 <body>
-    
-      <div id="header-post">
-  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/archives/">Writing</a></li>
-         
-          <li><a target="_blank" rel="noopener external nofollow noreferrer" href="http://github.com/gabithume">Projects</a></li>
-        
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        
-        <li><a class="icon" href="/Deploy-Hexo-to-Raspberry-Pi-and-Github/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
-        
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
-        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">Previous post</span>
-      <span id="i-next" class="info" style="display:none;">Next post</span>
-      <span id="i-top" class="info" style="display:none;">Back to top</span>
-      <span id="i-share" class="info" style="display:none;">Share post</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="http://www.facebook.com/sharer.php?u=https://purel.in/frp-fully-automated-daemon/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="https://twitter.com/share?url=https://purel.in/frp-fully-automated-daemon/&text=frp全自动化守护进程"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="http://www.linkedin.com/shareArticle?url=https://purel.in/frp-fully-automated-daemon/&title=frp全自动化守护进程"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="https://pinterest.com/pin/create/bookmarklet/?url=https://purel.in/frp-fully-automated-daemon/&is_video=false&description=frp全自动化守护进程"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=frp全自动化守护进程&body=Check out this article: https://purel.in/frp-fully-automated-daemon/" rel="external nofollow noreferrer"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="https://getpocket.com/save?url=https://purel.in/frp-fully-automated-daemon/&title=frp全自动化守护进程"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="http://reddit.com/submit?url=https://purel.in/frp-fully-automated-daemon/&title=frp全自动化守护进程"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="http://www.stumbleupon.com/submit?url=https://purel.in/frp-fully-automated-daemon/&title=frp全自动化守护进程"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="http://digg.com/submit?url=https://purel.in/frp-fully-automated-daemon/&title=frp全自动化守护进程"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="http://www.tumblr.com/share/link?url=https://purel.in/frp-fully-automated-daemon/&name=frp全自动化守护进程&description=&lt;p&gt;&lt;img src=&#34;/images/2020/04/frp.png&#34;&gt;&lt;br&gt;一觉睡醒后发现树莓派上的博客无法访问了，通过检查日志找到了原因，原来是一向乖巧的frp服务被莫名中断，看起来它也有脆弱的一面呀。世间万物都在进化，是时候实现frp的自我管理了，让它可以在各种原因中断后自行检查并自行恢复。这篇文章记录了我是如何高效且快速创建一个frp全自动化守护进程的。&lt;/p&gt;"><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
-</ul>
 
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <a class="header-type-title" href="/">Purel.in</a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+            </div>
+            <div class="header-menu-social">
+                
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%9B%E5%BB%BAfrpc%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8"><span class="toc-number">1.</span> <span class="toc-text">1. 创建frpc开机启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%88%9B%E5%BB%BAfrpcd%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">2. 创建frpcd守护进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8frpcd%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">3. 开机启动frpcd守护进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%AE%BE%E7%BD%AEfrps%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">4.</span> <span class="toc-text">4. 设置frps的注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-reboot"><span class="toc-number">5.</span> <span class="toc-text">5. reboot</span></a></li></ol>
-    </div>
-  </span>
+
 </div>
 
-    
-    <div class="content index width mx-auto px2 my4">
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl11s1exv002zcsc6enlp439g" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
         
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
-    
-    <h1 class="posttitle" itemprop="name headline">
-        frp全自动化守护进程
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      frp全自动化守护进程
     </h1>
-
-
-
-    <div class="meta">
-      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Purel.in</span>
-      </span>
-      
-    <div class="postdate">
-        <time datetime="2020-04-13T07:19:06.000Z" itemprop="datePublished">2020-04-13</time>
-    </div>
-
-
-      
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Frp/" rel="tag">Frp</a>, <a class="tag-link-link" href="/tags/%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B/" rel="tag">守护进程</a>, <a class="tag-link-link" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="tag">树莓派</a>
-    </div>
-
-
-    </div>
-  </header>
   
 
-  <div class="content" itemprop="articleBody">
-    <p><img src="/images/2020/04/frp.png"><br>一觉睡醒后发现树莓派上的博客无法访问了，通过检查日志找到了原因，原来是一向乖巧的frp服务被莫名中断，看起来它也有脆弱的一面呀。世间万物都在进化，是时候实现frp的自我管理了，让它可以在各种原因中断后自行检查并自行恢复。这篇文章记录了我是如何高效且快速创建一个frp全自动化守护进程的。</p>
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2020-04-13T07:19:06.000Z" itemprop="datePublished">2020-04-13</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/%E7%BD%91%E7%AB%99/">网站</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Frp/" rel="tag">Frp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B/" rel="tag">守护进程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="tag">树莓派</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p><img src="/images/2020/04/frp.png"><br>一觉睡醒后发现树莓派上的博客无法访问了，通过检查日志找到了原因，原来是一向乖巧的frp服务被莫名中断，看起来它也有脆弱的一面呀。世间万物都在进化，是时候实现frp的自我管理了，让它可以在各种原因中断后自行检查并自行恢复。这篇文章记录了我是如何高效且快速创建一个frp全自动化守护进程的。</p>
 <span id="more"></span>
 <p>frp分为frpc客户端和frps服务器端，这里以frpc为例，frps是一样的，只需要把以下目录或代码frpc或frpcd改成frps或frpsd。</p>
 <h2 id="1-创建frpc开机启动"><a href="#1-创建frpc开机启动" class="headerlink" title="1. 创建frpc开机启动"></a>1. 创建frpc开机启动</h2><p>创建一个systemctl文件</p>
@@ -166,119 +208,191 @@
 <h2 id="4-设置frps的注意事项"><a href="#4-设置frps的注意事项" class="headerlink" title="4. 设置frps的注意事项"></a>4. 设置frps的注意事项</h2><p>frps服务器端也是同理，但是要注意systemctl的路径，尽量避免路径不准确造成的重定向反馈。用于锚定返回值的str2建议设为<code>running</code>更为合理，避免frps一直在重启从而导致连接失败的问题。</p>
 <h2 id="5-reboot"><a href="#5-reboot" class="headerlink" title="5. reboot"></a>5. reboot</h2><p>Ok，至此Frp已经完成了自我进化，再也不用担心它什么时候断掉了服务，当然你可以<code>reboot</code>来测试一下我的这套frp自我管理系统是否对你的小可爱奏效。</p>
 
-  </div>
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+<nav class="article-nav">
+  
+  
+    <a href="/Deploy-Hexo-to-Raspberry-Pi-and-Github/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">前の記事</div>
+      <div class="article-nav-title">Hexo同步部署到树莓派与Github</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">シェア</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=frp全自动化守护进程 - Purel.in&url=https://purel.in/frp-fully-automated-daemon/">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=frp全自动化守护进程 - Purel.in&u=https://purel.in/frp-fully-automated-daemon/">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=frp全自动化守护进程 - Purel.in&url=https://purel.in/frp-fully-automated-daemon/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
 </article>
 
 
 
-    </div>
-    
-      <div id="footer-post-container">
-  <div id="footer-post">
 
-    <div id="nav-footer" style="display: none">
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A0%91%E6%A2%85%E6%B4%BE/">树梅派</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%AB%99/">网站</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/3-5inch/" rel="tag">3.5inch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Frp/" rel="tag">Frp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LCD/" rel="tag">LCD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leadership/" rel="tag">Leadership</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lofree/" rel="tag">Lofree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pi/" rel="tag">Pi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Purel-in/" rel="tag">Purel.in</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SPI/" rel="tag">SPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/" rel="tag">SSH</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSR/" rel="tag">SSR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Samba/" rel="tag">Samba</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WIFI/" rel="tag">WIFI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wordpress/" rel="tag">Wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iA-Writer/" rel="tag">iA Writer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/root/" rel="tag">root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rtl8812bu/" rel="tag">rtl8812bu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssd1306/" rel="tag">ssd1306</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%AE%E7%82%BC/" rel="tag">修炼</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" rel="tag">内网穿透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%88%E4%B8%80/" rel="tag">合一</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B/" rel="tag">守护进程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83/" rel="tag">数据中心</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A0%E7%BA%BF%E7%BD%91%E5%8D%A1/" rel="tag">无线网卡</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/" rel="tag">树梅派</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="tag">树莓派</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%96%AB%E6%83%85/" rel="tag">疫情</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%86%E5%AF%BC%E5%8A%9B/" rel="tag">领导力</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A9%B1%E5%8A%A8/" rel="tag">驱动</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
       <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/archives/">Writing</a></li>
-         
-          <li><a target="_blank" rel="noopener external nofollow noreferrer" href="http://github.com/gabithume">Projects</a></li>
+        
+          <li>
+            <a href="/frp-fully-automated-daemon/">frp全自动化守护进程</a>
+          </li>
+        
+          <li>
+            <a href="/Deploy-Hexo-to-Raspberry-Pi-and-Github/">Hexo同步部署到树莓派与Github</a>
+          </li>
+        
+          <li>
+            <a href="/Hexo-Frp-iAWriter-Overclocked-Blogger/">Hexo + Frp + iAWriter = Overclocked Blogger</a>
+          </li>
+        
+          <li>
+            <a href="/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/">树莓派：安装rtl8812bu双频无线网卡驱动</a>
+          </li>
+        
+          <li>
+            <a href="/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/">树莓派：安装0.96寸SPI接口SSD1306屏幕</a>
+          </li>
         
       </ul>
     </div>
-
-    <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%9B%E5%BB%BAfrpc%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8"><span class="toc-number">1.</span> <span class="toc-text">1. 创建frpc开机启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%88%9B%E5%BB%BAfrpcd%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">2. 创建frpcd守护进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8frpcd%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">3. 开机启动frpcd守护进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%AE%BE%E7%BD%AEfrps%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">4.</span> <span class="toc-text">4. 设置frps的注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-reboot"><span class="toc-number">5.</span> <span class="toc-text">5. reboot</span></a></li></ol>
-    </div>
-
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="http://www.facebook.com/sharer.php?u=https://purel.in/frp-fully-automated-daemon/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="https://twitter.com/share?url=https://purel.in/frp-fully-automated-daemon/&text=frp全自动化守护进程"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="http://www.linkedin.com/shareArticle?url=https://purel.in/frp-fully-automated-daemon/&title=frp全自动化守护进程"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="https://pinterest.com/pin/create/bookmarklet/?url=https://purel.in/frp-fully-automated-daemon/&is_video=false&description=frp全自动化守护进程"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=frp全自动化守护进程&body=Check out this article: https://purel.in/frp-fully-automated-daemon/" rel="external nofollow noreferrer"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="https://getpocket.com/save?url=https://purel.in/frp-fully-automated-daemon/&title=frp全自动化守护进程"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="http://reddit.com/submit?url=https://purel.in/frp-fully-automated-daemon/&title=frp全自动化守护进程"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="http://www.stumbleupon.com/submit?url=https://purel.in/frp-fully-automated-daemon/&title=frp全自动化守护进程"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="http://digg.com/submit?url=https://purel.in/frp-fully-automated-daemon/&title=frp全自动化守护进程"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="http://www.tumblr.com/share/link?url=https://purel.in/frp-fully-automated-daemon/&name=frp全自动化守护进程&description=&lt;p&gt;&lt;img src=&#34;/images/2020/04/frp.png&#34;&gt;&lt;br&gt;一觉睡醒后发现树莓派上的博客无法访问了，通过检查日志找到了原因，原来是一向乖巧的frp服务被莫名中断，看起来它也有脆弱的一面呀。世间万物都在进化，是时候实现frp的自我管理了，让它可以在各种原因中断后自行检查并自行恢复。这篇文章记录了我是如何高效且快速创建一个frp全自动化守护进程的。&lt;/p&gt;"><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-
-    <div id="actions-footer">
-      <ul>
-        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
-        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
-        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
-        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
-      </ul>
-    </div>
-
   </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a></li></ul>
+    </div>
+  </div>
+
+
+    
 </div>
 
-    
-    <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy; 2022 徐哞哞
-  </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/archives/">Writing</a></li>
-         
-          <li><a target="_blank" rel="noopener external nofollow noreferrer" href="http://github.com/gabithume">Projects</a></li>
-        
-      </ul>
-    </nav>
-  </div>
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Purel.in &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" rel="external nofollow noreferrer" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" rel="external nofollow noreferrer" target="_blank">Github</a>
+        </div>
+    </div>
+
 </footer>
 
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
+
 </html>
-<!-- styles -->
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
-
-<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
-
-
-<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
-
-
-
-<!-- jquery -->
-
-<script src="/lib/jquery/jquery.min.js"></script>
-
-
-<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
-
-
-<script src="/js/main.js"></script>
-
-<!-- Google Analytics -->
-
-    <script type="text/javascript">
-        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-86660611-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-
-<!-- Disqus Comments -->
-
-

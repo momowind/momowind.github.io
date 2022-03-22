@@ -1,152 +1,191 @@
 <!DOCTYPE html>
-<html lang=zh>
-<head>
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="这篇文章记录了我是如何实现通过一个指令将树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hexo同步部署到树莓派与Github">
-<meta property="og:url" content="https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/index.html">
-<meta property="og:site_name" content="Purel.in">
-<meta property="og:description" content="这篇文章记录了我是如何实现通过一个指令将树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://purel.in/images/2020/04/hexopi.jpg">
-<meta property="article:published_time" content="2020-04-12T04:01:50.000Z">
-<meta property="article:modified_time" content="2020-04-12T04:01:50.000Z">
-<meta property="article:author" content="徐哞哞">
-<meta property="article:tag" content="树梅派">
-<meta property="article:tag" content="Purel.in">
-<meta property="article:tag" content="Hexo">
-<meta property="article:tag" content="Github">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://purel.in/images/2020/04/hexopi.jpg">
-    
-    
-        
-          
-              <link rel="shortcut icon" href="/images/favicon.ico">
-          
-        
-        
-          
-            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-          
-        
-        
-          
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-          
-        
-    
-    <!-- title -->
-    <title>Hexo同步部署到树莓派与Github</title>
-    <!-- styles -->
-    
-<link rel="stylesheet" href="/css/style.css">
+<html>
 
-    <!-- rss -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
     
+    <title>Hexo同步部署到树莓派与Github | Purel.in</title>
+
+    <meta name="description" content="&lt;p&gt;&lt;img src=&#34;/images/2020/04/hexopi.jpg&#34;&gt;&lt;br&gt;这篇文章记录了我是如何实现通过一个指令将树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。&lt;/p&gt;">
+    <meta name="keywords" content="徐哞哞的实验室/生活/学习/领导力/爱">
+
     
+
+    <meta property="og:locale" content="zh-CN" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "Hexo同步部署到树莓派与Github | Purel.in"  />
+    <meta property="og:description" content= "&lt;p&gt;&lt;img src=&#34;/images/2020/04/hexopi.jpg&#34;&gt;&lt;br&gt;这篇文章记录了我是如何实现通过一个指令将树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。&lt;/p&gt;" />
+    <meta property="og:url" content="https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="徐哞哞" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;&lt;img src=&#34;/images/2020/04/hexopi.jpg&#34;&gt;&lt;br&gt;这篇文章记录了我是如何实现通过一个指令将树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。&lt;/p&gt;" />
+    <meta name="twitter:title" content="Hexo同步部署到树莓派与Github | Purel.in"/>
+    <meta name="twitter:description" content="&lt;p&gt;&lt;img src=&#34;/images/2020/04/hexopi.jpg&#34;&gt;&lt;br&gt;这篇文章记录了我是如何实现通过一个指令将树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;&lt;img src=&#34;/images/2020/04/hexopi.jpg&#34;&gt;&lt;br&gt;这篇文章记录了我是如何实现通过一个指令将树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "徐哞哞" },
+            "@type": "BlogPosting",
+            "url": "https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://purel.inundefined"
+            },
+            "name": "徐哞哞"
+            },
+            "headline": "Hexo同步部署到树莓派与Github | Purel.in",
+            "datePublished": "2020-04-12T04:01:50.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = false
+        window.aomori_search_algolia = false
+
+    </script>
+
 <meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="Purel.in" type="application/atom+xml">
 </head>
 
 <body>
-    
-      <div id="header-post">
-  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/archives/">Writing</a></li>
-         
-          <li><a target="_blank" rel="noopener external nofollow noreferrer" href="http://github.com/gabithume">Projects</a></li>
-        
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        <li><a class="icon" href="/frp-fully-automated-daemon/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
-        
-        
-        <li><a class="icon" href="/Hexo-Frp-iAWriter-Overclocked-Blogger/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
-        
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
-        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">Previous post</span>
-      <span id="i-next" class="info" style="display:none;">Next post</span>
-      <span id="i-top" class="info" style="display:none;">Back to top</span>
-      <span id="i-share" class="info" style="display:none;">Share post</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="http://www.facebook.com/sharer.php?u=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="https://twitter.com/share?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&text=Hexo同步部署到树莓派与Github"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="http://www.linkedin.com/shareArticle?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&title=Hexo同步部署到树莓派与Github"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="https://pinterest.com/pin/create/bookmarklet/?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&is_video=false&description=Hexo同步部署到树莓派与Github"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Hexo同步部署到树莓派与Github&body=Check out this article: https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/" rel="external nofollow noreferrer"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="https://getpocket.com/save?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&title=Hexo同步部署到树莓派与Github"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="http://reddit.com/submit?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&title=Hexo同步部署到树莓派与Github"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="http://www.stumbleupon.com/submit?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&title=Hexo同步部署到树莓派与Github"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="http://digg.com/submit?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&title=Hexo同步部署到树莓派与Github"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="http://www.tumblr.com/share/link?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&name=Hexo同步部署到树莓派与Github&description=&lt;p&gt;&lt;img src=&#34;/images/2020/04/hexopi.jpg&#34;&gt;&lt;br&gt;这篇文章记录了我是如何实现通过一个指令将树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。&lt;/p&gt;"><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
-</ul>
 
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <a class="header-type-title" href="/">Purel.in</a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+            </div>
+            <div class="header-menu-social">
+                
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85Git"><span class="toc-number">1.</span> <span class="toc-text">1. 安装Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%B0%86Git%E9%83%A8%E7%BD%B2%E5%88%B0%E6%A0%91%E8%8E%93%E6%B4%BE"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 将Git部署到树莓派</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%85%A8%E5%B1%80%E4%BF%AE%E6%94%B9Github%E7%94%A8%E6%88%B7%E5%90%8D"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 全局修改Github用户名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%83%A8%E7%BD%B2Nginx%E7%8E%AF%E5%A2%83"><span class="toc-number">2.</span> <span class="toc-text">2. 部署Nginx环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%AE%89%E8%A3%85"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%90%AF%E5%8A%A8"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E9%85%8D%E7%BD%AE"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%83%A8%E7%BD%B2Git%E5%BA%93"><span class="toc-number">3.</span> <span class="toc-text">3. 部署Git库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%9C%A8%E6%B4%BE%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%80%E4%B8%AAgit%E8%A3%B8%E5%BA%93"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 在派初始化一个git裸库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E6%96%B0%E5%BB%BApost-receive%E6%96%87%E4%BB%B6"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 新建post-receive文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%A4%87%E9%80%89%E6%96%B9%E6%A1%88"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 备选方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E8%B5%8B%E4%BA%88%E6%9D%83%E9%99%90"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 赋予权限</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%90%8C%E6%97%B6%E9%83%A8%E7%BD%B2%E5%A4%9A%E5%B9%B3%E5%8F%B0%E8%AE%BE%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">4. 同时部署多平台设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%8F%91%E5%B8%83%E6%88%96%E8%B0%83%E8%AF%95Hexo%E5%8D%9A%E5%AE%A2"><span class="toc-number">5.</span> <span class="toc-text">5. 发布或调试Hexo博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BDHexo%E6%8F%92%E4%BB%B6"><span class="toc-number">6.</span> <span class="toc-text">6. 安装和卸载Hexo插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E9%80%9A%E8%BF%87npm%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 通过npm安装插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#npm-%E5%88%87%E6%8D%A2-cnpm"><span class="toc-number">6.1.1.</span> <span class="toc-text">npm 切换 cnpm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cnpm-%E5%88%87%E6%8D%A2-npm"><span class="toc-number">6.1.2.</span> <span class="toc-text">cnpm 切换 npm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="toc-number">6.1.3.</span> <span class="toc-text">安装插件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E5%8D%B8%E8%BD%BD%E6%8F%92%E4%BB%B6"><span class="toc-number">6.2.</span> <span class="toc-text">6.2 卸载插件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%A4%87%E4%BB%BD%E6%95%B4%E4%B8%AAHexo"><span class="toc-number">7.</span> <span class="toc-text">7. 备份整个Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-%E5%9C%A8Github%E6%96%B0%E5%BB%BA%E5%88%86%E6%94%AF"><span class="toc-number">7.1.</span> <span class="toc-text">7.1 在Github新建分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-PUSH%E5%88%B0Github"><span class="toc-number">7.2.</span> <span class="toc-text">7.2 PUSH到Github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-Git%E7%9A%84%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="toc-number">7.3.</span> <span class="toc-text">7.3 Git的常用指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4-%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%AE%8C%E6%95%B4%E5%A4%87%E4%BB%BD"><span class="toc-number">7.4.</span> <span class="toc-text">7.4 一键发布博客并完整备份</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-4-1-%E5%8F%91%E5%B8%83%E5%8D%9A%E5%AE%A2%E6%8C%87%E4%BB%A4"><span class="toc-number">7.4.1.</span> <span class="toc-text">7.4.1 发布博客指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-4-2-%E5%A4%87%E4%BB%BD%E5%AE%8C%E6%95%B4%E7%9A%84Hexo"><span class="toc-number">7.4.2.</span> <span class="toc-text">7.4.2 备份完整的Hexo</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E5%8D%87%E7%BA%A7nodejs%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">8.</span> <span class="toc-text">8. 升级nodejs的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8Dnode%E7%89%88%E6%9C%AC"><span class="toc-number">8.1.</span> <span class="toc-text">8.1 查看当前node版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-%E5%AE%89%E8%A3%85n%E6%A8%A1%E5%9D%97"><span class="toc-number">8.2.</span> <span class="toc-text">8.2 安装n模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3-%E5%8D%87%E7%BA%A7%E5%88%B0%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC-x2F-%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC"><span class="toc-number">8.3.</span> <span class="toc-text">8.3 升级到指定版本&#x2F;最新版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-4-%E6%A3%80%E6%9F%A5%E5%8D%87%E7%BA%A7%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F"><span class="toc-number">8.4.</span> <span class="toc-text">8.4 检查升级是否成功</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-5-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-number">8.5.</span> <span class="toc-text">8.5 常见问题</span></a></li></ol></li></ol>
-    </div>
-  </span>
+
 </div>
 
-    
-    <div class="content index width mx-auto px2 my4">
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl11s1ext002wcsc6hrvagj97" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
         
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
-    
-    <h1 class="posttitle" itemprop="name headline">
-        Hexo同步部署到树莓派与Github
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Hexo同步部署到树莓派与Github
     </h1>
-
-
-
-    <div class="meta">
-      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Purel.in</span>
-      </span>
-      
-    <div class="postdate">
-        <time datetime="2020-04-12T04:01:50.000Z" itemprop="datePublished">2020-04-12</time>
-    </div>
-
-
-      
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Github/" rel="tag">Github</a>, <a class="tag-link-link" href="/tags/Hexo/" rel="tag">Hexo</a>, <a class="tag-link-link" href="/tags/Purel-in/" rel="tag">Purel.in</a>, <a class="tag-link-link" href="/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/" rel="tag">树梅派</a>
-    </div>
-
-
-    </div>
-  </header>
   
 
-  <div class="content" itemprop="articleBody">
-    <p><img src="/images/2020/04/hexopi.jpg"><br>这篇文章记录了我是如何实现通过一个指令将树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。</p>
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2020-04-12T04:01:50.000Z" itemprop="datePublished">2020-04-12</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/%E7%BD%91%E7%AB%99/">网站</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/" rel="tag">Github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Purel-in/" rel="tag">Purel.in</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p><img src="/images/2020/04/hexopi.jpg"><br>这篇文章记录了我是如何实现通过一个指令将树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。</p>
 <span id="more"></span>
 <h2 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1. 安装Git"></a>1. 安装Git</h2><h3 id="1-1-将Git部署到树莓派"><a href="#1-1-将Git部署到树莓派" class="headerlink" title="1.1 将Git部署到树莓派"></a>1.1 将Git部署到树莓派</h3><p>VPS服务器请注意设置防火墙相关端口开放，树莓派则建议安装ufw解决一切防火墙端口问题造成的坑。<br>首先通过指令<code>apt install git</code>安装Git和Node.js，如果是CentOS服务器需要把apt换成yum，我这里主要以树莓派的Debian环境来记录整个部署过程。</p>
 <h3 id="1-2-全局修改Github用户名"><a href="#1-2-全局修改Github用户名" class="headerlink" title="1.2 全局修改Github用户名"></a>1.2 全局修改Github用户名</h3><p>在树莓派终端输入下列命令修改全局用户名（注意将引号内替换为个人帐号）：</p>
@@ -211,119 +250,200 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">nodes -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
 <p>全部正确输出则代表安装正确。<br>然后重新安装Hexo<br><code>npm install -g hexo-cli</code></p>
 
-  </div>
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/frp-fully-automated-daemon/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">次の記事</div>
+      <div class="article-nav-title">
+        
+          frp全自动化守护进程
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Hexo-Frp-iAWriter-Overclocked-Blogger/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">前の記事</div>
+      <div class="article-nav-title">Hexo + Frp + iAWriter = Overclocked Blogger</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">シェア</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=Hexo同步部署到树莓派与Github - Purel.in&url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=Hexo同步部署到树莓派与Github - Purel.in&u=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=Hexo同步部署到树莓派与Github - Purel.in&url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
 </article>
 
 
 
-    </div>
-    
-      <div id="footer-post-container">
-  <div id="footer-post">
 
-    <div id="nav-footer" style="display: none">
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A0%91%E6%A2%85%E6%B4%BE/">树梅派</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%AB%99/">网站</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/3-5inch/" rel="tag">3.5inch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Frp/" rel="tag">Frp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LCD/" rel="tag">LCD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leadership/" rel="tag">Leadership</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lofree/" rel="tag">Lofree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pi/" rel="tag">Pi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Purel-in/" rel="tag">Purel.in</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SPI/" rel="tag">SPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/" rel="tag">SSH</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSR/" rel="tag">SSR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Samba/" rel="tag">Samba</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WIFI/" rel="tag">WIFI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wordpress/" rel="tag">Wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iA-Writer/" rel="tag">iA Writer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/root/" rel="tag">root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rtl8812bu/" rel="tag">rtl8812bu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssd1306/" rel="tag">ssd1306</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%AE%E7%82%BC/" rel="tag">修炼</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" rel="tag">内网穿透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%88%E4%B8%80/" rel="tag">合一</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B/" rel="tag">守护进程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83/" rel="tag">数据中心</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A0%E7%BA%BF%E7%BD%91%E5%8D%A1/" rel="tag">无线网卡</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/" rel="tag">树梅派</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="tag">树莓派</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%96%AB%E6%83%85/" rel="tag">疫情</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%86%E5%AF%BC%E5%8A%9B/" rel="tag">领导力</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A9%B1%E5%8A%A8/" rel="tag">驱动</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
       <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/archives/">Writing</a></li>
-         
-          <li><a target="_blank" rel="noopener external nofollow noreferrer" href="http://github.com/gabithume">Projects</a></li>
+        
+          <li>
+            <a href="/frp-fully-automated-daemon/">frp全自动化守护进程</a>
+          </li>
+        
+          <li>
+            <a href="/Deploy-Hexo-to-Raspberry-Pi-and-Github/">Hexo同步部署到树莓派与Github</a>
+          </li>
+        
+          <li>
+            <a href="/Hexo-Frp-iAWriter-Overclocked-Blogger/">Hexo + Frp + iAWriter = Overclocked Blogger</a>
+          </li>
+        
+          <li>
+            <a href="/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/">树莓派：安装rtl8812bu双频无线网卡驱动</a>
+          </li>
+        
+          <li>
+            <a href="/raspberry-pi-install-0-96-inch-spi-interface-ssd1306-screen/">树莓派：安装0.96寸SPI接口SSD1306屏幕</a>
+          </li>
         
       </ul>
     </div>
-
-    <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85Git"><span class="toc-number">1.</span> <span class="toc-text">1. 安装Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%B0%86Git%E9%83%A8%E7%BD%B2%E5%88%B0%E6%A0%91%E8%8E%93%E6%B4%BE"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 将Git部署到树莓派</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%85%A8%E5%B1%80%E4%BF%AE%E6%94%B9Github%E7%94%A8%E6%88%B7%E5%90%8D"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 全局修改Github用户名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%83%A8%E7%BD%B2Nginx%E7%8E%AF%E5%A2%83"><span class="toc-number">2.</span> <span class="toc-text">2. 部署Nginx环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%AE%89%E8%A3%85"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%90%AF%E5%8A%A8"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E9%85%8D%E7%BD%AE"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%83%A8%E7%BD%B2Git%E5%BA%93"><span class="toc-number">3.</span> <span class="toc-text">3. 部署Git库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%9C%A8%E6%B4%BE%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%80%E4%B8%AAgit%E8%A3%B8%E5%BA%93"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 在派初始化一个git裸库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E6%96%B0%E5%BB%BApost-receive%E6%96%87%E4%BB%B6"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 新建post-receive文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%A4%87%E9%80%89%E6%96%B9%E6%A1%88"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 备选方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E8%B5%8B%E4%BA%88%E6%9D%83%E9%99%90"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 赋予权限</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%90%8C%E6%97%B6%E9%83%A8%E7%BD%B2%E5%A4%9A%E5%B9%B3%E5%8F%B0%E8%AE%BE%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">4. 同时部署多平台设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%8F%91%E5%B8%83%E6%88%96%E8%B0%83%E8%AF%95Hexo%E5%8D%9A%E5%AE%A2"><span class="toc-number">5.</span> <span class="toc-text">5. 发布或调试Hexo博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BDHexo%E6%8F%92%E4%BB%B6"><span class="toc-number">6.</span> <span class="toc-text">6. 安装和卸载Hexo插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E9%80%9A%E8%BF%87npm%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 通过npm安装插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#npm-%E5%88%87%E6%8D%A2-cnpm"><span class="toc-number">6.1.1.</span> <span class="toc-text">npm 切换 cnpm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cnpm-%E5%88%87%E6%8D%A2-npm"><span class="toc-number">6.1.2.</span> <span class="toc-text">cnpm 切换 npm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="toc-number">6.1.3.</span> <span class="toc-text">安装插件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E5%8D%B8%E8%BD%BD%E6%8F%92%E4%BB%B6"><span class="toc-number">6.2.</span> <span class="toc-text">6.2 卸载插件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%A4%87%E4%BB%BD%E6%95%B4%E4%B8%AAHexo"><span class="toc-number">7.</span> <span class="toc-text">7. 备份整个Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-%E5%9C%A8Github%E6%96%B0%E5%BB%BA%E5%88%86%E6%94%AF"><span class="toc-number">7.1.</span> <span class="toc-text">7.1 在Github新建分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-PUSH%E5%88%B0Github"><span class="toc-number">7.2.</span> <span class="toc-text">7.2 PUSH到Github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-Git%E7%9A%84%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="toc-number">7.3.</span> <span class="toc-text">7.3 Git的常用指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4-%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%AE%8C%E6%95%B4%E5%A4%87%E4%BB%BD"><span class="toc-number">7.4.</span> <span class="toc-text">7.4 一键发布博客并完整备份</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-4-1-%E5%8F%91%E5%B8%83%E5%8D%9A%E5%AE%A2%E6%8C%87%E4%BB%A4"><span class="toc-number">7.4.1.</span> <span class="toc-text">7.4.1 发布博客指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-4-2-%E5%A4%87%E4%BB%BD%E5%AE%8C%E6%95%B4%E7%9A%84Hexo"><span class="toc-number">7.4.2.</span> <span class="toc-text">7.4.2 备份完整的Hexo</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E5%8D%87%E7%BA%A7nodejs%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">8.</span> <span class="toc-text">8. 升级nodejs的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8Dnode%E7%89%88%E6%9C%AC"><span class="toc-number">8.1.</span> <span class="toc-text">8.1 查看当前node版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-%E5%AE%89%E8%A3%85n%E6%A8%A1%E5%9D%97"><span class="toc-number">8.2.</span> <span class="toc-text">8.2 安装n模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3-%E5%8D%87%E7%BA%A7%E5%88%B0%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC-x2F-%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC"><span class="toc-number">8.3.</span> <span class="toc-text">8.3 升级到指定版本&#x2F;最新版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-4-%E6%A3%80%E6%9F%A5%E5%8D%87%E7%BA%A7%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F"><span class="toc-number">8.4.</span> <span class="toc-text">8.4 检查升级是否成功</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-5-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-number">8.5.</span> <span class="toc-text">8.5 常见问题</span></a></li></ol></li></ol>
-    </div>
-
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="http://www.facebook.com/sharer.php?u=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="https://twitter.com/share?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&text=Hexo同步部署到树莓派与Github"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="http://www.linkedin.com/shareArticle?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&title=Hexo同步部署到树莓派与Github"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="https://pinterest.com/pin/create/bookmarklet/?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&is_video=false&description=Hexo同步部署到树莓派与Github"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Hexo同步部署到树莓派与Github&body=Check out this article: https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/" rel="external nofollow noreferrer"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="https://getpocket.com/save?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&title=Hexo同步部署到树莓派与Github"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="http://reddit.com/submit?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&title=Hexo同步部署到树莓派与Github"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="http://www.stumbleupon.com/submit?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&title=Hexo同步部署到树莓派与Github"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="http://digg.com/submit?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&title=Hexo同步部署到树莓派与Github"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener external nofollow noreferrer" href="http://www.tumblr.com/share/link?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&name=Hexo同步部署到树莓派与Github&description=&lt;p&gt;&lt;img src=&#34;/images/2020/04/hexopi.jpg&#34;&gt;&lt;br&gt;这篇文章记录了我是如何实现通过一个指令将树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。&lt;/p&gt;"><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-
-    <div id="actions-footer">
-      <ul>
-        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
-        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
-        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
-        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
-      </ul>
-    </div>
-
   </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a></li></ul>
+    </div>
+  </div>
+
+
+    
 </div>
 
-    
-    <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy; 2022 徐哞哞
-  </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/archives/">Writing</a></li>
-         
-          <li><a target="_blank" rel="noopener external nofollow noreferrer" href="http://github.com/gabithume">Projects</a></li>
-        
-      </ul>
-    </nav>
-  </div>
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Purel.in &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" rel="external nofollow noreferrer" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" rel="external nofollow noreferrer" target="_blank">Github</a>
+        </div>
+    </div>
+
 </footer>
 
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
+
 </html>
-<!-- styles -->
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
-
-<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
-
-
-<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
-
-
-
-<!-- jquery -->
-
-<script src="/lib/jquery/jquery.min.js"></script>
-
-
-<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
-
-
-<script src="/js/main.js"></script>
-
-<!-- Google Analytics -->
-
-    <script type="text/javascript">
-        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-86660611-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-
-<!-- Disqus Comments -->
-
-

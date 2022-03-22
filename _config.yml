@@ -96,7 +96,7 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 #theme: volantis
-theme: cactus-light
+theme: hexo-theme-aomori
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 #deploy:

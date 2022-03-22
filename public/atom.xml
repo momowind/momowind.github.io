@@ -58,9 +58,9 @@
     <category term="网站" scheme="https://purel.in/categories/%E7%BD%91%E7%AB%99/"/>
     
     
-    <category term="树梅派" scheme="https://purel.in/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/"/>
-    
     <category term="Purel.in" scheme="https://purel.in/tags/Purel-in/"/>
+    
+    <category term="树梅派" scheme="https://purel.in/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/"/>
     
     <category term="Hexo" scheme="https://purel.in/tags/Hexo/"/>
     
@@ -213,6 +213,8 @@
     <category term="树梅派" scheme="https://purel.in/categories/%E6%A0%91%E6%A2%85%E6%B4%BE/"/>
     
     
+    <category term="服务器" scheme="https://purel.in/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
     <category term="树梅派" scheme="https://purel.in/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/"/>
     
     <category term="3.5inch" scheme="https://purel.in/tags/3-5inch/"/>
@@ -222,8 +224,6 @@
     <category term="Lofree" scheme="https://purel.in/tags/Lofree/"/>
     
     <category term="Pi" scheme="https://purel.in/tags/Pi/"/>
-    
-    <category term="服务器" scheme="https://purel.in/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
@@ -278,13 +278,13 @@
     <category term="网站" scheme="https://purel.in/categories/%E7%BD%91%E7%AB%99/"/>
     
     
-    <category term="服务器" scheme="https://purel.in/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
     <category term="Purel.in" scheme="https://purel.in/tags/Purel-in/"/>
     
-    <category term="数据中心" scheme="https://purel.in/tags/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83/"/>
-    
     <category term="Wordpress" scheme="https://purel.in/tags/Wordpress/"/>
+    
+    <category term="服务器" scheme="https://purel.in/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="数据中心" scheme="https://purel.in/tags/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83/"/>
     
   </entry>
   
