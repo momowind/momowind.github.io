@@ -115,9 +115,9 @@ cover:
   subtitle: 'Pure Life, Learn, Leadership & Love in'
   search: # search bar placeholder
   features:
-#    - name: 首页
-#      icon: fas fa-home
-#      url: /
+    - name: 博客
+      icon: fa-solid fa-rss
+      url: /
     - name: 文章
       icon: fas fa-newspaper
       rows:
@@ -137,9 +137,9 @@ cover:
       icon: fas fa-comment-dots
       url: bbs/
 
-    - name: Pi
+    - name: OP
       icon: fab fa-raspberry-pi
-      url: https://pi.purel.in
+      url: https://op.purel.in
     - name: Cloud
       icon: fab fa-cloudversify
       url: https://cloud.purel.in/
