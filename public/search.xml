@@ -20,9 +20,9 @@
       
         <tags>
             
-            <tag> 树莓派 </tag>
-            
             <tag> Frp </tag>
+            
+            <tag> 树莓派 </tag>
             
             <tag> 守护进程 </tag>
             
@@ -121,11 +121,11 @@
             
             <tag> Pi </tag>
             
+            <tag> 驱动 </tag>
+            
             <tag> 无线网卡 </tag>
             
             <tag> rtl8812bu </tag>
-            
-            <tag> 驱动 </tag>
             
         </tags>
       
@@ -156,13 +156,13 @@
             
             <tag> Pi </tag>
             
-            <tag> 驱动 </tag>
-            
             <tag> ssd1306 </tag>
             
             <tag> SPI </tag>
             
             <tag> Python </tag>
+            
+            <tag> 驱动 </tag>
             
         </tags>
       
@@ -296,11 +296,11 @@
             
             <tag> Purel.in </tag>
             
-            <tag> Wordpress </tag>
-            
             <tag> 服务器 </tag>
             
             <tag> 数据中心 </tag>
+            
+            <tag> Wordpress </tag>
             
         </tags>
       

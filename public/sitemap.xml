@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>https://purel.in/bbs/index.html</loc>
+    <loc>https://purel.in/categories/index.html</loc>
     
     <lastmod>2022-03-20</lastmod>
     
@@ -56,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://purel.in/categories/index.html</loc>
+    <loc>https://purel.in/bbs/index.html</loc>
     
     <lastmod>2022-03-20</lastmod>
     
@@ -189,13 +189,6 @@
   </url>
   
   <url>
-    <loc>https://purel.in/tags/Wordpress/</loc>
-    <lastmod>2022-03-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://purel.in/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
     <lastmod>2022-03-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -204,6 +197,132 @@
   
   <url>
     <loc>https://purel.in/tags/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83/</loc>
+    <lastmod>2022-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://purel.in/tags/Wordpress/</loc>
+    <lastmod>2022-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://purel.in/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/</loc>
+    <lastmod>2022-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://purel.in/tags/3-5inch/</loc>
+    <lastmod>2022-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://purel.in/tags/LCD/</loc>
+    <lastmod>2022-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://purel.in/tags/Lofree/</loc>
+    <lastmod>2022-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://purel.in/tags/Pi/</loc>
+    <lastmod>2022-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://purel.in/tags/Frp/</loc>
+    <lastmod>2022-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://purel.in/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</loc>
+    <lastmod>2022-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://purel.in/tags/WIFI/</loc>
+    <lastmod>2022-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://purel.in/tags/SSH/</loc>
+    <lastmod>2022-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://purel.in/tags/root/</loc>
+    <lastmod>2022-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://purel.in/tags/SSR/</loc>
+    <lastmod>2022-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://purel.in/tags/ssd1306/</loc>
+    <lastmod>2022-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://purel.in/tags/SPI/</loc>
+    <lastmod>2022-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://purel.in/tags/Python/</loc>
+    <lastmod>2022-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://purel.in/tags/%E9%A9%B1%E5%8A%A8/</loc>
+    <lastmod>2022-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://purel.in/tags/%E6%97%A0%E7%BA%BF%E7%BD%91%E5%8D%A1/</loc>
+    <lastmod>2022-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://purel.in/tags/rtl8812bu/</loc>
     <lastmod>2022-03-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -252,41 +371,6 @@
   </url>
   
   <url>
-    <loc>https://purel.in/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/</loc>
-    <lastmod>2022-03-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://purel.in/tags/3-5inch/</loc>
-    <lastmod>2022-03-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://purel.in/tags/LCD/</loc>
-    <lastmod>2022-03-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://purel.in/tags/Lofree/</loc>
-    <lastmod>2022-03-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://purel.in/tags/Pi/</loc>
-    <lastmod>2022-03-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://purel.in/tags/Hexo/</loc>
     <lastmod>2022-03-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -329,55 +413,6 @@
   </url>
   
   <url>
-    <loc>https://purel.in/tags/%E6%97%A0%E7%BA%BF%E7%BD%91%E5%8D%A1/</loc>
-    <lastmod>2022-03-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://purel.in/tags/rtl8812bu/</loc>
-    <lastmod>2022-03-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://purel.in/tags/%E9%A9%B1%E5%8A%A8/</loc>
-    <lastmod>2022-03-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://purel.in/tags/ssd1306/</loc>
-    <lastmod>2022-03-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://purel.in/tags/SPI/</loc>
-    <lastmod>2022-03-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://purel.in/tags/Python/</loc>
-    <lastmod>2022-03-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://purel.in/tags/Frp/</loc>
-    <lastmod>2022-03-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://purel.in/tags/%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B/</loc>
     <lastmod>2022-03-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -386,41 +421,6 @@
   
   <url>
     <loc>https://purel.in/tags/Github/</loc>
-    <lastmod>2022-03-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://purel.in/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</loc>
-    <lastmod>2022-03-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://purel.in/tags/WIFI/</loc>
-    <lastmod>2022-03-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://purel.in/tags/SSH/</loc>
-    <lastmod>2022-03-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://purel.in/tags/root/</loc>
-    <lastmod>2022-03-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://purel.in/tags/SSR/</loc>
     <lastmod>2022-03-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -436,14 +436,14 @@
   </url>
   
   <url>
-    <loc>https://purel.in/categories/%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://purel.in/categories/%E6%A0%91%E6%A2%85%E6%B4%BE/</loc>
     <lastmod>2022-03-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://purel.in/categories/%E6%A0%91%E6%A2%85%E6%B4%BE/</loc>
+    <loc>https://purel.in/categories/%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2022-03-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
