@@ -140,19 +140,35 @@ chown git:git -R /data/wwwroot/blog
 清除、生成新的网站并发布到Git或服务器
 通过以上指令发布后打开vps的网址就能看到新的hexo博客啦，也可以通过`hexo s`在浏览器打开`localhost:4000`进行本地调试Hexo。
 ## 6. 安装和卸载Hexo插件
-### 6.1 安装插件
+### 6.1 通过npm安装插件
+
+#### npm 切换 cnpm
+
+```cpp
+npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```
-npm install hexo-deployer-git --save #安装git部署
-npm install --save hexo-admin #安装后台发布
-npm install hexo-generator-feed --save #安装rss生成
-npm install hexo-generator-sitemap --save #安装sitemap
-npm i -S hexo-generator-search hexo-generator-json-content #搜索依赖包
-npm i -S hexo-renderer-stylus #安装stylus渲染器
-npm i -S hexo-helper-qrcode #qr二维码插件
-npm i -S hexo-related-popular-posts #安装相关文章插件
-npm i hexo-offline --save #加载加速插件
-npm install hexo-lazyload-image --save #图片懒加载
-npm install hexo-baidu-url-submit --save #百度实时提交
+
+cnpm是淘宝在中国搭建的npm副本，保证中国用户使用依赖不受网路的影响。
+
+#### cnpm 切换 npm
+
+```cpp
+npm config set registry https://registry.npmjs.org
+```
+
+#### 安装插件
+
+```
+cnpm install hexo-deployer-git --save #安装git部署
+cnpm install --save hexo-admin #安装后台发布
+cnpm install hexo-generator-feed --save #安装rss生成
+cnpm install hexo-generator-sitemap --save #安装sitemap
+cnpm i -S hexo-generator-search hexo-generator-json-content #搜索依赖包
+cnpm i -S hexo-renderer-stylus #安装stylus渲染器
+cnpm i -S hexo-helper-qrcode #qr二维码插件
+cnpm i -S hexo-related-popular-posts #安装相关文章插件
+cnpm i hexo-offline --save #加载加速插件
+cnpm install hexo-lazyload-image --save #图片懒加载
 ```
 ### 6.2 卸载插件
 `npm list`查看已安装的插件列表
