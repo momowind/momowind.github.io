@@ -6,7 +6,7 @@
   <link href="https://purel.in/atom.xml" rel="self"/>
   
   <link href="https://purel.in/"/>
-  <updated>2022-03-23T11:27:51.799Z</updated>
+  <updated>2022-03-23T03:01:50.000Z</updated>
   <id>https://purel.in/</id>
   
   <author>
@@ -15,24 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="https://purel.in/test/"/>
-    <id>https://purel.in/test/</id>
-    <published>2022-03-23T11:27:51.799Z</published>
-    <updated>2022-03-23T11:27:51.799Z</updated>
-    
-    <content type="html"><![CDATA[<p>title: 测试文章<br>type: post<br>date: 2020-04-13 15:19:06<br>categories: [网站]<br>tags: [Purel.in,Wordpress]</p><p>这几日的Purel.in就像是一个旅行家，穿梭于各大洲的数据中心。</p><span id="more"></span><h3 id="速度是关键"><a href="#速度是关键" class="headerlink" title="速度是关键"></a>速度是关键</h3>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;title: 测试文章&lt;br&gt;type: post&lt;br&gt;date: 2020-04-13 15:19:06&lt;br&gt;categories: [网站]&lt;br&gt;tags: [Purel.in,Wordpress]&lt;/p&gt;
-&lt;p&gt;这几日的Purel.in就像是一个旅行家，穿梭于各大洲的数据中心。&lt;/p&gt;</summary>
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>Hexo同步部署到Github与VPS或树莓派</title>

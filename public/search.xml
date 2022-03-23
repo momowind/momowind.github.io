@@ -4,19 +4,6 @@
   
     
     <entry>
-      <title></title>
-      <link href="/test/"/>
-      <url>/test/</url>
-      
-        <content type="html"><![CDATA[<p>title: 测试文章<br>type: post<br>date: 2020-04-13 15:19:06<br>categories: [网站]<br>tags: [Purel.in,Wordpress]</p><p>这几日的Purel.in就像是一个旅行家，穿梭于各大洲的数据中心。</p><span id="more"></span><h3 id="速度是关键"><a href="#速度是关键" class="headerlink" title="速度是关键"></a>速度是关键</h3>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Hexo同步部署到Github与VPS或树莓派</title>
       <link href="/Deploy-Hexo-to-Raspberry-Pi-and-Github/"/>
       <url>/Deploy-Hexo-to-Raspberry-Pi-and-Github/</url>
