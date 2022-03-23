@@ -56,8 +56,8 @@ navbar:
     icon:
     title:
   menu:
-    - name: 博客
-      icon: fa-solid fa-rss
+    - name: 首页
+      icon: fa-solid fa-home
       url: /
     - name: 分类
       icon: fa-solid fa-folder-open
@@ -75,12 +75,6 @@ navbar:
       icon: fa-solid fa-info-circle
       url: about/
       
-    - name: OP
-      icon: fab fa-raspberry-pi
-      url: https://op.purel.in
-    - name: Cloud
-      icon: fab fa-cloudversify
-      url: https://cloud.purel.in/
   search: Search...   # Search bar placeholder
 ############################### Navigation Bar ############################### > end
 
@@ -97,7 +91,7 @@ cover:
   # background: https://bing.ioliu.cn/v1/rand?w=1920&h=1200
   logo: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-Cover@3x.png
   title: 'Purel.in'
-  subtitle: 'Pure Life, Learn, Leadership & Love in'
+  subtitle: 'Pure life, learn, leadership & love in'
   search: A Pure Life. # search bar placeholder
   features:
     - name: OpenWrt
@@ -731,6 +725,7 @@ plugins:
     fade: 1500            # fade duration (ms) (Not more than 1500)
     images:               # For personal use only. At your own risk if used for commercial purposes !!!
       - /images/background/index.jpg
+      - /images/background/home_top_bg.webp
       - /images/background/001.webp
       - /images/background/002.webp
       - /images/background/003.webp
@@ -903,7 +898,7 @@ plugins:
       - gallery
 
   # 聊天功能
-  chat_service: # tidio or gitter
+  chat_service: tidio # tidio or gitter
 
   # Tidio
   # https://www.tidio.com/
@@ -950,25 +945,25 @@ rightmenu:
     alwaysShow: true
   ### 自定义菜单 ###
   help:
-    name: 常见问题
+    name: Dash
     icon: fa fa-question
-    url: #https://volantis.js.org/faqs/
+    url: https://hexo.yup.workers.dev/hpp/admin/dash/home
   examples:
-    name: 示例博客
-    icon: fa fa-rss
-    url: #https://volantis.js.org/examples/
+    name: 博客
+    icon: fa fa-home
+    url: /archives/
   contributors:
-    name: 加入社区
+    name: 分类
     icon: fa fa-fan fa-spin
-    url: #https://volantis.js.org/contributors/
+    url: /categories/
   source_docs:
-    name: 本站源码
+    name: 标签
     icon: fa fa-code-branch
-    url: #https://github.com/volantis-x/volantis-docs/
-  source_theme:
-    name: 主题源码
-    icon: fa fa-code-branch
-    url: #https://github.com/volantis-x/hexo-theme-volantis/
+    url: /tags/
+#  source_theme:
+#    name: 主题源码
+#    icon: fa fa-code-branch
+#    url: #https://github.com/volantis-x/hexo-theme-volantis/
 ############################### Rightmenu ############################### > end
 
 
