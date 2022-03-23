@@ -1,19 +1,20 @@
 ---
-title: Hexo同步部署到树莓派与Github
-date: 2020-04-12 12:01:50
+title: Hexo同步部署到Github与VPS或树莓派
+date: 2022-03-23 11:01:50
 categories: [网站]
-tags: [树梅派,Hexo,Github,Purel.in]
+tags: [Hexo,Github,VPS,Purel.in]
 ---
 ![](/images/2020/04/hexopi.jpg)
-这篇文章记录了我是如何实现通过一个指令将树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。
+这篇文章记录了我是如何实现通过一个指令将VPS或树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。
 <!--more-->
+
 ## 1. 安装Git
-### 1.1 将Git部署到树莓派
-VPS服务器请注意设置防火墙相关端口开放，树莓派则建议安装ufw解决一切防火墙端口问题造成的坑。
-首先通过指令`apt install git`安装Git和Node.js，如果是CentOS服务器需要把apt换成yum，我这里主要以树莓派的Debian环境来记录整个部署过程。
+### 1.1 将Git部署到VPS
+VPS服务器请注意设置防火墙相关端口开放，VPS则建议安装ufw解决一切防火墙端口问题造成的坑。
+首先通过指令`apt install git`安装Git和Node.js，如果是CentOS服务器需要把apt换成yum，我这里主要以VPS或树莓派的Debian环境来记录整个部署过程。
 
 ### 1.2 全局修改Github用户名
-在树莓派终端输入下列命令修改全局用户名（注意将引号内替换为个人帐号）：
+在VPS终端输入下列命令修改全局用户名（注意将引号内替换为个人帐号）：
 ```
 git config --global user.name "你的GitHub用户名"
 git config --global user.email "你的GitHub邮箱"
@@ -72,7 +73,7 @@ chmod 700 ~/.ssh
 
 测试后如果不需要密码则成功！
 
-如果是树莓派本机从root部署到git，需要注意切换用户来生成和保存密钥。指令和上面一样，在root用户和默认目录下生成ssh并保存至git默认目录即可。
+如果是VPS本机从root部署到git，需要注意切换用户来生成和保存密钥。指令和上面一样，在root用户和默认目录下生成ssh并保存至git默认目录即可。
 
 ## 2. 部署Nginx环境
 如果还想部署多个网站或者安装lnmp环境，建议使用OneInStack来一键部署。若是单纯为了Hexo，只安装Nginx就足够了，轻量化的部署可以有效减少树莓派的负载。
@@ -112,17 +113,18 @@ git init --bare blog.git
 ```
 ### 3.2 新建post-receive文件
 `nano ~/blog.git/hooks/post-receive`
-然后在该文件中输入以下内容：
+然后在该文件中输入以下内容，注意把`/www/wwwroot/purel.in`改为你自己的网站目录
+
 ```
 #！/bin/sh
-git --work-tree=/data/wwwroot/blog --git-dir=/home/git/blog.git checkout -f
+git --work-tree=/www/wwwroot/purel.in --git-dir=/home/git/blog.git checkout -f
 ```
 ### 3.3 备选方案
 ```
 #!/bin/bash
 GIT_REPO=/home/git/blog.git
 TMP_GIT_CLONE=/tmp/blog
-PUBLIC_WWW=/data/wwwroot/blog
+PUBLIC_WWW=/www/wwwroot/purel.in
 rm -rf ${TMP_GIT_CLONE}
 git clone $GIT_REPO $TMP_GIT_CLONE
 rm -rf ${PUBLIC_WWW}/*
@@ -132,13 +134,13 @@ cp -rf ${TMP_GIT_CLONE}/* ${PUBLIC_WWW}
 以上两种二选一，保存退出之后再输入以下代码，赋予该文件可执行权限:
 ```
 chmod +x ~/blog.git/hooks/post-receive
-chown git:git -R /data/wwwroot/blog
+chown git:git -R /www/wwwroot/purel.in
 ```
 ## 4. 同时部署多平台设置
-编辑blog/_config.yml设置repo源，pi是树莓派的git库，它被指向部署到我们刚刚设置的nginx网站目录，使之可以被访问。
+编辑blog/_config.yml设置repo源，pi是VPS的git库，它被指向部署到我们刚刚设置的nginx网站目录，使之可以被访问。
 ```
   repo: 
-    pi: git@VPS_IP:/home/git/blog.git
+    vps: git@VPS_IP:/home/git/blog.git
     github: https://github.com/yourname/yourname.github.io
   branch: master
   message:
@@ -192,7 +194,7 @@ cnpm install hexo-lazyload-image --save #图片懒加载
 ## 7. 备份整个Hexo
 ### 7.1 在Github新建分支
 在master下新建分支名为hexo，setting-branch下修改default源为hexo，然后
-git clone到本地，在MacOS下 Command+Shift+. 查看隐藏文件，删除该目录下.git外所有文件，树莓派则在文件夹点击右键显示隐藏文件。
+git clone到本地，在MacOS下 Command+Shift+. 查看隐藏文件，删除该目录下.git外所有文件，VPS则在文件夹点击右键显示隐藏文件。
 
 新建或修改.gitignore用来忽略一些不需要的文件
 ```

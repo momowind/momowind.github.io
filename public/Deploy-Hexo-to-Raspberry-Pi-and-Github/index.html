@@ -20,28 +20,28 @@
   <meta content="Purel.in" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/css/style.css?time=1647964837745" as="style">
+  <link rel="preload" href="/css/style.css?time=1648012526614" as="style">
   <link rel="preload" href="/media/fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 <link rel="preload" href="/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
   <!-- 页面元数据 -->
-  <title>Hexo同步部署到树莓派与Github - Purel.in</title>
-  <meta name="keywords" content="Purel.in,树梅派,Hexo,Github,徐哞哞的实验室/生活/学习/领导力/爱">
-  <meta name="description" content="这篇文章记录了我是如何实现通过一个指令将树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。">
+  <title>Hexo同步部署到Github与VPS或树莓派 - Purel.in</title>
+  <meta name="keywords" content="Purel.in,Hexo,Github,VPS,徐哞哞的实验室/生活/学习/领导力/爱">
+  <meta name="description" content="这篇文章记录了我是如何实现通过一个指令将VPS或树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo同步部署到树莓派与Github">
+<meta property="og:title" content="Hexo同步部署到Github与VPS或树莓派">
 <meta property="og:url" content="https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/index.html">
 <meta property="og:site_name" content="Purel.in">
-<meta property="og:description" content="这篇文章记录了我是如何实现通过一个指令将树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。">
+<meta property="og:description" content="这篇文章记录了我是如何实现通过一个指令将VPS或树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://purel.in/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2020-04-12T04:01:50.000Z">
-<meta property="article:modified_time" content="2020-04-12T04:01:50.000Z">
+<meta property="article:published_time" content="2022-03-23T03:01:50.000Z">
+<meta property="article:modified_time" content="2022-03-23T03:01:50.000Z">
 <meta property="article:author" content="徐哞哞">
 <meta property="article:tag" content="Purel.in">
-<meta property="article:tag" content="树梅派">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="Github">
+<meta property="article:tag" content="VPS">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://purel.in/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <!-- feed -->
@@ -1631,8 +1631,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css?time=1647964837745" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.css?time=1647964837745"></noscript>
+  <link rel="stylesheet" href="/css/style.css?time=1648012526614" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css?time=1648012526614"></noscript>
   
 <script>
 if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -1703,9 +1703,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   volantis.dom = {}; // 页面Dom see: /source/js/app.js etc.
 
   volantis.GLOBAL_CONFIG ={
-    cdn: {"js":{"app":"/js/app.js?time=1647964837745","sites":"/js/plugins/sites.js?time=1647964837745","friends":"/js/plugins/friends.js?time=1647964837745","parallax":"/js/plugins/parallax.js?time=1647964837745","rightMenu":"/js/plugins/rightMenu.js?time=1647964837745","contributors":"/js/plugins/contributors.js?time=1647964837745","message":"/js/thirdparty/message.js?time=1647964837745","valine":"https://npm.elemecdn.com/valine@1.4/dist/Valine.min.js?time=1647964837745","search":"/js/search/hexo.js?time=1647964837745"},"css":{"style":"/css/style.css?time=1647964837745","message":"/css/message.css?time=1647964837745"}},
+    cdn: {"js":{"app":"/js/app.js?time=1648012526614","sites":"/js/plugins/sites.js?time=1648012526614","friends":"/js/plugins/friends.js?time=1648012526614","parallax":"/js/plugins/parallax.js?time=1648012526614","rightMenu":"/js/plugins/rightMenu.js?time=1648012526614","contributors":"/js/plugins/contributors.js?time=1648012526614","message":"/js/thirdparty/message.js?time=1648012526614","valine":"https://npm.elemecdn.com/valine@1.4/dist/Valine.min.js?time=1648012526614","search":"/js/search/hexo.js?time=1648012526614"},"css":{"style":"/css/style.css?time=1648012526614","message":"/css/message.css?time=1648012526613"}},
     default: {"avatar":"/media/placeholder/avatar/round/3442075.svg","link":"/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/media/placeholder/cover/76b86c0226ffd.svg","image":"/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date('Wed Mar 23 2022 00:00:37 GMT+0800 (中国标准时间)'),
+    lastupdate: new Date('Wed Mar 23 2022 13:15:26 GMT+0800 (中国标准时间)'),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2523,7 +2523,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        Hexo同步部署到树莓派与Github
+        Hexo同步部署到Github与VPS或树莓派
       </h1>
       <div class='new-meta-box'>
         
@@ -2554,10 +2554,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2020-04-12T12:01:50+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-03-23T11:01:50+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年4月12日</p>
+    <p>发布于：2022年3月23日</p>
   </a>
 </div>
 
@@ -2578,10 +2578,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p><img src="/images/2020/04/hexopi.jpg" class="lazyload" data-srcset="/images/2020/04/hexopi.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><br>这篇文章记录了我是如何实现通过一个指令将树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。</p>
+    <p><img src="/images/2020/04/hexopi.jpg" class="lazyload" data-srcset="/images/2020/04/hexopi.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><br>这篇文章记录了我是如何实现通过一个指令将VPS或树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。</p>
 <span id="more"></span>
-<h2 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1. 安装Git"></a>1. 安装Git</h2><div class="story post-story"><h3 id="1-1-将Git部署到树莓派"><a href="#1-1-将Git部署到树莓派" class="headerlink" title="1.1 将Git部署到树莓派"></a>1.1 将Git部署到树莓派</h3><p>VPS服务器请注意设置防火墙相关端口开放，树莓派则建议安装ufw解决一切防火墙端口问题造成的坑。<br>首先通过指令<code>apt install git</code>安装Git和Node.js，如果是CentOS服务器需要把apt换成yum，我这里主要以树莓派的Debian环境来记录整个部署过程。</p>
-<h3 id="1-2-全局修改Github用户名"><a href="#1-2-全局修改Github用户名" class="headerlink" title="1.2 全局修改Github用户名"></a>1.2 全局修改Github用户名</h3><p>在树莓派终端输入下列命令修改全局用户名（注意将引号内替换为个人帐号）：</p>
+
+<h2 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1. 安装Git"></a>1. 安装Git</h2><div class="story post-story"><h3 id="1-1-将Git部署到VPS"><a href="#1-1-将Git部署到VPS" class="headerlink" title="1.1 将Git部署到VPS"></a>1.1 将Git部署到VPS</h3><p>VPS服务器请注意设置防火墙相关端口开放，VPS则建议安装ufw解决一切防火墙端口问题造成的坑。<br>首先通过指令<code>apt install git</code>安装Git和Node.js，如果是CentOS服务器需要把apt换成yum，我这里主要以VPS或树莓派的Debian环境来记录整个部署过程。</p>
+<h3 id="1-2-全局修改Github用户名"><a href="#1-2-全局修改Github用户名" class="headerlink" title="1.2 全局修改Github用户名"></a>1.2 全局修改Github用户名</h3><p>在VPS终端输入下列命令修改全局用户名（注意将引号内替换为个人帐号）：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;你的GitHub用户名&quot;</span><br><span class="line">git config --global user.email &quot;你的GitHub邮箱&quot;</span><br></pre></td></tr></table></figure>
 <p>然后查看是否已经全局修改用户名：<br><code>git config --list</code><br>返回显示下面信息就是正确了</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">user.name=你的用户名</span><br><span class="line">user.email=你的邮箱</span><br></pre></td></tr></table></figure>
@@ -2600,7 +2601,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 ~/.ssh/authorized_keys</span><br><span class="line">chmod 700 ~/.ssh</span><br></pre></td></tr></table></figure>
 <p>在Mac Git Bash 中测试<br><code>ssh -v git@ip地址 # 服务器外网地址</code></p>
 <p>测试后如果不需要密码则成功！</p>
-<p>如果是树莓派本机从root部署到git，需要注意切换用户来生成和保存密钥。指令和上面一样，在root用户和默认目录下生成ssh并保存至git默认目录即可。</p>
+<p>如果是VPS本机从root部署到git，需要注意切换用户来生成和保存密钥。指令和上面一样，在root用户和默认目录下生成ssh并保存至git默认目录即可。</p>
 </div><h2 id="2-部署Nginx环境"><a href="#2-部署Nginx环境" class="headerlink" title="2. 部署Nginx环境"></a>2. 部署Nginx环境</h2><div class="story post-story"><p>如果还想部署多个网站或者安装lnmp环境，建议使用OneInStack来一键部署。若是单纯为了Hexo，只安装Nginx就足够了，轻量化的部署可以有效减少树莓派的负载。</p>
 <h3 id="2-1-安装"><a href="#2-1-安装" class="headerlink" title="2.1 安装"></a>2.1 安装</h3><p><code>apt install nginx</code></p>
 <h3 id="2-2-启动"><a href="#2-2-启动" class="headerlink" title="2.2 启动"></a>2.2 启动</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start nginx # 启动</span><br><span class="line">systemctl enable nginx # 开机启动</span><br></pre></td></tr></table></figure>
@@ -2612,13 +2613,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 </div><h2 id="3-部署Git库"><a href="#3-部署Git库" class="headerlink" title="3. 部署Git库"></a>3. 部署Git库</h2><div class="story post-story"><h3 id="3-1-在派初始化一个git裸库"><a href="#3-1-在派初始化一个git裸库" class="headerlink" title="3.1 在派初始化一个git裸库"></a>3.1 在派初始化一个git裸库</h3><p>切换到git用户，然后切换到git用户目录，接着初始化裸库：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su git</span><br><span class="line">cd ~</span><br><span class="line">git init --bare blog.git</span><br></pre></td></tr></table></figure>
-<h3 id="3-2-新建post-receive文件"><a href="#3-2-新建post-receive文件" class="headerlink" title="3.2 新建post-receive文件"></a>3.2 新建post-receive文件</h3><p><code>nano ~/blog.git/hooks/post-receive</code><br>然后在该文件中输入以下内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#！/bin/sh</span><br><span class="line">git --work-tree=/data/wwwroot/blog --git-dir=/home/git/blog.git checkout -f</span><br></pre></td></tr></table></figure>
-<h3 id="3-3-备选方案"><a href="#3-3-备选方案" class="headerlink" title="3.3 备选方案"></a>3.3 备选方案</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">GIT_REPO=/home/git/blog.git</span><br><span class="line">TMP_GIT_CLONE=/tmp/blog</span><br><span class="line">PUBLIC_WWW=/data/wwwroot/blog</span><br><span class="line">rm -rf $&#123;TMP_GIT_CLONE&#125;</span><br><span class="line">git clone $GIT_REPO $TMP_GIT_CLONE</span><br><span class="line">rm -rf $&#123;PUBLIC_WWW&#125;/*</span><br><span class="line">cp -rf $&#123;TMP_GIT_CLONE&#125;/* $&#123;PUBLIC_WWW&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-新建post-receive文件"><a href="#3-2-新建post-receive文件" class="headerlink" title="3.2 新建post-receive文件"></a>3.2 新建post-receive文件</h3><p><code>nano ~/blog.git/hooks/post-receive</code><br>然后在该文件中输入以下内容，注意把<code>/www/wwwroot/purel.in</code>改为你自己的网站目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#！/bin/sh</span><br><span class="line">git --work-tree=/www/wwwroot/purel.in --git-dir=/home/git/blog.git checkout -f</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-备选方案"><a href="#3-3-备选方案" class="headerlink" title="3.3 备选方案"></a>3.3 备选方案</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">GIT_REPO=/home/git/blog.git</span><br><span class="line">TMP_GIT_CLONE=/tmp/blog</span><br><span class="line">PUBLIC_WWW=/www/wwwroot/purel.in</span><br><span class="line">rm -rf $&#123;TMP_GIT_CLONE&#125;</span><br><span class="line">git clone $GIT_REPO $TMP_GIT_CLONE</span><br><span class="line">rm -rf $&#123;PUBLIC_WWW&#125;/*</span><br><span class="line">cp -rf $&#123;TMP_GIT_CLONE&#125;/* $&#123;PUBLIC_WWW&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="3-4-赋予权限"><a href="#3-4-赋予权限" class="headerlink" title="3.4 赋予权限"></a>3.4 赋予权限</h3><p>以上两种二选一，保存退出之后再输入以下代码，赋予该文件可执行权限:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x ~/blog.git/hooks/post-receive</span><br><span class="line">chown git:git -R /data/wwwroot/blog</span><br></pre></td></tr></table></figure>
-</div><h2 id="4-同时部署多平台设置"><a href="#4-同时部署多平台设置" class="headerlink" title="4. 同时部署多平台设置"></a>4. 同时部署多平台设置</h2><div class="story post-story"><p>编辑blog&#x2F;_config.yml设置repo源，pi是树莓派的git库，它被指向部署到我们刚刚设置的nginx网站目录，使之可以被访问。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">repo: </span><br><span class="line">  pi: git@VPS_IP:/home/git/blog.git</span><br><span class="line">  github: https://github.com/yourname/yourname.github.io</span><br><span class="line">branch: master</span><br><span class="line">message:</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x ~/blog.git/hooks/post-receive</span><br><span class="line">chown git:git -R /www/wwwroot/purel.in</span><br></pre></td></tr></table></figure>
+</div><h2 id="4-同时部署多平台设置"><a href="#4-同时部署多平台设置" class="headerlink" title="4. 同时部署多平台设置"></a>4. 同时部署多平台设置</h2><div class="story post-story"><p>编辑blog&#x2F;_config.yml设置repo源，pi是VPS的git库，它被指向部署到我们刚刚设置的nginx网站目录，使之可以被访问。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">repo: </span><br><span class="line">  vps: git@VPS_IP:/home/git/blog.git</span><br><span class="line">  github: https://github.com/yourname/yourname.github.io</span><br><span class="line">branch: master</span><br><span class="line">message:</span><br></pre></td></tr></table></figure>
 </div><h2 id="5-发布或调试Hexo博客"><a href="#5-发布或调试Hexo博客" class="headerlink" title="5. 发布或调试Hexo博客"></a>5. 发布或调试Hexo博客</h2><div class="story post-story"><p><code>hexo clean &amp;&amp; hexo g</code><br>清除并生成新的Hexo网站<br><code>hexo clean &amp;&amp; hexo g -d</code><br>清除、生成新的网站并发布到Git或服务器<br>通过以上指令发布后打开vps的网址就能看到新的hexo博客啦，也可以通过<code>hexo s</code>在浏览器打开<code>localhost:4000</code>进行本地调试Hexo。</p>
 </div><h2 id="6-安装和卸载Hexo插件"><a href="#6-安装和卸载Hexo插件" class="headerlink" title="6. 安装和卸载Hexo插件"></a>6. 安装和卸载Hexo插件</h2><div class="story post-story"><h3 id="6-1-通过npm安装插件"><a href="#6-1-通过npm安装插件" class="headerlink" title="6.1 通过npm安装插件"></a>6.1 通过npm安装插件</h3><h4 id="npm-切换-cnpm"><a href="#npm-切换-cnpm" class="headerlink" title="npm 切换 cnpm"></a>npm 切换 cnpm</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https:<span class="comment">//registry.npm.taobao.org</span></span><br></pre></td></tr></table></figure>
 
@@ -2627,7 +2628,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <h4 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cnpm install hexo-deployer-git --save #安装git部署</span><br><span class="line">cnpm install --save hexo-admin #安装后台发布</span><br><span class="line">cnpm install hexo-generator-feed --save #安装rss生成</span><br><span class="line">cnpm install hexo-generator-sitemap --save #安装sitemap</span><br><span class="line">cnpm i -S hexo-generator-search hexo-generator-json-content #搜索依赖包</span><br><span class="line">cnpm i -S hexo-renderer-stylus #安装stylus渲染器</span><br><span class="line">cnpm i -S hexo-helper-qrcode #qr二维码插件</span><br><span class="line">cnpm i -S hexo-related-popular-posts #安装相关文章插件</span><br><span class="line">cnpm i hexo-offline --save #加载加速插件</span><br><span class="line">cnpm install hexo-lazyload-image --save #图片懒加载</span><br></pre></td></tr></table></figure>
 <h3 id="6-2-卸载插件"><a href="#6-2-卸载插件" class="headerlink" title="6.2 卸载插件"></a>6.2 卸载插件</h3><p><code>npm list</code>查看已安装的插件列表<br><code>npm uninstall &lt;插件名&gt;</code> #卸载哞个插件<br>进入node_modules&#x2F;目录删除对应的插件文件<br><code>rm -rf &lt;插件名&gt;</code> #删除插件目录<br>清除cache缓存<br><code>npm cache clean -f</code><br>至此插件干干净净的卸载完毕</p>
-</div><h2 id="7-备份整个Hexo"><a href="#7-备份整个Hexo" class="headerlink" title="7. 备份整个Hexo"></a>7. 备份整个Hexo</h2><div class="story post-story"><h3 id="7-1-在Github新建分支"><a href="#7-1-在Github新建分支" class="headerlink" title="7.1 在Github新建分支"></a>7.1 在Github新建分支</h3><p>在master下新建分支名为hexo，setting-branch下修改default源为hexo，然后<br>git clone到本地，在MacOS下 Command+Shift+. 查看隐藏文件，删除该目录下.git外所有文件，树莓派则在文件夹点击右键显示隐藏文件。</p>
+</div><h2 id="7-备份整个Hexo"><a href="#7-备份整个Hexo" class="headerlink" title="7. 备份整个Hexo"></a>7. 备份整个Hexo</h2><div class="story post-story"><h3 id="7-1-在Github新建分支"><a href="#7-1-在Github新建分支" class="headerlink" title="7.1 在Github新建分支"></a>7.1 在Github新建分支</h3><p>在master下新建分支名为hexo，setting-branch下修改default源为hexo，然后<br>git clone到本地，在MacOS下 Command+Shift+. 查看隐藏文件，删除该目录下.git外所有文件，VPS则在文件夹点击右键显示隐藏文件。</p>
 <p>新建或修改.gitignore用来忽略一些不需要的文件</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br></pre></td></tr></table></figure>
 <h3 id="7-2-PUSH到Github"><a href="#7-2-PUSH到Github" class="headerlink" title="7.2 PUSH到Github"></a>7.2 PUSH到Github</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m “注释”</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
@@ -2681,10 +2682,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2020-04-12T12:01:50+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-03-23T11:01:50+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年4月12日</p>
+    <p>更新于：2022年3月23日</p>
   </a>
 </div>
 
@@ -2693,8 +2694,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Purel-in/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Purel.in</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>树梅派</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Hexo/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Hexo</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Github/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Github</p></a></div>
-  <span hidden itemprop="keywords">Purel.in 树梅派 Hexo Github</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Purel-in/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Purel.in</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Hexo/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Hexo</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Github/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Github</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/VPS/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>VPS</p></a></div>
+  <span hidden itemprop="keywords">Purel.in Hexo Github VPS</span>
 
 
         
@@ -2707,7 +2708,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&title=Hexo同步部署到树莓派与Github - Purel.in&summary=这篇文章记录了我是如何实现通过一个指令将树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&title=Hexo同步部署到Github与VPS或树莓派 - Purel.in&summary=这篇文章记录了我是如何实现通过一个指令将VPS或树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。"
           
           >
           
@@ -2719,7 +2720,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&title=Hexo同步部署到树莓派与Github - Purel.in&summary=这篇文章记录了我是如何实现通过一个指令将树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&title=Hexo同步部署到Github与VPS或树莓派 - Purel.in&summary=这篇文章记录了我是如何实现通过一个指令将VPS或树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。"
           
           >
           
@@ -2731,7 +2732,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&title=Hexo同步部署到树莓派与Github - Purel.in&summary=这篇文章记录了我是如何实现通过一个指令将树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/&title=Hexo同步部署到Github与VPS或树莓派 - Purel.in&summary=这篇文章记录了我是如何实现通过一个指令将VPS或树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。"
           
           >
           
@@ -2764,15 +2765,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/frp-fully-automated-daemon/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>frp全自动化守护进程</p>
+      
+        <a class='next' href='/frp-fully-automated-daemon/'>
+          <p class='title'>frp全自动化守护进程<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
           <p class='content'>一觉睡醒后发现树莓派上的博客无法访问了，通过检查日志找到了原因，原来是一向乖巧的frp服务被莫名中断，看起来它也有脆弱的一面呀。世间万物都在进化，是时候实现frp的自我管理了，让它可以在各种原因...</p>
-        </a>
-      
-      
-        <a class='next' href='/Hexo-Frp-iAWriter-Overclocked-Blogger/'>
-          <p class='title'>Hexo + Frp + iAWriter = Overclocked Blogger<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>这篇文章通过我的iPhone和iPad基于Markdown标准写作而成，并由Hexo生成纯静态网页发布在Github和我的树莓派上，通过甲骨文在首尔数据中心的服务器对树莓派进行Frp反向代理，最...</p>
         </a>
       
     </div>
@@ -2821,7 +2817,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85Git"><span class="toc-text">1. 安装Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%B0%86Git%E9%83%A8%E7%BD%B2%E5%88%B0%E6%A0%91%E8%8E%93%E6%B4%BE"><span class="toc-text">1.1 将Git部署到树莓派</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%85%A8%E5%B1%80%E4%BF%AE%E6%94%B9Github%E7%94%A8%E6%88%B7%E5%90%8D"><span class="toc-text">1.2 全局修改Github用户名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%83%A8%E7%BD%B2Nginx%E7%8E%AF%E5%A2%83"><span class="toc-text">2. 部署Nginx环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%AE%89%E8%A3%85"><span class="toc-text">2.1 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%90%AF%E5%8A%A8"><span class="toc-text">2.2 启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E9%85%8D%E7%BD%AE"><span class="toc-text">2.3 配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%83%A8%E7%BD%B2Git%E5%BA%93"><span class="toc-text">3. 部署Git库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%9C%A8%E6%B4%BE%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%80%E4%B8%AAgit%E8%A3%B8%E5%BA%93"><span class="toc-text">3.1 在派初始化一个git裸库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E6%96%B0%E5%BB%BApost-receive%E6%96%87%E4%BB%B6"><span class="toc-text">3.2 新建post-receive文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%A4%87%E9%80%89%E6%96%B9%E6%A1%88"><span class="toc-text">3.3 备选方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E8%B5%8B%E4%BA%88%E6%9D%83%E9%99%90"><span class="toc-text">3.4 赋予权限</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%90%8C%E6%97%B6%E9%83%A8%E7%BD%B2%E5%A4%9A%E5%B9%B3%E5%8F%B0%E8%AE%BE%E7%BD%AE"><span class="toc-text">4. 同时部署多平台设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%8F%91%E5%B8%83%E6%88%96%E8%B0%83%E8%AF%95Hexo%E5%8D%9A%E5%AE%A2"><span class="toc-text">5. 发布或调试Hexo博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BDHexo%E6%8F%92%E4%BB%B6"><span class="toc-text">6. 安装和卸载Hexo插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E9%80%9A%E8%BF%87npm%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="toc-text">6.1 通过npm安装插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#npm-%E5%88%87%E6%8D%A2-cnpm"><span class="toc-text">npm 切换 cnpm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cnpm-%E5%88%87%E6%8D%A2-npm"><span class="toc-text">cnpm 切换 npm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="toc-text">安装插件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E5%8D%B8%E8%BD%BD%E6%8F%92%E4%BB%B6"><span class="toc-text">6.2 卸载插件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%A4%87%E4%BB%BD%E6%95%B4%E4%B8%AAHexo"><span class="toc-text">7. 备份整个Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-%E5%9C%A8Github%E6%96%B0%E5%BB%BA%E5%88%86%E6%94%AF"><span class="toc-text">7.1 在Github新建分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-PUSH%E5%88%B0Github"><span class="toc-text">7.2 PUSH到Github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-Git%E7%9A%84%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="toc-text">7.3 Git的常用指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4-%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%AE%8C%E6%95%B4%E5%A4%87%E4%BB%BD"><span class="toc-text">7.4 一键发布博客并完整备份</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-4-1-%E5%8F%91%E5%B8%83%E5%8D%9A%E5%AE%A2%E6%8C%87%E4%BB%A4"><span class="toc-text">7.4.1 发布博客指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-4-2-%E5%A4%87%E4%BB%BD%E5%AE%8C%E6%95%B4%E7%9A%84Hexo"><span class="toc-text">7.4.2 备份完整的Hexo</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E5%8D%87%E7%BA%A7nodejs%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">8. 升级nodejs的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8Dnode%E7%89%88%E6%9C%AC"><span class="toc-text">8.1 查看当前node版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-%E5%AE%89%E8%A3%85n%E6%A8%A1%E5%9D%97"><span class="toc-text">8.2 安装n模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3-%E5%8D%87%E7%BA%A7%E5%88%B0%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC-x2F-%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC"><span class="toc-text">8.3 升级到指定版本&#x2F;最新版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-4-%E6%A3%80%E6%9F%A5%E5%8D%87%E7%BA%A7%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F"><span class="toc-text">8.4 检查升级是否成功</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-5-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-text">8.5 常见问题</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85Git"><span class="toc-text">1. 安装Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%B0%86Git%E9%83%A8%E7%BD%B2%E5%88%B0VPS"><span class="toc-text">1.1 将Git部署到VPS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%85%A8%E5%B1%80%E4%BF%AE%E6%94%B9Github%E7%94%A8%E6%88%B7%E5%90%8D"><span class="toc-text">1.2 全局修改Github用户名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%83%A8%E7%BD%B2Nginx%E7%8E%AF%E5%A2%83"><span class="toc-text">2. 部署Nginx环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%AE%89%E8%A3%85"><span class="toc-text">2.1 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%90%AF%E5%8A%A8"><span class="toc-text">2.2 启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E9%85%8D%E7%BD%AE"><span class="toc-text">2.3 配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%83%A8%E7%BD%B2Git%E5%BA%93"><span class="toc-text">3. 部署Git库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%9C%A8%E6%B4%BE%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%80%E4%B8%AAgit%E8%A3%B8%E5%BA%93"><span class="toc-text">3.1 在派初始化一个git裸库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E6%96%B0%E5%BB%BApost-receive%E6%96%87%E4%BB%B6"><span class="toc-text">3.2 新建post-receive文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%A4%87%E9%80%89%E6%96%B9%E6%A1%88"><span class="toc-text">3.3 备选方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E8%B5%8B%E4%BA%88%E6%9D%83%E9%99%90"><span class="toc-text">3.4 赋予权限</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%90%8C%E6%97%B6%E9%83%A8%E7%BD%B2%E5%A4%9A%E5%B9%B3%E5%8F%B0%E8%AE%BE%E7%BD%AE"><span class="toc-text">4. 同时部署多平台设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%8F%91%E5%B8%83%E6%88%96%E8%B0%83%E8%AF%95Hexo%E5%8D%9A%E5%AE%A2"><span class="toc-text">5. 发布或调试Hexo博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BDHexo%E6%8F%92%E4%BB%B6"><span class="toc-text">6. 安装和卸载Hexo插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E9%80%9A%E8%BF%87npm%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="toc-text">6.1 通过npm安装插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#npm-%E5%88%87%E6%8D%A2-cnpm"><span class="toc-text">npm 切换 cnpm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cnpm-%E5%88%87%E6%8D%A2-npm"><span class="toc-text">cnpm 切换 npm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="toc-text">安装插件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E5%8D%B8%E8%BD%BD%E6%8F%92%E4%BB%B6"><span class="toc-text">6.2 卸载插件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%A4%87%E4%BB%BD%E6%95%B4%E4%B8%AAHexo"><span class="toc-text">7. 备份整个Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-%E5%9C%A8Github%E6%96%B0%E5%BB%BA%E5%88%86%E6%94%AF"><span class="toc-text">7.1 在Github新建分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-PUSH%E5%88%B0Github"><span class="toc-text">7.2 PUSH到Github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-Git%E7%9A%84%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="toc-text">7.3 Git的常用指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4-%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%AE%8C%E6%95%B4%E5%A4%87%E4%BB%BD"><span class="toc-text">7.4 一键发布博客并完整备份</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-4-1-%E5%8F%91%E5%B8%83%E5%8D%9A%E5%AE%A2%E6%8C%87%E4%BB%A4"><span class="toc-text">7.4.1 发布博客指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-4-2-%E5%A4%87%E4%BB%BD%E5%AE%8C%E6%95%B4%E7%9A%84Hexo"><span class="toc-text">7.4.2 备份完整的Hexo</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E5%8D%87%E7%BA%A7nodejs%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">8. 升级nodejs的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8Dnode%E7%89%88%E6%9C%AC"><span class="toc-text">8.1 查看当前node版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-%E5%AE%89%E8%A3%85n%E6%A8%A1%E5%9D%97"><span class="toc-text">8.2 安装n模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3-%E5%8D%87%E7%BA%A7%E5%88%B0%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC-x2F-%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC"><span class="toc-text">8.3 升级到指定版本&#x2F;最新版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-4-%E6%A3%80%E6%9F%A5%E5%8D%87%E7%BA%A7%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F"><span class="toc-text">8.4 检查升级是否成功</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-5-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-text">8.5 常见问题</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -2873,7 +2869,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="Hexo同步部署到树莓派与Github";
+  pdata.postTitle="Hexo同步部署到Github与VPS或树莓派";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};
@@ -2983,7 +2979,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <!-- internal -->
 
-<script src="/js/app.js?time=1647964837745.js"></script>
+<script src="/js/app.js?time=1648012526614.js"></script>
 
 
 
@@ -3175,7 +3171,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
     </ul>
   </div>
-  <script>volantis.js('/js/plugins/rightMenu.js?time=1647964837745')</script>
+  <script>volantis.js('/js/plugins/rightMenu.js?time=1648012526614')</script>
 
 
 
@@ -3188,19 +3184,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/js/plugins/sites.js?time=1647964837745")
+        volantis.js("/js/plugins/sites.js?time=1648012526614")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/js/plugins/friends.js?time=1647964837745")
+        volantis.js("/js/plugins/friends.js?time=1648012526614")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/js/plugins/contributors.js?time=1647964837745")
+        volantis.js("/js/plugins/contributors.js?time=1648012526614")
       }
     
   };
@@ -3325,7 +3321,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/js/search/hexo.js?time=1647964837745");
+    return volantis.js("/js/search/hexo.js?time=1648012526614");
   }
 
   function loadSearchService() {
@@ -3394,7 +3390,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
   <script>
-  let imgs = ["/images/background/006.webp","/images/background/014.webp","/images/background/010.webp","/images/background/003.webp","/images/background/005.webp","/images/background/001.webp","/images/background/012.webp","/images/background/002.webp","/images/background/004.webp","/images/background/index.jpg","/images/background/007.webp"];
+  let imgs = ["/images/background/005.webp","/images/background/007.webp","/images/background/010.webp","/images/background/012.webp","/images/background/004.webp","/images/background/002.webp","/images/background/014.webp","/images/background/006.webp","/images/background/001.webp","/images/background/003.webp","/images/background/index.jpg"];
   let index = 0;
   let IntervalParallax = null;
 
@@ -3437,7 +3433,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   var runningOnBrowser = typeof window !== "undefined";
   var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
   if (!isBot) {
-    volantis.js('/js/plugins/parallax.js?time=1647964837745').then(()=>{
+    volantis.js('/js/plugins/parallax.js?time=1648012526614').then(()=>{
       parallax()
     })
     volantis.pjax.send(()=>{
@@ -3671,7 +3667,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Purel.in","url":"https://purel.in/","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"徐哞哞","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://purel.in/","sameAs":["https://github.com/volantis-x"],"description":"应无所住，而生其心"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://purel.in/","name":"Purel.in"}},{"@type":"ListItem","position":2,"item":{"@id":"https://purel.in/categories/网站/","name":"网站"}},{"@type":"ListItem","position":3,"item":{"@id":"https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/","name":"Hexo同步部署到树莓派与Github"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hexo同步部署到树莓派与Github","description":"这篇文章记录了我是如何实现通过一个指令将树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。","datePublished":"2020-04-12T04:01:50.000Z","dateModified":"2020-04-12T04:01:50.000Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/"},"author":{"@type":"Person","name":"徐哞哞","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://purel.in/"},"publisher":{"@type":"Organization","name":"Purel.in","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/","wordCount":80,"articleSection":"网站","keywords":"Purel.in,树梅派,Hexo,Github","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Purel.in","url":"https://purel.in/","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"徐哞哞","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://purel.in/","sameAs":["https://github.com/volantis-x"],"description":"应无所住，而生其心"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://purel.in/","name":"Purel.in"}},{"@type":"ListItem","position":2,"item":{"@id":"https://purel.in/categories/网站/","name":"网站"}},{"@type":"ListItem","position":3,"item":{"@id":"https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/","name":"Hexo同步部署到Github与VPS或树莓派"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hexo同步部署到Github与VPS或树莓派","description":"这篇文章记录了我是如何实现通过一个指令将VPS或树莓派生成的文章发布到互联网，以及即便换了电脑也可以一键拉取Github上全部Hexo的备份，快速完成本地Hexo部署。","datePublished":"2022-03-23T03:01:50.000Z","dateModified":"2022-03-23T03:01:50.000Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/"},"author":{"@type":"Person","name":"徐哞哞","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://purel.in/"},"publisher":{"@type":"Organization","name":"Purel.in","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://purel.in/Deploy-Hexo-to-Raspberry-Pi-and-Github/","wordCount":84,"articleSection":"网站","keywords":"Purel.in,Hexo,Github,VPS","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 <!-- more -->
