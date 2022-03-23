@@ -251,7 +251,7 @@ article:
 comments:
   title: <i class='fa-solid fa-comments'></i> 评论
   subtitle:
-  service: giscus
+  service: waline
   # 可选评论系统 #
 
   # artalk
@@ -425,7 +425,7 @@ comments:
     # 其他配置项按照yml格式继续填写即可 除了 [el path placeholder uploadImage] 选项
     meta: [nick,mail,link] # waline comment header info
     requiredFields: [nick,mail]
-    serverURL: xxxxxxxxxxxxxxx # Waline 的服务端地址（必填） 测试用地址: https://waline-ruddy.vercel.app
+    serverURL: https://waline-qik77uf7h-momowind-gmailcom.vercel.app/ # Waline 的服务端地址（必填） 测试用地址: https://waline-ruddy.vercel.app
     avatar: robohash # gravatar style https://waline.js.org/client/basic.html#avatar
     avatarCDN: #https://sdn.geekzu.org/avatar/
     pageSize: 10 # 评论每页显示数量
@@ -593,7 +593,7 @@ site_footer:
     - avatar:
       url:
   # site source
-  source: https://github.com/volantis-x/volantis-docs/
+  source: https://purel.in
   # analytics using leancloud
   analytics: >
     <span id="lc-sv">本站总访问量为 <span id='number'><i class="fa-solid fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span>
@@ -696,24 +696,24 @@ plugins:
   ######## Plugins for SEO:
   # npm i hexo-wordcount
   wordcount:
-    enable: #true
+    enable: true
 
   ######## Plugins for ...
   # Button Ripple Effect
   nodewaves:
-    enable: #true
+    enable: true
     css: /libs/node-waves/dist/waves.min.css # https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css
     js: /libs/node-waves/dist/waves.min.js # https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js
 
   # fontawesome V6:  https://fontawesome.com/docs/web/style/animate
   # fontawesome animation for fontawesome V5
   fontawesome_animation:
-    enable: #true
+    enable: true
     css: /libs/font-awesome-animation/font-awesome-animation.min.css # https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css
 
   # Typing Effects
   comment_typing:
-    enable: #true
+    enable: true
     js: /libs/comment_typing/comment_typing.js # https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/comment_typing.js
 
   # 视差滚动效果 Slide Background
