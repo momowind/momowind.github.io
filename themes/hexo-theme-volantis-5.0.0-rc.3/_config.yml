@@ -97,33 +97,33 @@ cover:
   # background: https://bing.ioliu.cn/v1/rand?w=1920&h=1200
   logo: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-Cover@3x.png
   title: 'Purel.in'
-  subtitle: ''
+  subtitle: 'Pure Life, Learn, Leadership & Love in'
   search: A Pure Life. # search bar placeholder
   features:
-    - name: 文档
+    - name: OpenWrt
       icon: #
       img: /media/twemoji/assets/svg/1f5c3.svg # https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg
-      url: /v4/getting-started/
-    - name: 帮助
+      url: https://op.purel.in
+    - name: 青龙
       icon: #
       img: /media/twemoji/assets/svg/1f516.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f516.svg
-      url: faqs/
-    - name: 示例
+      url: https://ql.purel.in
+    - name: Cloudreve
       icon: #
       img: /media/twemoji/assets/svg/1f396.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f396.svg
-      url: /examples/
-    - name: 社区
+      url: https://d.purel.in
+    - name: Frps
       icon: #
       img: /media/twemoji/assets/svg/1f389.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f389.svg
-      url: /contributors/
+      url: https://frp.purel.in
     - name: 博客
       icon: #
       img: /media/twemoji/assets/svg/1f4f0.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4f0.svg
       url: /archives/
-    - name: 源码
+    - name: Dash
       icon: #
       img: /media/twemoji/assets/svg/1f9ec.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f9ec.svg
-      url: https://github.com/volantis-x/hexo-theme-volantis/
+      url: https://hexo.yup.workers.dev/hpp/admin/dash/home
 ############################### Cover ############################### > end
 
 pages:
@@ -202,7 +202,9 @@ article:
       # 默认文章作者（可在 _data/author.yaml 中增加其他作者，并在 front-matter 中设置）
       # https://volantis.js.org/advanced-settings/#多人协同
       author:
-        avatar: /images/waterboy.JPG # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/apple-touch-icon.png
+        avatar: 
+        - /images/waterboy.JPG 
+        # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/apple-touch-icon.png
         name: 徐哞哞
         url: /
       # 文章创建日期
@@ -453,7 +455,7 @@ sidebar:
     blogger:
       class: blogger
       display: [desktop, mobile] # [desktop, mobile]
-      avatar: /media/org.volantis/blog/Logo-NavBar@3x.png # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png
+      avatar: /images/waterboy.JPG # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png
       shape: rectangle # circle, rectangle
       url: /about/
       title:
@@ -463,9 +465,9 @@ sidebar:
         - icon: fa-solid fa-rss
           url: /atom.xml
         - icon: fa-solid fa-envelope
-          url: mailto:me@xxx.com
+          url: mailto:momowind@gmail.com
         - icon: fab fa-github
-          url: https://github.com/volantis-x/
+          url: https://github.com/momowind/
         - icon: fa-solid fa-headphones-alt
           url: /
     # ---------------------------------------
@@ -603,7 +605,7 @@ site_footer:
     <span id="lc-sv">本站总访问量为 <span id='number'><i class="fa-solid fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span>
     <span id="lc-uv">访客数为 <span id='number'><i class="fa-solid fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span>
   # site copyright
-  copyright: '[Copyright © 2017-2020 Purel.in](/)'
+  copyright: '[Copyright © 2017-2022 Purel.in](/)'
   # You can add your own property here. (Support markdown, for example: br: '<br>')
   br: '<br>'
 ############################### Site Footer ############################### > end
@@ -781,7 +783,7 @@ plugins:
   #   icon: fa-solid fa-moon # 可自定义
   #   toggle: darkmode
   darkmode:
-    enable: #true
+    enable: true
 
   # 旧版 Internet Explorer 淘汰行动
   # https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support
@@ -804,8 +806,8 @@ plugins:
     # 不支持 Pjax
     # 配置项按照yml格式继续填写即可
     js: https://cdn.jsdelivr.net/npm/artitalk
-    appId: ogP8qj3veMh0LFpFWMPOyF0X-MdYXbMMI # your appID
-    appKey: nHXLd3N3Jgh460t2iRQKWAtr # your appKEY
+    appId: jhjh5GBKlIoWCt3E3kruPmtw-gzGzoHsz # your appID
+    appKey: W3kxdwrE90OEgHm9sQ9I2tHn # your appKEY
     # serverURL:  #leancloud绑定的api访问域名，使用国际版的话不需要填写
     # lang: # 语言设置，zh为汉语，en为英语，es为西班牙语。默认为汉语
     # pageSize: #每页说说的显示数量
@@ -905,12 +907,12 @@ plugins:
   # Tidio
   # https://www.tidio.com/
   tidio:
-    id: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    id: ybt0mjnwetrwvasn5ary6a9ep7pexzvw
 
   # Gitter
   # https://gitter.im
   gitter:
-    room: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    room: momowind/community
   
   # swiper
   # https://www.swiper.com.cn/
@@ -949,23 +951,23 @@ rightmenu:
   help:
     name: 常见问题
     icon: fa fa-question
-    url: https://volantis.js.org/faqs/
+    url: #https://volantis.js.org/faqs/
   examples:
     name: 示例博客
     icon: fa fa-rss
-    url: https://volantis.js.org/examples/
+    url: #https://volantis.js.org/examples/
   contributors:
     name: 加入社区
     icon: fa fa-fan fa-spin
-    url: https://volantis.js.org/contributors/
+    url: #https://volantis.js.org/contributors/
   source_docs:
     name: 本站源码
     icon: fa fa-code-branch
-    url: https://github.com/volantis-x/volantis-docs/
+    url: #https://github.com/volantis-x/volantis-docs/
   source_theme:
     name: 主题源码
     icon: fa fa-code-branch
-    url: https://github.com/volantis-x/hexo-theme-volantis/
+    url: #https://github.com/volantis-x/hexo-theme-volantis/
 ############################### Rightmenu ############################### > end
 
 

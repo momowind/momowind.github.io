@@ -20,13 +20,13 @@
   <meta content="Purel.in" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/css/style.css?time=1648012526627" as="style">
+  <link rel="preload" href="/css/style.css?time=1648034956078" as="style">
   <link rel="preload" href="/media/fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 <link rel="preload" href="/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
   <!-- 页面元数据 -->
   <title>树莓派：安装rtl8812bu双频无线网卡驱动 - Purel.in</title>
-  <meta name="keywords" content="树梅派,Pi,驱动,无线网卡,rtl8812bu,徐哞哞的实验室/生活/学习/领导力/爱">
+  <meta name="keywords" content="树梅派,Pi,无线网卡,rtl8812bu,驱动,徐哞哞的实验室/生活/学习/领导力/爱">
   <meta name="description" content="突发奇想，可不可以将Pi作为一个无线中继，转发5G的WIFI信号并共享给所有连接到它的设备呢？说干就干吧，第一步先从搭配硬件环境开始。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树莓派：安装rtl8812bu双频无线网卡驱动">
@@ -40,9 +40,9 @@
 <meta property="article:author" content="徐哞哞">
 <meta property="article:tag" content="树梅派">
 <meta property="article:tag" content="Pi">
-<meta property="article:tag" content="驱动">
 <meta property="article:tag" content="无线网卡">
 <meta property="article:tag" content="rtl8812bu">
+<meta property="article:tag" content="驱动">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://purel.in/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <!-- feed -->
@@ -792,6 +792,152 @@ button {
     opacity: 1;
     -webkit-opacity: 1;
     -moz-opacity: 1;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-mode: 'dark';
+  }
+  :root:not([color-scheme]) {
+    --color-site-body: #000;
+    --color-read-bkg: #222;
+    --color-read-post: #333;
+    --color-site-bg: #222;
+    --color-site-inner: #eee;
+    --color-site-footer: #aaa;
+    --color-card: #333;
+    --color-text: #eee;
+    --color-block: #3a3a3a;
+    --color-codeblock: #343a3c;
+    --color-inlinecode: #d56d28;
+    --color-h1: #eee;
+    --color-h2: #eee;
+    --color-h3: #ddd;
+    --color-h4: #ddd;
+    --color-h5: #ddd;
+    --color-h6: #ddd;
+    --color-p: #bbb;
+    --color-list: #aaa;
+    --color-list-hl: #69dfc4;
+    --color-meta: #888;
+    --color-link: #888;
+  }
+  :root:not([color-scheme]) img {
+    filter: brightness(70%) !important;
+  }
+  :root:not([color-scheme]) #wrapper .title {
+    color: var(--color-meta) !important;
+  }
+  :root:not([color-scheme]) .l_header ul.nav-list-h>li>a,
+  :root:not([color-scheme]) ul.list-v >li>a {
+    color: var(--color-list) !important;
+  }
+  :root:not([color-scheme]) .blur {
+    background: var(--color-site-bg) !important;
+  }
+  :root:not([color-scheme]) .nav-main .u-search-input {
+    background: var(--color-card) !important;
+  }
+  :root:not([color-scheme]) #l_main .article .prev-next>a {
+    background: var(--color-block) !important;
+  }
+  :root:not([color-scheme]) #l_main .article .prev-next>a:hover {
+    background: var(--color-card) !important;
+  }
+  :root:not([color-scheme]) .article blockquote {
+    background: var(--color-block) !important;
+  }
+  :root:not([color-scheme]) .article-title a {
+    color: var(--color-h1) !important;
+  }
+  :root:not([color-scheme]) details>summary {
+    color: var(--color-p) !important;
+    background: var(--color-site-bg) !important;
+  }
+  :root:not([color-scheme]) details {
+    border: 1px solid var(--color-site-bg) !important;
+    background: var(--color-site-bg) !important;
+  }
+  :root:not([color-scheme]) #u-search .modal,
+  :root:not([color-scheme]) #u-search .modal-header,
+  :root:not([color-scheme]) #u-search .modal-body {
+    background: var(--color-card) !important;
+  }
+  :root:not([color-scheme]) #u-search .modal-body .modal-results .result:hover {
+    background: var(--color-block) !important;
+  }
+}
+[color-scheme='dark'] {
+  --color-site-body: #000;
+  --color-read-bkg: #222;
+  --color-read-post: #333;
+  --color-site-bg: #222;
+  --color-site-inner: #eee;
+  --color-site-footer: #aaa;
+  --color-card: #333;
+  --color-text: #eee;
+  --color-block: #3a3a3a;
+  --color-codeblock: #343a3c;
+  --color-inlinecode: #d56d28;
+  --color-h1: #eee;
+  --color-h2: #eee;
+  --color-h3: #ddd;
+  --color-h4: #ddd;
+  --color-h5: #ddd;
+  --color-h6: #ddd;
+  --color-p: #bbb;
+  --color-list: #aaa;
+  --color-list-hl: #69dfc4;
+  --color-meta: #888;
+  --color-link: #888;
+}
+[color-scheme='dark'] img {
+  filter: brightness(70%) !important;
+}
+[color-scheme='dark'] #wrapper .title {
+  color: var(--color-meta) !important;
+}
+[color-scheme='dark'] .l_header ul.nav-list-h>li>a,
+[color-scheme='dark'] ul.list-v >li>a {
+  color: var(--color-list) !important;
+}
+[color-scheme='dark'] .blur {
+  background: var(--color-site-bg) !important;
+}
+[color-scheme='dark'] .nav-main .u-search-input {
+  background: var(--color-card) !important;
+}
+[color-scheme='dark'] #l_main .article .prev-next>a {
+  background: var(--color-block) !important;
+}
+[color-scheme='dark'] #l_main .article .prev-next>a:hover {
+  background: var(--color-card) !important;
+}
+[color-scheme='dark'] .article blockquote {
+  background: var(--color-block) !important;
+}
+[color-scheme='dark'] .article-title a {
+  color: var(--color-h1) !important;
+}
+[color-scheme='dark'] details>summary {
+  color: var(--color-p) !important;
+  background: var(--color-site-bg) !important;
+}
+[color-scheme='dark'] details {
+  border: 1px solid var(--color-site-bg) !important;
+  background: var(--color-site-bg) !important;
+}
+[color-scheme='dark'] #u-search .modal,
+[color-scheme='dark'] #u-search .modal-header,
+[color-scheme='dark'] #u-search .modal-body {
+  background: var(--color-card) !important;
+}
+[color-scheme='dark'] #u-search .modal-body .modal-results .result:hover {
+  background: var(--color-block) !important;
+}
+@media screen and (max-width: 500px) {
+  [color-scheme='dark'] .l_header .m_search {
+    background: var(--color-site-bg) !important;
   }
 }
 @font-face {
@@ -1630,10 +1776,21 @@ ul.list-v >li>a:hover {
     padding: 0px;
   }
 }
+@media screen and (prefers-color-scheme: dark) and (max-width: 500px) {
+  .l_header .m_search {
+    background: var(--color-site-bg) !important;
+  }
+}
 
   </style>
-  <link rel="stylesheet" href="/css/style.css?time=1648012526627" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.css?time=1648012526627"></noscript>
+  <link rel="stylesheet" href="/css/style.css?time=1648034956078" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css?time=1648034956078"></noscript>
+    <script>
+      let userColorScheme=localStorage.getItem("color-scheme")
+      if(userColorScheme){
+        document.documentElement.setAttribute("color-scheme", userColorScheme);
+      }
+    </script>
   
 <script>
 if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -1704,9 +1861,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   volantis.dom = {}; // 页面Dom see: /source/js/app.js etc.
 
   volantis.GLOBAL_CONFIG ={
-    cdn: {"js":{"app":"/js/app.js?time=1648012526627","sites":"/js/plugins/sites.js?time=1648012526627","friends":"/js/plugins/friends.js?time=1648012526627","parallax":"/js/plugins/parallax.js?time=1648012526627","rightMenu":"/js/plugins/rightMenu.js?time=1648012526627","contributors":"/js/plugins/contributors.js?time=1648012526627","message":"/js/thirdparty/message.js?time=1648012526627","valine":"https://npm.elemecdn.com/valine@1.4/dist/Valine.min.js?time=1648012526627","search":"/js/search/hexo.js?time=1648012526627"},"css":{"style":"/css/style.css?time=1648012526627","message":"/css/message.css?time=1648012526627"}},
+    cdn: {"js":{"app":"/js/app.js?time=1648034956078","sites":"/js/plugins/sites.js?time=1648034956078","friends":"/js/plugins/friends.js?time=1648034956078","parallax":"/js/plugins/parallax.js?time=1648034956078","rightMenu":"/js/plugins/rightMenu.js?time=1648034956078","contributors":"/js/plugins/contributors.js?time=1648034956078","message":"/js/thirdparty/message.js?time=1648034956078","valine":"https://npm.elemecdn.com/valine@1.4/dist/Valine.min.js?time=1648034956078","search":"/js/search/hexo.js?time=1648034956078"},"css":{"style":"/css/style.css?time=1648034956078","message":"/css/message.css?time=1648034956078"}},
     default: {"avatar":"/media/placeholder/avatar/round/3442075.svg","link":"/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/media/placeholder/cover/76b86c0226ffd.svg","image":"/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date('Wed Mar 23 2022 13:15:26 GMT+0800 (中国标准时间)'),
+    lastupdate: new Date('Wed Mar 23 2022 19:29:16 GMT+0800 (中国标准时间)'),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2438,38 +2595,40 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <p class="title">Purel.in</p>
     
     
+      <p class="subtitle">Pure Life, Learn, Leadership & Love in</p>
+    
   </div>
   <div class='bottom'>
     <div class='menu navigation'>
       <div class='list-h'>
         
           
-            <a href="/v4/getting-started/"
+            <a target="_blank" rel="noopener" href="https://op.purel.in"
               
               
-              active-action="action-v4getting-started">
-              <img src='/media/twemoji/assets/svg/1f5c3.svg'><p>文档</p>
+              active-action="action-https:oppurelin">
+              <img src='/media/twemoji/assets/svg/1f5c3.svg'><p>OpenWrt</p>
             </a>
           
-            <a href="/faqs/"
+            <a target="_blank" rel="noopener" href="https://ql.purel.in"
               
               
-              active-action="action-faqs">
-              <img src='/media/twemoji/assets/svg/1f516.svg'><p>帮助</p>
+              active-action="action-https:qlpurelin">
+              <img src='/media/twemoji/assets/svg/1f516.svg'><p>青龙</p>
             </a>
           
-            <a href="/examples/"
+            <a target="_blank" rel="noopener" href="https://d.purel.in"
               
               
-              active-action="action-examples">
-              <img src='/media/twemoji/assets/svg/1f396.svg'><p>示例</p>
+              active-action="action-https:dpurelin">
+              <img src='/media/twemoji/assets/svg/1f396.svg'><p>Cloudreve</p>
             </a>
           
-            <a href="/contributors/"
+            <a target="_blank" rel="noopener" href="https://frp.purel.in"
               
               
-              active-action="action-contributors">
-              <img src='/media/twemoji/assets/svg/1f389.svg'><p>社区</p>
+              active-action="action-https:frppurelin">
+              <img src='/media/twemoji/assets/svg/1f389.svg'><p>Frps</p>
             </a>
           
             <a href="/archives/"
@@ -2479,11 +2638,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               <img src='/media/twemoji/assets/svg/1f4f0.svg'><p>博客</p>
             </a>
           
-            <a target="_blank" rel="noopener" href="https://github.com/volantis-x/hexo-theme-volantis/"
+            <a target="_blank" rel="noopener" href="https://hexo.yup.workers.dev/hpp/admin/dash/home"
               
               
-              active-action="action-https:githubcomvolantis-xhexo-theme-volantis">
-              <img src='/media/twemoji/assets/svg/1f9ec.svg'><p>源码</p>
+              active-action="action-https:hexoyupworkersdevhppadmindashhome">
+              <img src='/media/twemoji/assets/svg/1f9ec.svg'><p>Dash</p>
             </a>
           
         
@@ -2639,8 +2798,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>树梅派</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Pi/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Pi</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%A9%B1%E5%8A%A8/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>驱动</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%97%A0%E7%BA%BF%E7%BD%91%E5%8D%A1/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>无线网卡</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/rtl8812bu/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>rtl8812bu</p></a></div>
-  <span hidden itemprop="keywords">树梅派 Pi 驱动 无线网卡 rtl8812bu</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>树梅派</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Pi/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Pi</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%97%A0%E7%BA%BF%E7%BD%91%E5%8D%A1/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>无线网卡</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/rtl8812bu/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>rtl8812bu</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%A9%B1%E5%8A%A8/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>驱动</p></a></div>
+  <span hidden itemprop="keywords">树梅派 Pi 无线网卡 rtl8812bu 驱动</span>
 
 
         
@@ -2890,7 +3049,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       
         <div class='copyright'>
-        <p><a href="/">Copyright © 2017-2020 Purel.in</a></p>
+        <p><a href="/">Copyright © 2017-2022 Purel.in</a></p>
 
         </div>
       
@@ -2931,7 +3090,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <!-- internal -->
 
-<script src="/js/app.js?time=1648012526627.js"></script>
+<script src="/js/app.js?time=1648034956078.js"></script>
 
 
 
@@ -2992,12 +3151,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
     <li class="menuLoad-Content">
-      <a class='vlts-menu fix-cursor-default' href=https://volantis.js.org/faqs/
+      <a class='vlts-menu fix-cursor-default' 
         
         
         
-        
-          id="https:volantisjsorgfaqs"
         
       >
         <i class='fa fa-question fa-fw'></i> 常见问题
@@ -3009,12 +3166,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
     <li class="menuLoad-Content">
-      <a class='vlts-menu fix-cursor-default' href=https://volantis.js.org/examples/
+      <a class='vlts-menu fix-cursor-default' 
         
         
         
-        
-          id="https:volantisjsorgexamples"
         
       >
         <i class='fa fa-rss fa-fw'></i> 示例博客
@@ -3026,12 +3181,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
     <li class="menuLoad-Content">
-      <a class='vlts-menu fix-cursor-default' href=https://volantis.js.org/contributors/
+      <a class='vlts-menu fix-cursor-default' 
         
         
         
-        
-          id="https:volantisjsorgcontributors"
         
       >
         <i class='fa fa-fan fa-spin fa-fw'></i> 加入社区
@@ -3047,12 +3200,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
     <li class="menuLoad-Content">
-      <a class='vlts-menu fix-cursor-default' href=https://github.com/volantis-x/volantis-docs/
+      <a class='vlts-menu fix-cursor-default' 
         
         
         
-        
-          id="https:githubcomvolantis-xvolantis-docs"
         
       >
         <i class='fa fa-code-branch fa-fw'></i> 本站源码
@@ -3064,12 +3215,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
     <li class="menuLoad-Content">
-      <a class='vlts-menu fix-cursor-default' href=https://github.com/volantis-x/hexo-theme-volantis/
+      <a class='vlts-menu fix-cursor-default' 
         
         
         
-        
-          id="https:githubcomvolantis-xhexo-theme-volantis"
         
       >
         <i class='fa fa-code-branch fa-fw'></i> 主题源码
@@ -3123,11 +3272,127 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
     </ul>
   </div>
-  <script>volantis.js('/js/plugins/rightMenu.js?time=1648012526627')</script>
+  <script>volantis.js('/js/plugins/rightMenu.js?time=1648034956078')</script>
 
 
 
 <!-- rightmenu要在darkmode之前（ToggleButton） darkmode要在comments之前（volantis.dark.push）-->
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "color-scheme";
+const rootElementDarkModeAttributeName = "color-scheme";
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+  getCustomDarkMode();
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+/**
+ * get target mode
+ */
+ const getCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  if(currentSetting=="dark"){
+    volantis.dark.mode="light";
+  }else{
+    volantis.dark.mode="dark";
+  }
+  // console.log(volantis.dark.mode)
+};
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+/**
+ * 暗黑模式触发器
+ */
+volantis.dark.toggle=()=>{
+  const mode = toggleCustomDarkMode();
+  applyCustomDarkModeSettings(mode);
+  // 使用 volantis.dark.push 方法传入volantis.dark.toggle回调函数 参见layout/_partial/scripts/global.ejs
+  volantis.dark.method.toggle.start();
+}
+/**
+ * bind event for toggle button
+ */
+
+function bindToggleButton() {
+  var btn= document.querySelectorAll("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn")
+  btn.forEach(function (e) {
+    volantis.dom.$(e).on('click',volantis.dark.toggle);
+  })
+}
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", ()=>{
+  volantis.requestAnimationFrame(bindToggleButton)
+});
+volantis.pjax.push(bindToggleButton);
+
+const darkModelListeners={
+  dark:(mediaQueryList )=>{
+    if(mediaQueryList.matches){
+      volantis.dark.mode = "dark";
+    }
+    volantis.dark.method.toggle.start();
+  },
+  light:(mediaQueryList)=>{
+    if(mediaQueryList.matches){
+      volantis.dark.mode = "light";
+    }
+    volantis.dark.method.toggle.start();
+  }
+}
+window.matchMedia('(prefers-color-scheme: dark)').addListener(darkModelListeners.dark)
+window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListeners.light)
+</script>
+
 
 
 
@@ -3136,19 +3401,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/js/plugins/sites.js?time=1648012526627")
+        volantis.js("/js/plugins/sites.js?time=1648034956078")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/js/plugins/friends.js?time=1648012526627")
+        volantis.js("/js/plugins/friends.js?time=1648034956078")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/js/plugins/contributors.js?time=1648012526627")
+        volantis.js("/js/plugins/contributors.js?time=1648034956078")
       }
     
   };
@@ -3273,7 +3538,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/js/search/hexo.js?time=1648012526627");
+    return volantis.js("/js/search/hexo.js?time=1648034956078");
   }
 
   function loadSearchService() {
@@ -3342,7 +3607,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
   <script>
-  let imgs = ["/images/background/002.webp","/images/background/006.webp","/images/background/012.webp","/images/background/014.webp","/images/background/005.webp","/images/background/010.webp","/images/background/001.webp","/images/background/003.webp","/images/background/index.jpg","/images/background/004.webp","/images/background/007.webp"];
+  let imgs = ["/images/background/007.webp","/images/background/001.webp","/images/background/014.webp","/images/background/010.webp","/images/background/002.webp","/images/background/index.jpg","/images/background/003.webp","/images/background/012.webp","/images/background/004.webp","/images/background/005.webp","/images/background/006.webp"];
   let index = 0;
   let IntervalParallax = null;
 
@@ -3385,7 +3650,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   var runningOnBrowser = typeof window !== "undefined";
   var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
   if (!isBot) {
-    volantis.js('/js/plugins/parallax.js?time=1648012526627').then(()=>{
+    volantis.js('/js/plugins/parallax.js?time=1648034956078').then(()=>{
       parallax()
     })
     volantis.pjax.send(()=>{
@@ -3619,7 +3884,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Purel.in","url":"https://purel.in/","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"徐哞哞","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://purel.in/","sameAs":["https://github.com/volantis-x"],"description":"应无所住，而生其心"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://purel.in/","name":"Purel.in"}},{"@type":"ListItem","position":2,"item":{"@id":"https://purel.in/categories/树梅派/","name":"树梅派"}},{"@type":"ListItem","position":3,"item":{"@id":"https://purel.in/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/","name":"树莓派：安装rtl8812bu双频无线网卡驱动"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"树莓派：安装rtl8812bu双频无线网卡驱动","description":"突发奇想，可不可以将Pi作为一个无线中继，转发5G的WIFI信号并共享给所有连接到它的设备呢？说干就干吧，第一步先从搭配硬件环境开始。","datePublished":"2020-04-03T21:49:36.000Z","dateModified":"2020-04-03T21:49:36.000Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://purel.in/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/"},"author":{"@type":"Person","name":"徐哞哞","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://purel.in/"},"publisher":{"@type":"Organization","name":"Purel.in","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://purel.in/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/","wordCount":67,"articleSection":"树梅派","keywords":"树梅派,Pi,驱动,无线网卡,rtl8812bu","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Purel.in","url":"https://purel.in/","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"徐哞哞","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://purel.in/","sameAs":["https://github.com/volantis-x"],"description":"应无所住，而生其心"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://purel.in/","name":"Purel.in"}},{"@type":"ListItem","position":2,"item":{"@id":"https://purel.in/categories/树梅派/","name":"树梅派"}},{"@type":"ListItem","position":3,"item":{"@id":"https://purel.in/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/","name":"树莓派：安装rtl8812bu双频无线网卡驱动"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"树莓派：安装rtl8812bu双频无线网卡驱动","description":"突发奇想，可不可以将Pi作为一个无线中继，转发5G的WIFI信号并共享给所有连接到它的设备呢？说干就干吧，第一步先从搭配硬件环境开始。","datePublished":"2020-04-03T21:49:36.000Z","dateModified":"2020-04-03T21:49:36.000Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://purel.in/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/"},"author":{"@type":"Person","name":"徐哞哞","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://purel.in/"},"publisher":{"@type":"Organization","name":"Purel.in","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://purel.in/raspberry-pi-install-rtl8812bu-dual-band-wireless-network-card-driver/","wordCount":67,"articleSection":"树梅派","keywords":"树梅派,Pi,无线网卡,rtl8812bu,驱动","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 <!-- more -->
