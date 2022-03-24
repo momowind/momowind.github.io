@@ -51,9 +51,9 @@
       
         <tags>
             
-            <tag> Frp </tag>
-            
             <tag> 树莓派 </tag>
+            
+            <tag> Frp </tag>
             
             <tag> 守护进程 </tag>
             
@@ -152,13 +152,13 @@
             
             <tag> 树梅派 </tag>
             
-            <tag> LCD </tag>
-            
-            <tag> Pi </tag>
-            
             <tag> ssd1306 </tag>
             
+            <tag> LCD </tag>
+            
             <tag> SPI </tag>
+            
+            <tag> Pi </tag>
             
             <tag> Python </tag>
             
@@ -228,13 +228,13 @@
             
             <tag> 树梅派 </tag>
             
-            <tag> 3.5inch </tag>
-            
             <tag> LCD </tag>
             
-            <tag> Lofree </tag>
-            
             <tag> Pi </tag>
+            
+            <tag> 3.5inch </tag>
+            
+            <tag> Lofree </tag>
             
         </tags>
       
