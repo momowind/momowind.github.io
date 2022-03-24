@@ -16,5 +16,6 @@ hexo.on('ready', () => {
   Volantis ${version}
   Docs: https://volantis.js.org/
   Repo: https://github.com/volantis-x/hexo-theme-volantis/
+  Fork: https://purel.in
 ============================================================`);
 });
