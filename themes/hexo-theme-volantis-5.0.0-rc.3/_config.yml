@@ -28,7 +28,7 @@ debug: false
 # 默认使用 https://cdn.jsdelivr.net/npm/hexo-theme-volantis@<%- theme.info.theme_version %>/source/js/*.min.js 的CDN压缩版本(min.js)，注意版本号对应关系！！可以通过修改以下配置项覆盖
 # 开发者注意 cdn.enable 设置为 false
 cdn:
-  enable: false
+  enable: true
   # CDN 前缀，为空使用默认值，链接最后不加 "/",
   # 例如： https://cdn.jsdelivr.net/gh/volantis-x/volantis-x.github.io@gh-page 填写最后编译生成的源码CDN地址前缀，此路径下应该含有/js与/css目录,
   # 该配置默认值是："https://cdn.jsdelivr.net/npm/hexo-theme-volantis@"+ theme.info.theme_version +"/source"
@@ -94,10 +94,10 @@ cover:
   subtitle: 'Pure life, learn, leadership & love in'
   search: A Pure Life. # search bar placeholder
   features:
-    - name: OpenWrt
+    - name: 首页
       icon: #
       img: /media/twemoji/assets/svg/1f5c3.svg # https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg
-      url: https://op.purel.in
+      url: /
     - name: 青龙
       icon: #
       img: /media/twemoji/assets/svg/1f516.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f516.svg
@@ -114,10 +114,10 @@ cover:
       icon: #
       img: /media/twemoji/assets/svg/1f4f0.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4f0.svg
       url: /archives/
-    - name: Dash
+    - name: OpenWrt
       icon: #
       img: /media/twemoji/assets/svg/1f9ec.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f9ec.svg
-      url: https://hexo.yup.workers.dev/hpp/admin/dash/home
+      url: https://op.purel.in
 ############################### Cover ############################### > end
 
 pages:
@@ -739,7 +739,7 @@ plugins:
   # APlayer is only available in mainland China.
   # APlayer config: https://github.com/metowolf/MetingJS
   aplayer:
-    enable: #true
+    enable: true
     js:
       aplayer: /libs/aplayer/dist/APlayer.min.js # https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js
       meting: /libs/meting/dist/Meting.min.js # https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js
@@ -747,7 +747,7 @@ plugins:
     # Required
     server: netease   # netease, tencent, kugou, xiami, baidu
     type: playlist    # song, playlist, album, search, artist
-    id: 3175833810    # song id / playlist id / album id / search keyword
+    id: 2341872605    # song id / playlist id / album id / search keyword
     # Optional
     fixed: false      # enable fixed mode
     theme: '#1BCDFC'  # main color
@@ -945,16 +945,16 @@ rightmenu:
     alwaysShow: true
   ### 自定义菜单 ###
   help:
-    name: Dash
-    icon: fa fa-question
-    url: https://hexo.yup.workers.dev/hpp/admin/dash/home
+    name: 首页
+    icon: fa fa-home
+    url: /
   examples:
     name: 博客
-    icon: fa fa-home
+    icon: fa fa-blog
     url: /archives/
   contributors:
     name: 分类
-    icon: fa fa-fan fa-spin
+    icon: fa fa-archive #fa-spin
     url: /categories/
   source_docs:
     name: 标签
