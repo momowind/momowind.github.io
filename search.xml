@@ -152,13 +152,13 @@
             
             <tag> 树梅派 </tag>
             
-            <tag> ssd1306 </tag>
-            
             <tag> LCD </tag>
             
-            <tag> SPI </tag>
-            
             <tag> Pi </tag>
+            
+            <tag> ssd1306 </tag>
+            
+            <tag> SPI </tag>
             
             <tag> Python </tag>
             
@@ -228,13 +228,13 @@
             
             <tag> 树梅派 </tag>
             
-            <tag> LCD </tag>
-            
-            <tag> Pi </tag>
-            
             <tag> 3.5inch </tag>
             
+            <tag> LCD </tag>
+            
             <tag> Lofree </tag>
+            
+            <tag> Pi </tag>
             
         </tags>
       
