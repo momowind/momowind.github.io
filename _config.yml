@@ -140,9 +140,9 @@ deploy:
 
 # use_cdn: true
 
-# baidu_analytics_key: 57cf54f00f7109cc953ac39f01ef5781
+#  baidu_analytics_key: a7a75af0ea1027b9850415efbb7c10cd
     
-    
+
 #  baidu_url_submit:
 #    count: 1000
 #    host: purel.in

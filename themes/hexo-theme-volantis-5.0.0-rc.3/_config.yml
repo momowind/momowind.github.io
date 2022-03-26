@@ -745,9 +745,10 @@ plugins:
       meting: /libs/meting/dist/Meting.min.js # https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js
     css: /libs/aplayer/dist/APlayer.min.css # https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css
     # Required
-    server: netease   # netease, tencent, kugou, xiami, baidu
+    server: netease  # netease, tencent, kugou, xiami, baidu
     type: playlist    # song, playlist, album, search, artist
     id: 2341872605    # song id / playlist id / album id / search keyword
+    #id: 4ahweQiD4VL1
     # Optional
     fixed: false      # enable fixed mode
     theme: '#1BCDFC'  # main color
